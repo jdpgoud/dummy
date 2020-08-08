@@ -9401,3 +9401,9 @@ html[dir='rtl'] .popup-close {
   min-height: 48px; }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+.header .mid-bar.navbar-nav .row{
+  width: 100%;
+}

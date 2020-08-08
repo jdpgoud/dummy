@@ -6,10 +6,10 @@ define('HTTP_SERVER', 'http://localhost/ekaksha/');
 define('HTTPS_SERVER', 'http://localhost/ekaksha/');
 
 // DIR
-define('DIR_APPLICATION', '/opt/lampp/htdocs/ekaksha/catalog/');
-define('DIR_SYSTEM', '/opt/lampp/htdocs/ekaksha/system/');
-define('DIR_IMAGE', '/opt/lampp/htdocs/ekaksha/image/');
-define('DIR_STORAGE', '/opt/ekaksha/storage/');
+define('DIR_APPLICATION', 'D:/xampp/htdocs/ekaksha/catalog/');
+define('DIR_SYSTEM', 'D:/xampp/htdocs/ekaksha/system/');
+define('DIR_IMAGE', 'D:/xampp/htdocs/ekaksha/image/');
+define('DIR_STORAGE', 'D:/xampp/htdocs/ekaksha/storage/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');

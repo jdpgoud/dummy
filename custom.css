@@ -1,0 +1,214 @@
+/* @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+    font-family: 'Poppins', sans-serif !important;
+}
+::placeholder { 
+    color: #CCC;
+    opacity: 0.5;
+  }
+  
+  :-ms-input-placeholder { 
+    color: #CCC;
+  }
+  
+  ::-ms-input-placeholder {
+    color: #CCC;
+  }
+
+.header .mid-bar.navbar-nav .row{
+  width: 100%;
+}
+.top-right-nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.top-right-nav .nav-item, .top-right-nav .nav-item a{
+    display: flex;
+    align-items: center;
+}
+.fa.fa-bell, .fa.fa-user{
+    font-size: 20px;
+    color: #812990;
+    font-size: 0px;
+}
+
+
+.secondary-menu .top-menu .j-menu>li>a{
+    font-size: 0px;
+    padding: 0px;
+}
+.secondary-menu .top-menu .j-menu>li>a::before{
+    margin: 0px;
+}
+.top-menu.secondary-menu .top-menu-273 .j-menu li.top-menu-item-1>a{
+    position: relative;
+}
+.top-menu.secondary-menu .top-menu-273 .j-menu li.top-menu-item-1>a::after{
+    content: '';
+    background-color: #f7902c;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.top-menu.secondary-menu .top-menu-273 .j-menu li.top-menu-item-1>a::before{
+    font-size: 0px;
+    background: url(image/catalog/icon-notification.png) no-repeat;
+    width: 40px;
+    height: 40px;
+}
+.top-menu.secondary-menu .top-menu-273 .j-menu li.top-menu-item-2>a::before{
+    font-size: 0px;
+    background: url(image/catalog/icon-user.png) no-repeat;
+    width: 40px;
+    height: 40px;
+}
+
+.main-menu > .j-menu .dropdown>a::after{
+    background: url(image/catalog/down-arrow.png) no-repeat center center;
+    width: 11px;
+    height: 9px;
+    font-size: 0px;
+}
+
+/* /SLider form Styles */
+.online-form{
+    max-width: 1200px;
+    margin: 0px auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.online-form .form-inner-wrap{
+    width: 380px;
+    height: auto;
+    background-color: #FFF;
+    border-radius: 20px;
+    margin: 30px 15px;
+    padding: 20px 20px 20px;
+    float: right;
+
+}
+
+.form-title{
+    color: #f7902c;
+    font-size: 13px;
+    font-weight: 500;
+}
+.form-control{
+    font-size: 13px;
+    font-weight: 500;
+    color: #CCC;
+    height: 38px;
+    border: 1px #cccccc solid;
+    border-radius: 5px;
+    padding: 0px 15px;
+}
+.btn-wrap .btn.btn-full{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #812990;
+    font-weight: 500;
+    font-size: 16px;
+    outline: none;
+    border: none;
+}
+
+
+/* Why Ekaksha */
+.grid-row-top-2{
+    background: rgb(201,45,146);
+    background: linear-gradient(90deg, rgba(201,45,146,1) 0%, rgba(179,44,145,1) 50%, rgba(152,42,145,1) 96%);
+}
+.module-info_blocks-286 .info-block-content, .module-info_blocks-286 .module-item:not(.swiper-slide){
+    width: 100% !important;
+}
+.why-ekaksha{
+    max-width: 1200px;
+    margin: 0px auto;
+}
+.why-ekaksha h2{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 30px;
+}
+.ekaksha-row{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+.ekaksha-row .img-block{
+    margin-bottom: 20px;
+}
+.ekaksha-row p{
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+/* Onlien clases  */
+.module-banners-132 .swiper-button-prev{
+    left: -70px;
+}
+.module-banners-132 .swiper-button-next{
+    right: -70px;
+}
+
+.module-banners-132 .module-item>a::after{
+    font-size: 0px;
+    background: url(image/catalog/icon-video.png) no-repeat center center;
+    width: 50px;
+    height: 50px;
+}
+.online-classes-desc{
+    margin: 5px 12px 0;
+}
+.online-classes-desc h3{
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    line-height: 18px;
+}
+.online-classes-desc p{
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    line-height: 18px;
+}
+
+.module-info_blocks-287 .module-item-1 .info-block-img{
+    display: none;
+}
+.home-live-demo-classes h2{
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+}
+.home-live-demo-classes p{
+    font-size: 14px;
+    font-weight: 300;
+    color: #666;
+    max-width: 80%;
+    margin: 0px auto;
+}
+.home-live-demo-classes img{
+    margin-bottom: 25px;
+}
+
+
+/* Onlien clases  */
+
+

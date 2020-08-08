@@ -1,0 +1,264 @@
+<?php $val = array (
+  'css' => '.module-testimonials-288 .swiper-container{overflow:hidden;padding-right:20px}.module-testimonials-288 .swiper-buttons{display:block;top:50%;width:calc(100% - (5px * 2));margin-top:-10px}.module-testimonials-288 .swiper-button-prev{left:0;right:auto;transform:translate(0, -50%)}.module-testimonials-288 .swiper-button-next{left:auto;right:0;transform:translate(0, -50%)}.module-testimonials-288 .swiper-buttons
+div{width:50px;height:50px;background:rgba(255, 255, 255, 1);border-width:1px;border-style:solid;border-color:rgba(206, 206, 206, 1);border-radius:50%;box-shadow:none}.module-testimonials-288 .swiper-button-disabled{opacity:1}.module-testimonials-288 .swiper-buttons div::before{content:\'\\e93e\' !important;font-family:icomoon !important;font-size:30px;color:rgba(48, 56, 65, 1)}.module-testimonials-288 .swiper-buttons .swiper-button-next::before{content:\'\\e93f\' !important;font-family:icomoon !important;font-size:30px;color:rgba(48, 56, 65, 1)}.module-testimonials-288 .swiper-buttons div:not(.swiper-button-disabled):hover{background:rgba(197, 45, 146, 1)}.module-testimonials-288 .swiper-buttons div:not(.swiper-button-disabled):active{background:none}.module-testimonials-288 .swiper-pagination{display:none !important;margin-bottom:-10px;left:50%;right:auto;transform:translateX(-50%)}.module-testimonials-288
+.swiper{padding-bottom:0;;padding-bottom:10px}.module-testimonials-288 .swiper-pagination-bullet{width:7px;height:7px;background-color:rgba(109, 118, 125, 1)}.module-testimonials-288 .swiper-pagination>span+span{margin-left:8px}.desktop .module-testimonials-288 .swiper-pagination-bullet:hover{background-color:rgba(218, 10, 34, 1)}.module-testimonials-288 .swiper-pagination-bullet.swiper-pagination-bullet-active{background-color:rgba(218, 10, 34, 1)}.module-testimonials-288 .swiper-pagination>span{border-radius:20px}.module-testimonials-288.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.module-testimonials-288.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.one-column #content .module-testimonials-288.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.one-column #content .module-testimonials-288.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.two-column #content .module-testimonials-288.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.two-column #content .module-testimonials-288.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.side-column .module-testimonials-288.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.side-column .module-testimonials-288.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.module-testimonials-288 .title.module-title{font-family:\'Poppins\';font-weight:600;font-size:26px;color:rgba(255, 255, 255, 1);margin-bottom:25px;white-space:normal;overflow:visible;text-overflow:initial;text-align:center}.module-testimonials-288 .title.module-title::after{display:none;margin-top:8px;left:50%;right:initial;transform:translate3d(-50%,0,0)}.module-testimonials-288 .title.module-title.page-title>span::after{display:none;margin-top:8px;left:50%;right:initial;transform:translate3d(-50%,0,0)}.module-testimonials-288 .title.module-title::after, .module-testimonials-288 .title.module-title.page-title>span::after{width:50px;height:1px;background:rgba(218, 10, 34, 1)}.module-testimonials-288 .block-body{font-size:16px;color:rgba(255, 255, 255, 1);text-align:center;background:rgba(255, 255, 255, 1);padding:20px;border-radius:5px;color:rgba(58, 71, 80, 1)}.module-testimonials-288.testimonials-grid .module-body{margin-right:20px;margin-left:20px}.module-testimonials-288 .nav-tabs > li > a, .module-testimonials-288 .nav-tabs > li.active > a, .module-testimonials-288 .nav-tabs > li.active > a:hover, .module-testimonials-288 .nav-tabs>li.active>a:focus{font-size:13px;color:rgba(48, 56, 65, 1);font-weight:700;text-transform:uppercase}.desktop .module-testimonials-288 .nav-tabs > li:hover > a, .module-testimonials-288 .nav-tabs>li.active>a{color:rgba(218, 10, 34, 1)}.module-testimonials-288 .nav-tabs{border-width:0;border-bottom-width:1px;border-style:solid;border-color:rgba(221, 221, 221, 1);display:flex;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;;min-width:50px}.module-testimonials-288 .nav-tabs>li{border-width:0;border-bottom-width:1px;border-style:solid;border-color:rgba(0, 0, 0, 0);flex-grow:0}.module-testimonials-288 .nav-tabs>li.active{border-color:rgba(218, 10, 34, 1)}.module-testimonials-288 .nav-tabs>li.active::after{display:none;border-top-width:10px}.module-testimonials-288 .nav-tabs>li>a{justify-content:center;white-space:nowrap;padding:0px;padding-bottom:10px}.module-testimonials-288 .nav-tabs>li>a::before{font-size:18px}.module-testimonials-288 .nav-tabs>li:not(:last-child){margin-right:20px}.module-testimonials-288 .mobile .nav-tabs{overflow-x:scroll}.module-testimonials-288 .nav-tabs::-webkit-scrollbar{-webkit-appearance:none;height:1px;height:1px;width:1px}.module-testimonials-288 .nav-tabs::-webkit-scrollbar-track{background-color:white;background-color:rgba(255, 255, 255, 1)}.module-testimonials-288 .nav-tabs::-webkit-scrollbar-thumb{background-color:#999;background-color:rgba(60, 196, 114, 1)}.module-testimonials-288 .tab-container::before{display:none}.module-testimonials-288 .tab-content{padding-top:20px}.module-testimonials-288 .tab-container{display:block}.module-testimonials-288 .tab-container .nav-tabs{flex-direction:row}.module-testimonials-288 .block-header{text-align:center}.module-testimonials-288 .block-header i::before{content:\'\\e9af\' !important;font-family:icomoon !important;font-size:40px;color:rgba(255, 255, 255, 1)}.module-testimonials-288 .block-header
+i{width:80px;height:80px;background:rgba(218, 10, 34, 1);margin-bottom:10px;border-radius:50px}@media (max-width: 760px){.module-testimonials-288.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.module-testimonials-288.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}}@media (max-width: 470px){.module-testimonials-288.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.module-testimonials-288.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}}.module-testimonials-288 .module-item-1 .block-content{max-height:100% !important;overflow:visible !important;max-height:75px;overflow:hidden}.module-testimonials-288 .module-item-1 .block-expand::after{content:\'Show More\'}.module-testimonials-288 .module-item-1 .block-expanded + .block-expand-overlay .block-expand::after{content:\'Show Less\'}.module-testimonials-288 .module-item-1 .block-expand::before{content:\'\\f078\' !important;font-family:icomoon !important}.module-testimonials-288 .module-item-1 .block-expanded + .block-expand-overlay .block-expand::before{content:\'\\f077\' !important;font-family:icomoon !important}.module-testimonials-288 .module-item-1 .block-footer
+.btn{width:auto}.module-testimonials-288 .module-item-1 .block-footer{text-align:center}.module-testimonials-288 .module-item-2 .block-content{max-height:100% !important;overflow:visible !important;max-height:75px;overflow:hidden}.module-testimonials-288 .module-item-2 .block-expand::after{content:\'Show More\'}.module-testimonials-288 .module-item-2 .block-expanded + .block-expand-overlay .block-expand::after{content:\'Show Less\'}.module-testimonials-288 .module-item-2 .block-expand::before{content:\'\\f078\' !important;font-family:icomoon !important}.module-testimonials-288 .module-item-2 .block-expanded + .block-expand-overlay .block-expand::before{content:\'\\f077\' !important;font-family:icomoon !important}.module-testimonials-288 .module-item-2 .block-footer
+.btn{width:auto}.module-testimonials-288 .module-item-2 .block-footer{text-align:center}.module-testimonials-288 .module-item-3 .block-content{max-height:100% !important;overflow:visible !important;max-height:75px;overflow:hidden}.module-testimonials-288 .module-item-3 .block-expand::after{content:\'Show More\'}.module-testimonials-288 .module-item-3 .block-expanded + .block-expand-overlay .block-expand::after{content:\'Show Less\'}.module-testimonials-288 .module-item-3 .block-expand::before{content:\'\\f078\' !important;font-family:icomoon !important}.module-testimonials-288 .module-item-3 .block-expanded + .block-expand-overlay .block-expand::before{content:\'\\f077\' !important;font-family:icomoon !important}.module-testimonials-288 .module-item-3 .block-footer
+.btn{width:auto}.module-testimonials-288 .module-item-3 .block-footer{text-align:center}',
+  'fonts' => 
+  array (
+    'fonts' => 
+    array (
+      'Poppins' => 
+      array (
+        600 => '600',
+      ),
+    ),
+    'subsets' => 
+    array (
+      'latin-ext' => 'latin-ext',
+    ),
+  ),
+  'settings' => 
+  array (
+    'schedule' => 
+    array (
+      'from' => '',
+      'to' => '',
+      'between' => true,
+    ),
+    'display' => 'grid',
+    'displayTablet' => '',
+    'displayPhone' => '',
+    'carousel' => true,
+    'itemsPerRow' => 
+    array (
+      'c0' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+        760 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+        470 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+      'c1' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+      'c2' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+      'sc' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+    ),
+    'default' => '',
+    'title' => 'Student\'s Speak',
+    'imageDimensions' => 
+    array (
+      'width' => NULL,
+      'height' => NULL,
+      'resize' => 'fill',
+    ),
+    'status' => true,
+    'id' => 'testimonials-5f2e3bb0ec9c1',
+    'module_id' => 288,
+    'classes' => 
+    array (
+      0 => 'module',
+      1 => 'module-testimonials',
+      2 => 'module-testimonials-288',
+      3 => 'blocks-grid',
+      'carousel-mode' => true,
+    ),
+    'carouselOptions' => 
+    array (
+      'speed' => 500,
+      'autoplay' => false,
+      'pauseOnHover' => true,
+      'loop' => true,
+    ),
+    'default_index' => 0,
+    'items' => 
+    array (
+      1 => 
+      array (
+        'header' => 'none',
+        'contentType' => 'html',
+        'expandButton' => false,
+        'footer' => 'none',
+        'footerText' => '',
+        'footerButton' => '',
+        'footerButtonLink' => 
+        array (
+          'type' => '',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '288-1',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-1',
+          'tab-pane' => false,
+          'active' => false,
+          'panel' => false,
+          'panel-active' => false,
+          'swiper-slide' => true,
+        ),
+        'tab_classes' => 
+        array (
+          0 => 'tab-1',
+          'active' => false,
+        ),
+        'panel_classes' => 
+        array (
+          0 => 'panel-collapse',
+          1 => 'collapse',
+          'in' => false,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/placeholder-1000x1000.png',
+        'title' => NULL,
+        'content' => 'Minions ipsum ti aamoo! Gelatooo wiiiii daa poopayee hahaha. Tank yuuu! aaaaaah ti aamoo! Daa para tú butt poulet tikka masala pepete baboiii jeje po kass.',
+        'items' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'header' => 'none',
+        'contentType' => 'html',
+        'expandButton' => false,
+        'footer' => 'none',
+        'footerText' => '',
+        'footerButton' => '',
+        'footerButtonLink' => 
+        array (
+          'type' => '',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '288-2',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-2',
+          'tab-pane' => false,
+          'active' => false,
+          'panel' => false,
+          'panel-active' => false,
+          'swiper-slide' => true,
+        ),
+        'tab_classes' => 
+        array (
+          0 => 'tab-2',
+          'active' => false,
+        ),
+        'panel_classes' => 
+        array (
+          0 => 'panel-collapse',
+          1 => 'collapse',
+          'in' => false,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/placeholder-1000x1000.png',
+        'title' => NULL,
+        'content' => 'Minions ipsum ti aamoo! Gelatooo wiiiii daa poopayee hahaha. Tank yuuu! aaaaaah ti aamoo! Daa para tú butt poulet tikka masala pepete baboiii jeje po kass.',
+        'items' => 
+        array (
+        ),
+      ),
+      3 => 
+      array (
+        'header' => 'none',
+        'contentType' => 'html',
+        'expandButton' => false,
+        'footer' => 'none',
+        'footerText' => '',
+        'footerButton' => '',
+        'footerButtonLink' => 
+        array (
+          'type' => '',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '288-3',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-3',
+          'tab-pane' => false,
+          'active' => false,
+          'panel' => false,
+          'panel-active' => false,
+          'swiper-slide' => true,
+        ),
+        'tab_classes' => 
+        array (
+          0 => 'tab-3',
+          'active' => false,
+        ),
+        'panel_classes' => 
+        array (
+          0 => 'panel-collapse',
+          1 => 'collapse',
+          'in' => false,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/placeholder-1000x1000.png',
+        'title' => NULL,
+        'content' => 'Minions ipsum ti aamoo! Gelatooo wiiiii daa poopayee hahaha. Tank yuuu! aaaaaah ti aamoo! Daa para tú butt poulet tikka masala pepete baboiii jeje po kass.',
+        'items' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+);

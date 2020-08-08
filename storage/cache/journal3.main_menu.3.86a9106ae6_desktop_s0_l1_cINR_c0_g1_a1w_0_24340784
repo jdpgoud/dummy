@@ -1,0 +1,342 @@
+<?php $val = array (
+  'css' => 'div.main-menu.main-menu-3 > .j-menu li.main-menu-item-7>a{font-family:\'Poppins\' !important;font-weight:600 !important;font-size:13px !important;color:rgba(129, 41, 144, 1) !important;text-transform:capitalize !important;letter-spacing:0 !important;background:none}div.main-menu.main-menu-3 > .j-menu li.main-menu-item-7>a>.links-text{padding-right:5px}.desktop-main-menu-wrapper .main-menu-3 .mega-custom.main-menu-item-7 .mega-menu-content{width:500px;position:relative;left:0;transform:none}.desktop-main-menu-wrapper .main-menu-3 .mega-custom.main-menu-item-7>.dropdown-menu::before{left:0;transform:none}.desktop-main-menu-wrapper .main-menu-3 > .j-menu li.main-menu-item-7:not(.mega-fullwidth)>.dropdown-menu::before{display:block;border-bottom-color:rgba(53, 66, 174, 1);margin-top:0px}.desktop-main-menu-wrapper .main-menu-3 > .j-menu li.main-menu-item-7.multi-level .dropdown-menu ul li .dropdown-menu{left:100%}.main-menu-3 > .j-menu li.main-menu-item-7>a>.menu-label{font-family:\'Poppins\';font-weight:400;font-size:13px;color:rgba(129, 41, 144, 1);text-transform:uppercase;letter-spacing:0;padding:1px;padding-right:4px;padding-left:4px;margin-top:-7px}.main-menu-3 .mega-menu.main-menu-item-8 .dropdown-menu{width:800px}.desktop-header-active .flyout-menu-3 .main-menu-item-8.multi-level .dropdown-menu{left:100%}div.main-menu.main-menu-3 > .j-menu li.main-menu-item-9>a{font-family:\'Poppins\' !important;font-weight:600 !important;font-size:13px !important;color:rgba(129, 41, 144, 1) !important;text-transform:capitalize !important;letter-spacing:0 !important;background:none}div.main-menu.main-menu-3 > .j-menu li.main-menu-item-9>a>.links-text{padding-right:5px}.desktop-main-menu-wrapper .main-menu-3 .mega-custom.main-menu-item-9 .mega-menu-content{width:500px;position:relative;left:0;transform:none}.desktop-main-menu-wrapper .main-menu-3 .mega-custom.main-menu-item-9>.dropdown-menu::before{left:0;transform:none}.desktop-main-menu-wrapper .main-menu-3 > .j-menu li.main-menu-item-9:not(.mega-fullwidth)>.dropdown-menu::before{display:block;border-bottom-color:rgba(53, 66, 174, 1);margin-top:0px}.desktop-main-menu-wrapper .main-menu-3 > .j-menu li.main-menu-item-9.multi-level .dropdown-menu ul li .dropdown-menu{left:100%}.main-menu-3 > .j-menu li.main-menu-item-9>a>.menu-label{font-family:\'Poppins\';font-weight:400;font-size:13px;color:rgba(129, 41, 144, 1);text-transform:uppercase;letter-spacing:0;padding:1px;padding-right:4px;padding-left:4px;margin-top:-7px}.main-menu-3 .mega-menu.main-menu-item-10 .dropdown-menu{width:800px}.desktop-header-active .flyout-menu-3 .main-menu-item-10.multi-level .dropdown-menu{left:100%}div.main-menu.main-menu-3 > .j-menu li.main-menu-item-11>a{font-family:\'Poppins\' !important;font-weight:600 !important;font-size:13px !important;color:rgba(129, 41, 144, 1) !important;text-transform:capitalize !important;letter-spacing:0 !important;background:none}div.main-menu.main-menu-3 > .j-menu li.main-menu-item-11>a>.links-text{padding-right:5px}.desktop-main-menu-wrapper .main-menu-3 .mega-custom.main-menu-item-11 .mega-menu-content{width:500px;position:relative;left:0;transform:none}.desktop-main-menu-wrapper .main-menu-3 .mega-custom.main-menu-item-11>.dropdown-menu::before{left:0;transform:none}.desktop-main-menu-wrapper .main-menu-3 > .j-menu li.main-menu-item-11:not(.mega-fullwidth)>.dropdown-menu::before{display:block;border-bottom-color:rgba(53, 66, 174, 1);margin-top:0px}.desktop-main-menu-wrapper .main-menu-3 > .j-menu li.main-menu-item-11.multi-level .dropdown-menu ul li .dropdown-menu{left:100%}.main-menu-3 > .j-menu li.main-menu-item-11>a>.menu-label{font-family:\'Poppins\';font-weight:400;font-size:13px;color:rgba(129, 41, 144, 1);text-transform:uppercase;letter-spacing:0;padding:1px;padding-right:4px;padding-left:4px;margin-top:-7px}.main-menu-3 .mega-menu.main-menu-item-12 .dropdown-menu{width:800px}.desktop-header-active .flyout-menu-3 .main-menu-item-12.multi-level .dropdown-menu{left:100%}div.main-menu.main-menu-3 > .j-menu li.main-menu-item-13>a{font-family:\'Poppins\' !important;font-weight:600 !important;font-size:13px !important;color:rgba(129, 41, 144, 1) !important;text-transform:capitalize !important;letter-spacing:0 !important;background:none}div.main-menu.main-menu-3 > .j-menu li.main-menu-item-13>a>.links-text{padding-right:5px}.desktop-main-menu-wrapper .main-menu-3 .mega-custom.main-menu-item-13 .mega-menu-content{width:500px;position:relative;left:0;transform:none}.desktop-main-menu-wrapper .main-menu-3 .mega-custom.main-menu-item-13>.dropdown-menu::before{left:0;transform:none}.desktop-main-menu-wrapper .main-menu-3 > .j-menu li.main-menu-item-13:not(.mega-fullwidth)>.dropdown-menu::before{display:block;border-bottom-color:rgba(53, 66, 174, 1);margin-top:0px}.desktop-main-menu-wrapper .main-menu-3 > .j-menu li.main-menu-item-13.multi-level .dropdown-menu ul li .dropdown-menu{left:100%}.main-menu-3 > .j-menu li.main-menu-item-13>a>.menu-label{font-family:\'Poppins\';font-weight:400;font-size:13px;color:rgba(129, 41, 144, 1);text-transform:uppercase;letter-spacing:0;padding:1px;padding-right:4px;padding-left:4px;margin-top:-7px}.main-menu-3 .mega-menu.main-menu-item-14 .dropdown-menu{width:800px}.desktop-header-active .flyout-menu-3 .main-menu-item-14.multi-level .dropdown-menu{left:100%}',
+  'fonts' => 
+  array (
+    'fonts' => 
+    array (
+      'Poppins' => 
+      array (
+        600 => '600',
+        400 => '400',
+      ),
+    ),
+    'subsets' => 
+    array (
+      'latin-ext' => 'latin-ext',
+    ),
+  ),
+  'settings' => 
+  array (
+    'status' => true,
+    'id' => 'main-menu',
+    'module_id' => 3,
+    'classes' => 
+    array (
+      0 => 'main-menu',
+      1 => 'main-menu-3',
+      'accordion-menu' => false,
+    ),
+    'display' => 'dropdown',
+    'items' => 
+    array (
+      7 => 
+      array (
+        'title' => 'Online Classes',
+        'label' => '',
+        'link' => 
+        array (
+          'type' => 'custom',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'type' => 'multilevel',
+        'mobileOpen' => false,
+        'classes' => 
+        array (
+          0 => 'menu-item',
+          1 => 'main-menu-item',
+          2 => 'main-menu-item-7',
+          'multi-level' => true,
+          'dropdown' => true,
+          'drop-menu' => 
+          array (
+            0 => false,
+            1 => true,
+          ),
+          'icon-only' => false,
+          'menu-fullwidth' => false,
+          'mega-fullwidth' => false,
+          'mega-custom' => false,
+        ),
+        'items' => 
+        array (
+          8 => 
+          array (
+            'title' => 'test',
+            'link' => 
+            array (
+              'type' => '',
+              'id' => '',
+              'href' => '',
+              'name' => '',
+              'total' => NULL,
+              'attrs' => 
+              array (
+              ),
+              'classes' => 
+              array (
+              ),
+            ),
+            'type' => 'multilevel',
+            'position' => 'left',
+            'classes' => 
+            array (
+              0 => 'menu-item',
+              1 => 'main-menu-item-8',
+              'dropdown' => false,
+              'icon-only' => NULL,
+              'menu-fullwidth' => false,
+              'mega-fullwidth' => false,
+              'mega-custom' => false,
+              'drop-menu' => true,
+            ),
+            'items' => 
+            array (
+            ),
+            'isOpen' => false,
+          ),
+        ),
+        'isOpen' => false,
+      ),
+      9 => 
+      array (
+        'title' => 'Free Demo Classes',
+        'label' => '',
+        'link' => 
+        array (
+          'type' => 'custom',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'type' => 'multilevel',
+        'mobileOpen' => false,
+        'classes' => 
+        array (
+          0 => 'menu-item',
+          1 => 'main-menu-item',
+          2 => 'main-menu-item-9',
+          'multi-level' => true,
+          'dropdown' => true,
+          'drop-menu' => 
+          array (
+            0 => false,
+            1 => true,
+          ),
+          'icon-only' => false,
+          'menu-fullwidth' => false,
+          'mega-fullwidth' => false,
+          'mega-custom' => false,
+        ),
+        'items' => 
+        array (
+          10 => 
+          array (
+            'title' => 'test',
+            'link' => 
+            array (
+              'type' => '',
+              'id' => '',
+              'href' => '',
+              'name' => '',
+              'total' => NULL,
+              'attrs' => 
+              array (
+              ),
+              'classes' => 
+              array (
+              ),
+            ),
+            'type' => 'multilevel',
+            'position' => 'left',
+            'classes' => 
+            array (
+              0 => 'menu-item',
+              1 => 'main-menu-item-10',
+              'dropdown' => false,
+              'icon-only' => NULL,
+              'menu-fullwidth' => false,
+              'mega-fullwidth' => false,
+              'mega-custom' => false,
+              'drop-menu' => true,
+            ),
+            'items' => 
+            array (
+            ),
+            'isOpen' => false,
+          ),
+        ),
+        'isOpen' => false,
+      ),
+      11 => 
+      array (
+        'title' => 'About ekaksha',
+        'label' => '',
+        'link' => 
+        array (
+          'type' => 'custom',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'type' => 'multilevel',
+        'mobileOpen' => false,
+        'classes' => 
+        array (
+          0 => 'menu-item',
+          1 => 'main-menu-item',
+          2 => 'main-menu-item-11',
+          'multi-level' => true,
+          'dropdown' => true,
+          'drop-menu' => 
+          array (
+            0 => false,
+            1 => true,
+          ),
+          'icon-only' => false,
+          'menu-fullwidth' => false,
+          'mega-fullwidth' => false,
+          'mega-custom' => false,
+        ),
+        'items' => 
+        array (
+          12 => 
+          array (
+            'title' => 'test',
+            'link' => 
+            array (
+              'type' => '',
+              'id' => '',
+              'href' => '',
+              'name' => '',
+              'total' => NULL,
+              'attrs' => 
+              array (
+              ),
+              'classes' => 
+              array (
+              ),
+            ),
+            'type' => 'multilevel',
+            'position' => 'left',
+            'classes' => 
+            array (
+              0 => 'menu-item',
+              1 => 'main-menu-item-12',
+              'dropdown' => false,
+              'icon-only' => NULL,
+              'menu-fullwidth' => false,
+              'mega-fullwidth' => false,
+              'mega-custom' => false,
+              'drop-menu' => true,
+            ),
+            'items' => 
+            array (
+            ),
+            'isOpen' => false,
+          ),
+        ),
+        'isOpen' => false,
+      ),
+      13 => 
+      array (
+        'title' => 'All Courses',
+        'label' => '',
+        'link' => 
+        array (
+          'type' => 'custom',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'type' => 'multilevel',
+        'mobileOpen' => false,
+        'classes' => 
+        array (
+          0 => 'menu-item',
+          1 => 'main-menu-item',
+          2 => 'main-menu-item-13',
+          'multi-level' => true,
+          'dropdown' => true,
+          'drop-menu' => 
+          array (
+            0 => false,
+            1 => true,
+          ),
+          'icon-only' => false,
+          'menu-fullwidth' => false,
+          'mega-fullwidth' => false,
+          'mega-custom' => false,
+        ),
+        'items' => 
+        array (
+          14 => 
+          array (
+            'title' => 'test',
+            'link' => 
+            array (
+              'type' => '',
+              'id' => '',
+              'href' => '',
+              'name' => '',
+              'total' => NULL,
+              'attrs' => 
+              array (
+              ),
+              'classes' => 
+              array (
+              ),
+            ),
+            'type' => 'multilevel',
+            'position' => 'left',
+            'classes' => 
+            array (
+              0 => 'menu-item',
+              1 => 'main-menu-item-14',
+              'dropdown' => false,
+              'icon-only' => NULL,
+              'menu-fullwidth' => false,
+              'mega-fullwidth' => false,
+              'mega-custom' => false,
+              'drop-menu' => true,
+            ),
+            'items' => 
+            array (
+            ),
+            'isOpen' => false,
+          ),
+        ),
+        'isOpen' => false,
+      ),
+    ),
+  ),
+);

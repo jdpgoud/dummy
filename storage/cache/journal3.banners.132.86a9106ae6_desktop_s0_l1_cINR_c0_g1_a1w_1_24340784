@@ -1,0 +1,386 @@
+<?php $val = array (
+  'css' => '.module-banners-132 .title.module-title{font-family:\'Poppins\';font-weight:600;font-size:26px;color:rgba(255, 255, 255, 1);margin-bottom:25px;white-space:normal;overflow:visible;text-overflow:initial;text-align:center}.module-banners-132 .title.module-title::after{display:none;margin-top:8px;left:50%;right:initial;transform:translate3d(-50%,0,0)}.module-banners-132 .title.module-title.page-title>span::after{display:none;margin-top:8px;left:50%;right:initial;transform:translate3d(-50%,0,0)}.module-banners-132 .title.module-title::after, .module-banners-132 .title.module-title.page-title>span::after{width:50px;height:1px;background:rgba(218, 10, 34, 1)}.module-banners-132 .swiper-container{overflow:hidden}.module-banners-132 .swiper-buttons{display:block;top:50%;width:calc(100% - (5px * 2));margin-top:-10px}.module-banners-132 .swiper-button-prev{left:0;right:auto;transform:translate(0, -50%)}.module-banners-132 .swiper-button-next{left:auto;right:0;transform:translate(0, -50%)}.module-banners-132 .swiper-buttons
+div{width:50px;height:50px;background:rgba(255, 255, 255, 1);border-width:1px;border-style:solid;border-color:rgba(206, 206, 206, 1);border-radius:50%;box-shadow:none}.module-banners-132 .swiper-button-disabled{opacity:1}.module-banners-132 .swiper-buttons div::before{content:\'\\e93e\' !important;font-family:icomoon !important;font-size:30px;color:rgba(48, 56, 65, 1)}.module-banners-132 .swiper-buttons .swiper-button-next::before{content:\'\\e93f\' !important;font-family:icomoon !important;font-size:30px;color:rgba(48, 56, 65, 1)}.module-banners-132 .swiper-buttons div:not(.swiper-button-disabled):hover{background:rgba(197, 45, 146, 1)}.module-banners-132 .swiper-buttons div:not(.swiper-button-disabled):active{background:none}.module-banners-132 .swiper-pagination{display:none !important;margin-bottom:-10px;left:50%;right:auto;transform:translateX(-50%)}.module-banners-132
+.swiper{padding-bottom:0;;padding-bottom:10px}.module-banners-132 .swiper-pagination-bullet{width:7px;height:7px;background-color:rgba(109, 118, 125, 1)}.module-banners-132 .swiper-pagination>span+span{margin-left:8px}.desktop .module-banners-132 .swiper-pagination-bullet:hover{background-color:rgba(218, 10, 34, 1)}.module-banners-132 .swiper-pagination-bullet.swiper-pagination-bullet-active{background-color:rgba(218, 10, 34, 1)}.module-banners-132 .swiper-pagination>span{border-radius:20px}.module-banners-132 .module-item.swiper-slide{margin-right:20px;width:calc((100% - 3 * 20px) / 4 - 0.01px)}.module-banners-132 .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 4 - 0.01px)}.one-column #content .module-banners-132 .module-item.swiper-slide{margin-right:20px;width:calc((100% - 3 * 20px) / 4 - 0.01px)}.one-column #content .module-banners-132 .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 4 - 0.01px)}.two-column #content .module-banners-132 .module-item.swiper-slide{margin-right:20px;width:calc((100% - 3 * 20px) / 4 - 0.01px)}.two-column #content .module-banners-132 .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 4 - 0.01px)}.side-column .module-banners-132 .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.side-column .module-banners-132 .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.module-banners-132:not(.carousel-mode) .module-body{margin:-10px}.module-banners-132 a
+img{transform:scale(1)}.desktop .module-banners-132 a:hover
+img{transform:scale(1.15)}.module-banners-132 .module-item>a{background-image:url(\'http://localhost/ekaksha/image/cache/catalog/icon-video-51x51.png\');border-radius:20px}.module-banners-132 .module-item>a::before{background:rgba(0, 0, 0, 0.3);mix-blend-mode:darken}.module-banners-132 a::before{opacity:1}.module-banners-132 .module-item>a::after{content:\'\\f03d\' !important;font-family:icomoon !important;font-size:50px;top:50%;left:50%;right:auto;bottom:auto;transform:translate3d(-50%, -50%, 0)}.module-banners-132 a::after{opacity:1}.module-banners-132 a .banner-caption{visibility:visible;opacity:1;display:block;width:auto}.module-banners-132 .banner-caption{top:50%;left:50%;right:auto;bottom:auto;transform:translate3d(-50%, -50%, 0)}.module-banners-132 .banner-caption
+span{white-space:normal;;padding-top:8px;padding-bottom:8px}.desktop .module-banners-132 a:hover .banner-caption
+span{margin-bottom:20px}.module-banners-132 .banner-caption-2{visibility:hidden;opacity:0;display:block;top:auto;left:50%;right:auto;bottom:0;transform:translate3d(-50%, 0, 0)}.desktop .module-banners-132 a:hover .banner-caption-2{visibility:visible;opacity:1}.module-banners-132 a .banner-caption-2{width:auto}.module-banners-132 .banner-caption-2 span::after{content:\'\\e5c8\' !important;font-family:icomoon !important;font-size:12px;margin-left:5px}.module-banners-132 .banner-caption-2
+span{white-space:normal;;text-align:center;padding-bottom:5px;border-width:0;border-bottom-width:1px;border-style:solid;border-color:rgba(218, 10, 34, 1)}.desktop .module-banners-132 a:hover .banner-caption-2
+span{margin-bottom:20px}.module-banners-132 .banner-caption-3
+span{white-space:normal}@media (max-width: 760px){.module-banners-132 .module-item.swiper-slide{margin-right:10px;width:calc((100% - 1 * 10px) / 2 - 0.01px)}.module-banners-132 .module-item:not(.swiper-slide){padding:5px;width:calc(100% / 2 - 0.01px)}.one-column #content .module-banners-132 .module-item.swiper-slide{margin-right:10px;width:calc((100% - 1 * 10px) / 2 - 0.01px)}.one-column #content .module-banners-132 .module-item:not(.swiper-slide){padding:5px;width:calc(100% / 2 - 0.01px)}.two-column #content .module-banners-132 .module-item.swiper-slide{margin-right:10px;width:calc((100% - 1 * 10px) / 2 - 0.01px)}.two-column #content .module-banners-132 .module-item:not(.swiper-slide){padding:5px;width:calc(100% / 2 - 0.01px)}.module-banners-132:not(.carousel-mode) .module-body{margin:-5px}}',
+  'fonts' => 
+  array (
+    'fonts' => 
+    array (
+      'Poppins' => 
+      array (
+        600 => '600',
+      ),
+    ),
+    'subsets' => 
+    array (
+      'latin-ext' => 'latin-ext',
+    ),
+  ),
+  'settings' => 
+  array (
+    'schedule' => 
+    array (
+      'from' => '',
+      'to' => '',
+      'between' => true,
+    ),
+    'title' => 'Demo Classes',
+    'carousel' => true,
+    'itemsPerRow' => 
+    array (
+      'c0' => 
+      array (
+        0 => 
+        array (
+          'items' => 4,
+          'spacing' => 20,
+        ),
+        760 => 
+        array (
+          'items' => 2,
+          'spacing' => 10,
+        ),
+      ),
+      'c1' => 
+      array (
+        0 => 
+        array (
+          'items' => 4,
+          'spacing' => 20,
+        ),
+        760 => 
+        array (
+          'items' => 2,
+          'spacing' => 10,
+        ),
+      ),
+      'c2' => 
+      array (
+        0 => 
+        array (
+          'items' => 4,
+          'spacing' => 20,
+        ),
+        760 => 
+        array (
+          'items' => 2,
+          'spacing' => 10,
+        ),
+      ),
+      'sc' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+    ),
+    'imageDimensions' => 
+    array (
+      'width' => 335,
+      'height' => 225,
+      'resize' => 'fill',
+    ),
+    'lazyLoad' => true,
+    'status' => true,
+    'id' => 'banners-5f2d985148b88',
+    'module_id' => 132,
+    'classes' => 
+    array (
+      0 => 'module',
+      1 => 'module-banners',
+      2 => 'module-banners-132',
+      'carousel-mode' => true,
+    ),
+    'carouselOptions' => 
+    array (
+      'speed' => 500,
+      'autoplay' => false,
+      'pauseOnHover' => true,
+      'loop' => true,
+    ),
+    'items' => 
+    array (
+      1 => 
+      array (
+        'title' => '',
+        'title2' => '',
+        'title3' => '<div class="online-classes-desc"> <h3>R D Sharma, Question 5, Exercise 1.2, Real Numbers</h3> <p>Class: X    |    CBSE<br>     Guru: Lakshmi Narayana Sir</p> </div>',
+        'alt' => '',
+        'link' => 
+        array (
+          'type' => 'popup',
+          'id' => '22',
+          'href' => 'javascript:open_popup(22)',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '132-1',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-1',
+          'swiper-slide' => true,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-335x225h.jpg',
+        'image2x' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-670x450h.jpg',
+        'text' => NULL,
+        'items' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'title' => '',
+        'title2' => '',
+        'title3' => '<div class="online-classes-desc"> <h3>R D Sharma, Question 5, Exercise 1.2, Real Numbers</h3> <p>Class: X    |    CBSE<br>     Guru: Lakshmi Narayana Sir</p> </div>',
+        'alt' => '',
+        'link' => 
+        array (
+          'type' => 'popup',
+          'id' => '22',
+          'href' => 'javascript:open_popup(22)',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '132-2',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-2',
+          'swiper-slide' => true,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/virtual%20class%20istock-1594738832-335x225h.jpg',
+        'image2x' => 'http://localhost/ekaksha/image/cache/catalog/virtual%20class%20istock-1594738832-670x450h.jpg',
+        'text' => NULL,
+        'items' => 
+        array (
+        ),
+      ),
+      3 => 
+      array (
+        'title' => '',
+        'title2' => '',
+        'title3' => '<div class="online-classes-desc"> <h3>R D Sharma, Question 5, Exercise 1.2, Real Numbers</h3> <p>Class: X    |    CBSE<br>     Guru: Lakshmi Narayana Sir</p> </div>',
+        'alt' => '',
+        'link' => 
+        array (
+          'type' => 'popup',
+          'id' => '22',
+          'href' => 'javascript:open_popup(22)',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '132-3',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-3',
+          'swiper-slide' => true,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/educationcrisisinindiagovernmentschoolsshortof1millionteachers-12-1481544544-335x225w.jpg',
+        'image2x' => 'http://localhost/ekaksha/image/cache/catalog/educationcrisisinindiagovernmentschoolsshortof1millionteachers-12-1481544544-670x450w.jpg',
+        'text' => NULL,
+        'items' => 
+        array (
+        ),
+      ),
+      4 => 
+      array (
+        'title' => '',
+        'title2' => '',
+        'title3' => '<div class="online-classes-desc"> <h3>R D Sharma, Question 5, Exercise 1.2, Real Numbers</h3> <p>Class: X    |    CBSE<br>     Guru: Lakshmi Narayana Sir</p> </div>',
+        'alt' => '',
+        'link' => 
+        array (
+          'type' => 'popup',
+          'id' => '22',
+          'href' => 'javascript:open_popup(22)',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '132-4',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-4',
+          'swiper-slide' => true,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/5-Useful-ESL-Teaching-Tips-For-Every-New-TEFL-Teacher-335x225h.jpg',
+        'image2x' => 'http://localhost/ekaksha/image/cache/catalog/5-Useful-ESL-Teaching-Tips-For-Every-New-TEFL-Teacher-670x450h.jpg',
+        'text' => NULL,
+        'items' => 
+        array (
+        ),
+      ),
+      5 => 
+      array (
+        'title' => '',
+        'title2' => '',
+        'title3' => '<div class="online-classes-desc"> <h3>R D Sharma, Question 5, Exercise 1.2, Real Numbers</h3> <p>Class: X    |    CBSE<br>     Guru: Lakshmi Narayana Sir</p> </div>',
+        'alt' => '',
+        'link' => 
+        array (
+          'type' => 'popup',
+          'id' => '22',
+          'href' => 'javascript:open_popup(22)',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '132-5',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-5',
+          'swiper-slide' => true,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-335x225h.jpg',
+        'image2x' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-670x450h.jpg',
+        'text' => NULL,
+        'items' => 
+        array (
+        ),
+      ),
+      6 => 
+      array (
+        'title' => '',
+        'title2' => '',
+        'title3' => '<div class="online-classes-desc"> <h3>R D Sharma, Question 5, Exercise 1.2, Real Numbers</h3> <p>Class: X    |    CBSE<br>     Guru: Lakshmi Narayana Sir</p> </div>',
+        'alt' => '',
+        'link' => 
+        array (
+          'type' => 'popup',
+          'id' => '22',
+          'href' => 'javascript:open_popup(22)',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '132-6',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-6',
+          'swiper-slide' => true,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-335x225h.jpg',
+        'image2x' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-670x450h.jpg',
+        'text' => NULL,
+        'items' => 
+        array (
+        ),
+      ),
+      7 => 
+      array (
+        'title' => '',
+        'title2' => '',
+        'title3' => '<div class="online-classes-desc"> <h3>R D Sharma, Question 5, Exercise 1.2, Real Numbers</h3> <p>Class: X    |    CBSE<br>     Guru: Lakshmi Narayana Sir</p> </div>',
+        'alt' => '',
+        'link' => 
+        array (
+          'type' => 'popup',
+          'id' => '22',
+          'href' => 'javascript:open_popup(22)',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '132-7',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-7',
+          'swiper-slide' => true,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-335x225h.jpg',
+        'image2x' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-670x450h.jpg',
+        'text' => NULL,
+        'items' => 
+        array (
+        ),
+      ),
+      8 => 
+      array (
+        'title' => '',
+        'title2' => '',
+        'title3' => '<div class="online-classes-desc"> <h3>R D Sharma, Question 5, Exercise 1.2, Real Numbers</h3> <p>Class: X    |    CBSE<br>     Guru: Lakshmi Narayana Sir</p> </div>',
+        'alt' => '',
+        'link' => 
+        array (
+          'type' => 'popup',
+          'id' => '22',
+          'href' => 'javascript:open_popup(22)',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '132-8',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-8',
+          'swiper-slide' => true,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-335x225h.jpg',
+        'image2x' => 'http://localhost/ekaksha/image/cache/catalog/unnamed-670x450h.jpg',
+        'text' => NULL,
+        'items' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+);
