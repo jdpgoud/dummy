@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-      <div class="col col-lg-8"><div class="ekaksha-menu menu-{{ j3.settings.get('headerMenuLayout') }} {% if j3.settings.get('desktop_main_menu_2') %}has-menu-2{% endif %} navbar-nav">
+      <div class="col col-lg-6"><div class="ekaksha-menu menu-{{ j3.settings.get('headerMenuLayout') }} {% if j3.settings.get('desktop_main_menu_2') %}has-menu-2{% endif %} navbar-nav">
         {{ j3.document.hasClass('mobile-header-active') ? '' : j3.settings.get('desktop_main_menu') }}
         {% if j3.settings.get('headerMainMenu2Position') == 'menu' %}
         {{ j3.settings.get('desktop_main_menu_2') }}
@@ -43,7 +43,13 @@
         {% endif %}
       </div></div>
   
-      <div class="col col-lg-2">
+      <div class="col col-lg-3">
+        <div class="desktop-search-wrapper full-search default-search-wrapper">
+          {{ search }}
+        </div>
+      </div>
+
+      <div class="col col-lg-1">
         <ul class="top-right-nav">
           
           <li class="nav-item">

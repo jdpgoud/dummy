@@ -1,20 +1,3 @@
-{% macro renderTestimonialsItem(item, context) %}
-  {% import _self as self %}
-  <div class="block-body">
-    {% if item.header == 'image' %}
-      <div class="block-header"><img src="{{ item.image }}" alt="" class="block-image" width="{{ context.imageDimensions.width }}" height="{{ context.imageDimensions.height }}"/></div>
-    {% elseif item.header == 'icon' %}
-      <div class="block-header"><i class="icon icon-block"></i></div>
-    {% endif %}
-    <div class="block-content block-{{ item.contentType }}">{{ item.content }}</div>
-    {% if item.footerText %}
-      <div class="block-footer">{{ item.footerText }}</div>
-    {% endif %}
-    {% if item.expandButton %}
-      <div class="block-expand-overlay"><a class="block-expand btn"></a></div>
-    {% endif %}
-  </div>
-{% endmacro %}
 {% import _self as self %}
 <div class="{{ j3.classes(classes) }}">
   {% if title %}
@@ -95,3 +78,21 @@
   {% endif %}
   </div>
 </div>
+{% macro renderTestimonialsItem(item, context) %}
+  {% import _self as self %}
+  <div class="block-body">
+    <div class="block-content block-{{ item.contentType }}">{{ item.content }}</div>
+    {% if item.header == 'image' %}
+      <div class="block-header"><img src="{{ item.image }}" alt="" class="block-image" width="{{ context.imageDimensions.width }}" height="{{ context.imageDimensions.height }}"/></div>
+    {% elseif item.header == 'icon' %}
+      <div class="block-header"><i class="icon icon-block"></i></div>
+    {% endif %}
+    
+    {% if item.footerText %}
+      <div class="block-footer">{{ item.footerText }}</div>
+    {% endif %}
+    {% if item.expandButton %}
+      <div class="block-expand-overlay"><a class="block-expand btn"></a></div>
+    {% endif %}
+  </div>
+{% endmacro %}

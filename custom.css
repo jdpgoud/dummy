@@ -76,7 +76,37 @@ body{
 }
 
 /* /SLider form Styles */
-.online-form{
+.module-master_slider-232 .ms-nav-prev{
+    left: 47%;
+}
+.module-form-290 {
+    width: 335px;
+    border-radius: 20px;
+    position: absolute;
+    top: -350px;
+    right: 14%;
+}
+.module-form-290 .buttons{
+    border: none;
+    padding: 0px;
+    margin-top: 10px;
+}
+.module-form-290 .required .control-label+div::before {
+    display: inline;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.required .control-label::after, .required .control-label+div::before, .text-danger {
+    font-size: 17px;
+    color: rgba(218,10,34,1);
+    position: relative;
+    font-weight: 300;
+    top: -6px;
+    right: 0;
+}
+/* .online-form{
     max-width: 1200px;
     margin: 0px auto;
     position: absolute;
@@ -84,8 +114,8 @@ body{
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
-}
-.online-form .form-inner-wrap{
+} */
+/* .online-form .form-inner-wrap{
     width: 380px;
     height: auto;
     background-color: #FFF;
@@ -119,13 +149,12 @@ body{
     font-size: 16px;
     outline: none;
     border: none;
-}
+} */
 
 
 /* Why Ekaksha */
 .grid-row-top-2{
-    background: rgb(201,45,146);
-    background: linear-gradient(90deg, rgba(201,45,146,1) 0%, rgba(179,44,145,1) 50%, rgba(152,42,145,1) 96%);
+   
 }
 .module-info_blocks-286 .info-block-content, .module-info_blocks-286 .module-item:not(.swiper-slide){
     width: 100% !important;
@@ -210,5 +239,178 @@ body{
 
 
 /* Onlien clases  */
+.desktop-header-active .header-classic .mid-bar .desktop-search-wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
 
+/* TEstimonilas */
+.module-testimonials .block-content{
+    font-weight: 300;
+}
+.module.module-testimonials.module-testimonials-289 .module-body,
+.module.module-testimonials.module-testimonials-180 .module-body{
+    position: relative;
+}
+.module.module-testimonials.module-testimonials-289 .module-body:before,
+.module.module-testimonials.module-testimonials-180 .module-body:before{
+    content: '';
+    background: url(image/catalog/testimonial-symbol.png) no-repeat center center;
+    width: 93px;
+    height: 78px;
+    position: absolute;
+    top: -70px;
+    left: 50px;
+    z-index: 9;
+}
+.module.module-testimonials.module-testimonials-289 .module-body:after,
+.module.module-testimonials.module-testimonials-180 .module-body:after{
+    content: '';
+    background: url(image/catalog/testimonial-symbol.png) no-repeat center center;
+    width: 93px;
+    height: 78px;
+    position: absolute;
+    bottom: 75px;
+    right: 70px;
+    z-index: 9;
+    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
 
+.module-testimonials-289 .swiper-button-prev,
+.module-testimonials-180 .swiper-button-prev {
+    left: 230px;
+    right: auto;
+    bottom: -208px;
+}
+.module-testimonials-289 .swiper-button-next,
+.module-testimonials-180 .swiper-button-next {
+    left: auto;
+    right: 230px;
+    bottom: -208px;
+}
+.module.module-testimonials .block-header{
+    margin-bottom: 10px;
+}
+.module.module-testimonials .block-header img{
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+}
+.module-testimonials .block-footer{
+    color:#812990;
+    font-size: 20px;
+    font-weight: 500;
+}
+.module-testimonials .block-footer .author-designation{
+    font-size: 15px;
+    color: #999;
+    display: block;
+    font-weight: 400;
+}
+
+/* Availab lcurses  */
+.module-title-292 .title-wrapper h3{
+    font-weight: 600;
+}
+.course-topics h4{
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    text-align: center;
+}
+.course-topics .courses-desc {
+    font-size: 15px;
+    font-weight: 500;
+    color: #FFF;
+    line-height: 22px;
+    margin-bottom: 15px;
+}
+.course-topics .courses-list{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.course-topics .courses-list li{
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #FFF;
+    position: relative;
+    padding-left: 25px;
+}
+.course-topics .courses-list li:before{
+    content: '';
+    background-color: #FFF;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    top: 6px;
+}
+.module-info_blocks .module-body{
+    justify-content: space-between;
+}
+.module-info_blocks-291 .module-item-1 .info-block .info-block-title,
+.module-info_blocks-291 .module-item-2 .info-block .info-block-title,
+.module-info_blocks-291 .module-item-3 .info-block .info-block-title{
+    text-align: center;
+    color: #FFF;
+}
+.module-info_blocks-291 .module-item:not(.swiper-slide){
+    width: calc(100% / 3 - 20px);
+    border-radius: 10px;
+}
+.module-info_blocks-291 .module-item-1 .info-block{
+    border-radius: 10px;
+}
+
+.btn-wrap{
+    position: absolute;
+    bottom: -14px;
+    width: 250px;
+    margin: 0px auto;
+    left: 50%;
+    margin-left: -125px;
+}
+.btn-wrap .btn{
+    background-color:#812990;
+    width: 250px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFF;
+    border-radius: 5px;
+}
+.btn-wrap .btn:hover, 
+.btn-wrap .btn:focus,
+.btn-wrap .btn:active{
+    background-color: #9b3cab !important;
+}
+
+/* News leter  */
+.module-newsletter-196{
+
+}
+.module-newsletter-196 .newsletter-text{
+    font-weight: 400;
+}
+.module-newsletter-196 .title.module-title{
+    position: relative;
+}
+.module-newsletter-196 .title.module-title:before{
+    content: '';
+    background: url(image/catalog/icon-email.png) no-repeat center center;
+    width: 92px;
+    height: 77px;
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;   
+}
+.module-blocks-279 p{
+    font-size: 13px;
+    font-weight: 400;
+}
