@@ -28,6 +28,9 @@
         </div>
       {% endif %}
     </div>
+    <div class="mobile-top-menu-wrapper">
+      {{ j3.settings.get('mobile_top_menu') }}
+    </div>
     <div class="mobile-bar-group">
       <div class="menu-trigger"></div>
       {% if j3.settings.get('mobileCustomMenuStatus1') %}
@@ -40,12 +43,14 @@
         {{ j3.countBadge(j3.settings.get('mobileCustomMenuLink2.name'), j3.cache.update(j3.settings.get('mobileCustomMenuLink2.total')), j3.settings.get('mobileCustomMenuLink2.classes')) }}
       </a>
       {% endif %}
-      <div class="mobile-search-wrapper mini-search">
-        {{ j3.document.hasClass('mobile-header-active') ? search : '' }}
-      </div>
+      
       <div class="mobile-cart-wrapper mini-cart">
         {{ j3.document.hasClass('mobile-header-active') ? cart : '' }}
       </div>
     </div>
   </div>
+  <div class="mobile-search-wrapper full-search">
+    {{ j3.document.hasClass('mobile-header-active') ? search : '' }}
+  </div>
+  
 </div>
