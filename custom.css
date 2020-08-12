@@ -3,7 +3,7 @@
 body{
     font-family: 'Poppins', sans-serif !important;
 }
-::placeholder { 
+/* ::placeholder { 
     color: #CCC;
     opacity: 0.5;
   }
@@ -14,7 +14,7 @@ body{
   
   ::-ms-input-placeholder {
     color: #CCC;
-  }
+  } */
 
 .header .mid-bar.navbar-nav .row{
   width: 100%;
@@ -195,6 +195,12 @@ body{
     text-align: center;
     justify-content: space-between;
 }
+@media screen and (min-width:120px) and (max-width:768px) {
+    .ekaksha-row{
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+}
 .ekaksha-row .img-block{
     margin-bottom: 20px;
 }
@@ -206,6 +212,11 @@ body{
 }
 
 /* Onlien clases  */
+@media screen and (min-width:120px) and (max-width:768px) {
+.module-banners-132 .swiper-container{
+    overflow: visible !important;
+}
+}
 .module-banners-132 .swiper-button-prev{
     left: -70px;
 }
@@ -372,6 +383,11 @@ body{
 .module-info_blocks .module-body{
     justify-content: space-between;
 }
+@media screen and (min-width:120px) and (max-width:768px) {
+    .module-info_blocks .module-body{
+        flex-direction: column;
+    }
+}
 .module-info_blocks-291 .module-item-1 .info-block .info-block-title,
 .module-info_blocks-291 .module-item-2 .info-block .info-block-title,
 .module-info_blocks-291 .module-item-3 .info-block .info-block-title{
@@ -475,9 +491,9 @@ footer .block-content p{
     content: '';
     background: url(image/catalog/download-img.png) no-repeat center center;
     position: absolute;
-    top: -135px;
-    left: -70px;
-    z-index: 9;
+    top: -58px;
+    left: -50px;
+    z-index: 1;
 
 }
 
@@ -511,3 +527,189 @@ footer .block-content p{
         display: block;
     }
 } 
+
+
+footer{
+    position: relative;
+}
+footer>div{
+    position: relative;
+}
+footer>div:before{
+    content: '';
+    background: #812990;
+    width: 100%;
+    height: 58px;
+    position: absolute;
+    top: -50px;
+    left: -60%;
+    /* transform: translateX(-50%); */
+    z-index: -1;
+}
+footer>div:after{
+    content: '';
+    background: #812990;
+    width: 100%;
+    height: 58px;
+    position: absolute;
+    top: -50px;
+    right: -60%;
+    /* transform: translateX(-50%); */
+    z-index: -1;
+}
+footer::before{
+    content: '';
+    background: url(image/catalog/footer-top-bg.png) no-repeat center center;
+    width: 374px;
+    height: 58px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Login page  */
+.popup-login .popup-body{
+    border-radius: 10px;
+    width: 625px;
+    height: 505px;
+}
+.popup-login .popup-container{
+    width: 625px;
+}
+.popup-login .popup-inner-body{
+    height: auto;
+    max-height: 100%;
+}
+.popup-login .popup-inner-body .title{
+        font-size: 20px;
+        font-weight: 600;
+        color: #666666;
+}
+
+.forgot-password{
+    margin: 20px auto;
+    text-align: center;
+}
+.forgot-password a{
+    font-size: 13px;
+    color: #812990;
+    font-weight: 400;
+    text-decoration: underline;
+}
+.login-note{
+    margin: 22px 0px 0px 0px ;
+}
+.login-note p{
+    text-align: center;
+    color: #999;
+    font-size: 11px;
+    font-weight: 400;
+}
+/* Login page tabs styles  */
+.login-tab-wrapper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-tab-wrapper .tabs{
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    display: flex;
+    width: 330px;
+  }
+  .login-tab-wrapper .tab{
+    cursor: pointer;
+    padding:10px 20px;
+    /* margin:0px 2px; */
+    /* border-radius: 5px; */
+    /* background:#cccccc; */
+    display:flex;
+    width: 100%;
+    background:#fff;
+    color:#f7902c;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  .login-tab-wrapper .panels{
+    background:#fffffff6;
+    /* box-shadow: 0 2rem 2rem #00000080; */
+    min-height:200px;
+    width:100%;
+    max-width:330px;
+    margin-top: 40px;
+    /* border-radius:3px; */
+    overflow:hidden;
+    /* padding:20px;   */
+  }
+  .login-tab-wrapper .panel{
+    display:none;
+    animation: fadein .8s;
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  .login-tab-wrapper .panel-title{
+    font-size:1.5em;
+    font-weight:bold
+  }
+  .login-tab-wrapper .radio{
+    display:none;
+  }
+  #parent:checked ~ .panels #parent-panel,
+  #student:checked ~ .panels #student-panel{
+    display:block
+  }
+  #parent:checked ~ .tabs #parent-tab,
+  #student:checked ~ .tabs #student-tab{
+    background:#f7902c;
+    color:#fff;
+    
+  }
+  
+  #parent:checked ~ .tabs #parent-tab,
+  #parent:not(:checked) ~ .tabs #parent-tab{
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+  }
+  #student:checked ~ .tabs #student-tab,
+  #student:not(:checked) ~ .tabs #student-tab{
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+  }
+
+  .breadcrumb + .page-title{
+    display: none;
+    visibility: hidden;
+  }
+  .main-products.product-grid .product-layout:not(.swiper-slide){
+      padding: 0px;
+  }
+  .category-description{
+      margin: 0px -10px 30px; 
+    }
+  
+  .category-description .category-text > p:last-of-type{
+      font-size: 22px;
+      font-weight: 600;
+      color: #333;
+  }
+
+
+  .main-products.product-grid .product-thumb .btn-quickview.btn,
+  .main-products.product-grid .product-thumb .btn-quickview.btn:hover{
+    background: none !important;
+    height: auto;
+  }
+  .main-products.product-grid .product-thumb .btn-quickview::before{
+    font-size: 0px;
+    background: url(image/catalog/icon-video.png) no-repeat center center;
+    width: 50px;
+    height: 50px;   
+  }

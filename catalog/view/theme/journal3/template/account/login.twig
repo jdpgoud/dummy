@@ -45,26 +45,86 @@
         <div class="col-sm-6">
           <div class="well">
 {% endif %}
-            <h2 class="title">{{ text_returning_customer }}</h2>
+            <h2 class="title" style="font-size: 20px; font-weight: 600; color: #666;">{{ text_returning_customer }}</h2>
             <p><strong>{{ text_i_am_returning_customer }}</strong></p>
-            <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal login-form">
-              <div class="form-group">
-                <label class="control-label" for="input-email">{{ entry_email }}</label>
-                <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="input-password">{{ entry_password }}</label>
-                <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
-                <div><a href="{{ forgotten }}" target="_top">{{ text_forgotten }}</a></div></div>
-              <div class="buttons">
-                <div class="pull-right">
-                  <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ button_login }}</span>"><span>{{ button_login }}</span></button>
+
+
+            <div class="login-tab-wrapper">
+              <input class="radio" id="parent" name="group" type="radio" checked>
+              <input class="radio" id="student" name="group" type="radio">
+              <div class="tabs">
+              <label class="tab" id="parent-tab" for="parent">Parent</label>
+              <label class="tab" id="student-tab" for="student">Student</label>
                 </div>
+              <div class="panels">
+              <!-- Parent content  -->
+              <div class="panel" id="parent-panel">
+                <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal login-form">
+                  <div class="form-group">
+                    <!-- <label class="control-label" for="input-email">{{ entry_email }}</label> -->
+                    <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <!-- <label class="control-label" for="input-password">{{ entry_password }}</label> -->
+                    <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
+                  
+                  </div>
+                  <div class="buttons">
+                    <div class="pull-right">
+                      <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ text_submit }}</span>"><span>{{ text_submit }}</span></button>
+                    </div>
+                  </div>
+
+                  <div class="forgot-password"><a href="{{ forgotten }}" target="_top">{{ text_forgotten }}</a></div>
+
+                  <div class="buttons">
+                    <div class="pull-right">
+                      <a href="{{ register }}" class="btn btn-primary">{{ text_register }}</a>
+                    </div>
+                  </div>
+
+                  <div class="login-note">
+                    <p>Dear user please register as a parent and then <br>you can share the user credentials with your child(ren)</p>
+                  </div>
+                  {% if redirect %}
+                  <input type="hidden" name="redirect" value="{{ redirect }}" />
+                  {% endif %}
+                </form>
               </div>
-              {% if redirect %}
-              <input type="hidden" name="redirect" value="{{ redirect }}" />
-              {% endif %}
-            </form>
+
+              <!-- Student content  -->
+              <div class="panel" id="student-panel">
+               
+                <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal login-form">
+                  <div class="form-group">
+                    <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_phone }}" id="input-email" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_otp }}" id="input-password" class="form-control" />
+                  
+                  </div>
+                  <div class="buttons">
+                    <div class="pull-right">
+                      <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ text_submit }}</span>"><span>{{ text_submit }}</span></button>
+                    </div>
+                  </div>
+
+                  <div class="forgot-password"><a href="#" target="_top">{{ text_resend }}</a></div>
+
+                  {% if redirect %}
+                  <input type="hidden" name="redirect" value="{{ redirect }}" />
+                  {% endif %}
+                </form>
+              </div>
+              </div>
+            </div>
+            
+
+
+          
+
+            
+
 {% if not j3.document.isPopup() %}
           </div>
         </div>

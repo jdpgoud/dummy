@@ -1572,3 +1572,20 @@
 2020-08-09 16:19:39 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
 2020-08-09 16:19:39 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
 2020-08-09 16:19:39 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-08-10 18:31:26 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 176
+2020-08-10 18:31:26 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 182
+2020-08-10 18:34:16 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 241
+2020-08-10 18:34:16 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 247
+2020-08-10 18:34:49 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 242
+2020-08-10 18:34:49 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 248
+2020-08-10 18:35:02 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\storage\cache\bd\bd5897941db3acf67de741977e8abbb951a1b935962ea46ae95550419ef90656.php on line 242
+2020-08-10 18:35:02 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\storage\cache\bd\bd5897941db3acf67de741977e8abbb951a1b935962ea46ae95550419ef90656.php on line 248
+2020-08-10 18:36:16 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 209
+2020-08-10 18:36:16 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 215
+2020-08-12 13:20:34 - PHP Warning:  A non-numeric value encountered in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 191
+2020-08-12 13:25:22 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.catalog.language.1597242322): failed to open stream: Permission denied in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-08-12 13:25:22 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-08-12 13:25:22 - PHP Warning:  fwrite() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-08-12 13:25:22 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-08-12 13:25:22 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-08-12 13:25:22 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
