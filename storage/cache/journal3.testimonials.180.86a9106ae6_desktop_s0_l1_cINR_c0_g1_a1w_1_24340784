@@ -1,0 +1,214 @@
+<?php $val = array (
+  'css' => '.module-testimonials-180 .swiper-container{overflow:hidden;padding-right:20px;padding-left:20px}.module-testimonials-180 .swiper-buttons{display:block;top:50%}.module-testimonials-180 .swiper-button-prev{left:0;right:auto;transform:translate(0, -50%)}.module-testimonials-180 .swiper-button-next{left:auto;right:0;transform:translate(0, -50%)}.module-testimonials-180 .swiper-buttons
+div{width:42px;height:42px;background:rgba(255, 255, 255, 1);border-width:1px;border-style:solid;border-color:rgba(204, 204, 204, 1);border-radius:50%;box-shadow:none}.module-testimonials-180 .swiper-button-disabled{opacity:0.5}.module-testimonials-180 .swiper-buttons div::before{content:\'\\e93e\' !important;font-family:icomoon !important;font-size:23px;color:rgba(51, 51, 51, 1)}.module-testimonials-180 .swiper-buttons .swiper-button-next::before{content:\'\\e93f\' !important;font-family:icomoon !important;font-size:23px;color:rgba(51, 51, 51, 1)}.module-testimonials-180 .swiper-buttons div:not(.swiper-button-disabled):hover{background:rgba(255, 255, 255, 1)}.module-testimonials-180 .swiper-buttons div:not(.swiper-button-disabled):active{background:rgba(255, 255, 255, 1)}.module-testimonials-180 .swiper-pagination{display:block;margin-bottom:60px;border-radius:50%;left:50%;right:auto;transform:translateX(-50%)}.module-testimonials-180 .swiper-pagination-bullet{width:8px;height:8px;background-color:rgba(204, 204, 204, 1);box-shadow:none}.module-testimonials-180 .swiper-pagination>span+span{margin-left:5px}.desktop .module-testimonials-180 .swiper-pagination-bullet:hover{background-color:rgba(247, 144, 44, 1);box-shadow:none}.module-testimonials-180 .swiper-pagination-bullet.swiper-pagination-bullet-active{background-color:rgba(247, 144, 44, 1);box-shadow:none}.module-testimonials-180 .swiper-pagination>span{border-radius:50%}.module-testimonials-180.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.module-testimonials-180.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.one-column #content .module-testimonials-180.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.one-column #content .module-testimonials-180.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.two-column #content .module-testimonials-180.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.two-column #content .module-testimonials-180.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.side-column .module-testimonials-180.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.side-column .module-testimonials-180.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}.module-testimonials-180 .title.module-title{font-family:\'Poppins\';font-weight:600;font-size:26px;color:rgba(51, 51, 51, 1);background:none;margin-bottom:0px}.module-testimonials-180 .block-body{font-size:16px;color:rgba(255, 255, 255, 1);text-align:center;background:rgba(255, 255, 255, 1);padding:20px;border-radius:5px;font-family:\'Poppins\';font-weight:600;font-size:14px;color:rgba(102, 102, 102, 1)}.module-testimonials-180.testimonials-grid .module-body{margin-right:20px}.module-testimonials-180 .nav-tabs > li > a, .module-testimonials-180 .nav-tabs > li.active > a, .module-testimonials-180 .nav-tabs > li.active > a:hover, .module-testimonials-180 .nav-tabs>li.active>a:focus{font-family:\'Poppins\';font-weight:700;font-size:14px;color:rgba(48, 56, 65, 1);text-transform:uppercase}.desktop .module-testimonials-180 .nav-tabs > li:hover > a, .module-testimonials-180 .nav-tabs>li.active>a{color:rgba(218, 10, 34, 1)}.module-testimonials-180 .nav-tabs{border-width:0;border-bottom-width:1px;border-style:solid;border-color:rgba(221, 221, 221, 1);display:flex;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;;min-width:50px}.module-testimonials-180 .nav-tabs>li{border-width:0;border-bottom-width:1px;border-style:solid;border-color:rgba(0, 0, 0, 0);flex-grow:0}.module-testimonials-180 .nav-tabs>li.active{border-color:rgba(218, 10, 34, 1)}.module-testimonials-180 .nav-tabs>li.active::after{display:none;border-top-width:10px}.module-testimonials-180 .nav-tabs>li>a{justify-content:center;white-space:nowrap;padding:0px;padding-bottom:10px}.module-testimonials-180 .nav-tabs>li>a::before{font-size:18px}.module-testimonials-180 .nav-tabs>li:not(:last-child){margin-right:20px}.module-testimonials-180 .mobile .nav-tabs{overflow-x:scroll}.module-testimonials-180 .nav-tabs::-webkit-scrollbar{-webkit-appearance:none;height:1px;height:1px;width:1px}.module-testimonials-180 .nav-tabs::-webkit-scrollbar-track{background-color:white;background-color:rgba(255, 255, 255, 1)}.module-testimonials-180 .nav-tabs::-webkit-scrollbar-thumb{background-color:#999;background-color:rgba(60, 196, 114, 1)}.module-testimonials-180 .tab-container::before{display:none}.module-testimonials-180 .tab-content{padding-top:20px}.module-testimonials-180 .tab-container{display:block}.module-testimonials-180 .tab-container .nav-tabs{flex-direction:row}.module-testimonials-180 .block-header{text-align:center}.module-testimonials-180 .block-header i::before{content:none !important}.module-testimonials-180 .block-header
+i{width:80px;height:80px;background:rgba(218, 10, 34, 1);margin-bottom:10px;border-radius:50px}.module-testimonials-180 .block-footer{font-family:\'Poppins\';font-weight:600}@media (max-width: 760px){.module-testimonials-180.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.module-testimonials-180.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}}@media (max-width: 470px){.module-testimonials-180.blocks-grid .module-item.swiper-slide{margin-right:20px;width:calc((100% - 0 * 20px) / 1 - 0.01px)}.module-testimonials-180.blocks-grid .module-item:not(.swiper-slide){padding:10px;width:calc(100% / 1 - 0.01px)}}.module-testimonials-180 .module-item-1 .block-header{text-align:center}.module-testimonials-180 .module-item-1 .block-header
+img{border-width:1px;border-style:solid;border-color:rgba(204, 204, 204, 1);border-radius:50%;box-shadow:none}.module-testimonials-180 .module-item-1 .block-content{max-height:100% !important;overflow:visible !important;max-height:75px;overflow:hidden}.module-testimonials-180 .module-item-1 .block-expand::after{content:\'Show More\'}.module-testimonials-180 .module-item-1 .block-expanded + .block-expand-overlay .block-expand::after{content:\'Show Less\'}.module-testimonials-180 .module-item-1 .block-expand::before{content:\'\\f078\' !important;font-family:icomoon !important}.module-testimonials-180 .module-item-1 .block-expanded + .block-expand-overlay .block-expand::before{content:\'\\f077\' !important;font-family:icomoon !important}.module-testimonials-180 .module-item-1 .block-footer{font-family:\'Poppins\';font-weight:600;font-size:20px;color:rgba(129, 41, 144, 1);text-align:center}.module-testimonials-180 .module-item-1 .block-footer
+.btn{width:auto}.module-testimonials-180 .module-item-2 .block-header
+img{border-width:1px;border-style:solid;border-color:rgba(204, 204, 204, 1);border-radius:50%;box-shadow:none}.module-testimonials-180 .module-item-2 .block-content{max-height:100% !important;overflow:visible !important;max-height:75px;overflow:hidden}.module-testimonials-180 .module-item-2 .block-expand::after{content:\'Show More\'}.module-testimonials-180 .module-item-2 .block-expanded + .block-expand-overlay .block-expand::after{content:\'Show Less\'}.module-testimonials-180 .module-item-2 .block-expand::before{content:\'\\f078\' !important;font-family:icomoon !important}.module-testimonials-180 .module-item-2 .block-expanded + .block-expand-overlay .block-expand::before{content:\'\\f077\' !important;font-family:icomoon !important}.module-testimonials-180 .module-item-2 .block-footer{font-size:20px;text-align:center}.module-testimonials-180 .module-item-2 .block-footer
+.btn{width:auto}',
+  'fonts' => 
+  array (
+    'fonts' => 
+    array (
+      'Poppins' => 
+      array (
+        600 => '600',
+        700 => '700',
+      ),
+    ),
+    'subsets' => 
+    array (
+      'latin-ext' => 'latin-ext',
+    ),
+  ),
+  'settings' => 
+  array (
+    'schedule' => 
+    array (
+      'from' => '',
+      'to' => '',
+      'between' => true,
+    ),
+    'display' => 'grid',
+    'displayTablet' => '',
+    'displayPhone' => '',
+    'carousel' => true,
+    'itemsPerRow' => 
+    array (
+      'c0' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+        760 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+        470 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+      'c1' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+      'c2' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+      'sc' => 
+      array (
+        0 => 
+        array (
+          'items' => 1,
+          'spacing' => 20,
+        ),
+      ),
+    ),
+    'default' => '',
+    'title' => 'Parent\'s Speak',
+    'imageDimensions' => 
+    array (
+      'width' => NULL,
+      'height' => NULL,
+      'resize' => 'fill',
+    ),
+    'status' => true,
+    'id' => 'testimonials-5f5faaeaa04d2',
+    'module_id' => 180,
+    'classes' => 
+    array (
+      0 => 'module',
+      1 => 'module-testimonials',
+      2 => 'module-testimonials-180',
+      3 => 'blocks-grid',
+      'carousel-mode' => true,
+    ),
+    'carouselOptions' => 
+    array (
+      'speed' => 400,
+      'autoplay' => false,
+      'pauseOnHover' => true,
+      'loop' => true,
+    ),
+    'default_index' => 0,
+    'items' => 
+    array (
+      1 => 
+      array (
+        'header' => 'image',
+        'contentType' => 'html',
+        'expandButton' => false,
+        'footer' => 'none',
+        'footerText' => 'Parent name<span class="author-designation">Developer</span>',
+        'footerButton' => '',
+        'footerButtonLink' => 
+        array (
+          'type' => '',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '180-1',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-1',
+          'tab-pane' => false,
+          'active' => false,
+          'panel' => false,
+          'panel-active' => false,
+          'swiper-slide' => true,
+        ),
+        'tab_classes' => 
+        array (
+          0 => 'tab-1',
+          'active' => false,
+        ),
+        'panel_classes' => 
+        array (
+          0 => 'panel-collapse',
+          1 => 'collapse',
+          'in' => false,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/catalog/avatar-icon-images-4-512x512.jpg',
+        'title' => NULL,
+        'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularise',
+        'items' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'header' => 'image',
+        'contentType' => 'html',
+        'expandButton' => false,
+        'footer' => 'none',
+        'footerText' => 'Parent name<span class="author-designation">Developer</span>',
+        'footerButton' => '',
+        'footerButtonLink' => 
+        array (
+          'type' => '',
+          'id' => '',
+          'href' => '',
+          'name' => '',
+          'total' => NULL,
+          'attrs' => 
+          array (
+          ),
+          'classes' => 
+          array (
+          ),
+        ),
+        'id' => '180-2',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-2',
+          'tab-pane' => false,
+          'active' => false,
+          'panel' => false,
+          'panel-active' => false,
+          'swiper-slide' => true,
+        ),
+        'tab_classes' => 
+        array (
+          0 => 'tab-2',
+          'active' => false,
+        ),
+        'panel_classes' => 
+        array (
+          0 => 'panel-collapse',
+          1 => 'collapse',
+          'in' => false,
+        ),
+        'image' => 'http://localhost/ekaksha/image/cache/placeholder-1000x1000.png',
+        'title' => NULL,
+        'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularise',
+        'items' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+);

@@ -1589,3 +1589,70 @@
 2020-08-12 13:25:22 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
 2020-08-12 13:25:22 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
 2020-08-12 13:25:22 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-08-13 5:23:01 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\ekaksha\system\library\image.php on line 169
+2020-08-13 5:23:01 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 177
+2020-08-13 5:23:01 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 180
+2020-08-13 5:23:01 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 182
+2020-08-13 5:25:11 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\ekaksha\system\library\image.php on line 169
+2020-08-13 5:25:11 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 177
+2020-08-13 5:25:11 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 180
+2020-08-13 5:25:11 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 182
+2020-08-13 5:27:21 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\ekaksha\system\library\image.php on line 169
+2020-08-13 5:27:21 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 177
+2020-08-13 5:27:21 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 180
+2020-08-13 5:27:21 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 182
+2020-08-13 5:34:51 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\ekaksha\system\library\image.php on line 169
+2020-08-13 5:34:51 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 177
+2020-08-13 5:34:51 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 180
+2020-08-13 5:34:51 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 182
+2020-08-13 5:37:57 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\ekaksha\system\library\image.php on line 169
+2020-08-13 5:37:57 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 177
+2020-08-13 5:37:57 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 180
+2020-08-13 5:37:57 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 182
+2020-08-13 13:10:18 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\ekaksha\system\library\image.php on line 169
+2020-08-13 13:10:18 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 177
+2020-08-13 13:10:18 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 180
+2020-08-13 13:10:18 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 182
+2020-08-13 13:11:32 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\ekaksha\system\library\image.php on line 169
+2020-08-13 13:11:32 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 177
+2020-08-13 13:11:32 - PHP Warning:  imagefilledrectangle() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 180
+2020-08-13 13:11:32 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\system\library\image.php on line 182
+2020-08-14 17:09:14 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\ekaksha\system\library\mail\mail.php on line 77
+2020-08-14 17:09:23 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\ekaksha\system\library\mail\mail.php on line 77
+2020-08-14 17:09:25 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\ekaksha\system\library\mail\mail.php on line 77
+2020-09-14 16:43:52 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.catalog.language.1600105432): failed to open stream: Permission denied in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-09-14 16:43:52 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-09-14 16:43:52 - PHP Warning:  fwrite() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-09-14 16:43:52 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-09-14 16:43:52 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-09-14 16:43:52 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-09-14 17:20:34 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.catalog.language.1600107634): failed to open stream: Permission denied in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-09-14 17:20:34 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-09-14 17:20:34 - PHP Warning:  fwrite() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-09-14 17:20:34 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-09-14 17:20:34 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-09-14 17:20:34 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-09-14 17:22:13 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.catalog.language.1600107733): failed to open stream: Permission denied in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-09-14 17:22:13 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-09-14 17:22:13 - PHP Warning:  fwrite() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-09-14 17:22:13 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-09-14 17:22:13 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-09-14 17:22:13 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-09-14 17:22:13 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.catalog.language.1600107733): failed to open stream: Permission denied in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-09-14 17:22:13 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-09-14 17:22:13 - PHP Warning:  fwrite() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-09-14 17:22:13 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-09-14 17:22:13 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-09-14 17:22:13 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-09-14 17:36:23 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.catalog.language.1600108583): failed to open stream: Permission denied in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-09-14 17:36:23 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-09-14 17:36:23 - PHP Warning:  fwrite() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-09-14 17:36:23 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-09-14 17:36:23 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-09-14 17:36:23 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-09-14 17:36:23 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.catalog.language.1600108583): failed to open stream: Permission denied in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-09-14 17:36:23 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-09-14 17:36:23 - PHP Warning:  fwrite() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-09-14 17:36:23 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-09-14 17:36:23 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-09-14 17:36:23 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
