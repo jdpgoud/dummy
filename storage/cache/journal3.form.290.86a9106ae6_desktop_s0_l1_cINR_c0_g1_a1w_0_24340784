@@ -1,0 +1,130 @@
+<?php $val = array (
+  'css' => '.module-form-290 .form-group .control-label{display:none;max-width:125px;justify-content:flex-start}.module-form-290 .required .control-label+div::before{display:inline}.module-form-290 .required .control-label::after{display:none}.module-form-290 .has-error .form-control{border-style:solid !important;border-color:rgba(218, 10, 34, 1) !important}.module-form-290 .required .control-label::after, .module-form-290 .required .control-label + div::before, .module-form-290 .text-danger{font-family:\'Poppins\';font-weight:400;font-size:10px;color:rgba(218, 10, 34, 1)}.module-form-290 .form-group{box-shadow:none}.module-form-290 .required.has-error .control-label::after, .module-form-290 .required.has-error .control-label+div::before{color:rgba(218, 10, 34, 1) !important}.module-form-290 input.form-control{font-family:\'Poppins\' !important;font-weight:600 !important;font-size:14px !important;color:rgba(48, 56, 65, 1) !important;background:rgba(255, 255, 255, 1) !important;border-width:1px !important;border-style:solid !important;border-color:rgba(221, 221, 221, 1) !important;border-radius:5px !important;box-shadow:none}.module-form-290 input.form-control:hover{background:rgba(255, 255, 255, 1) !important;border-color:rgba(196, 202, 253, 1) !important}.module-form-290 input.form-control:focus{background:rgba(255, 255, 255, 1) !important;box-shadow:inset 0 0 5px rgba(0, 0, 0, 0.1)}.module-form-290 input.form-control:focus, .module-form-290 input.form-control:active{border-color:rgba(196, 202, 253, 1) !important}.module-form-290 input.form-control::placeholder{color:rgba(204, 204, 204, 1) !important}.module-form-290
+.radio{width:100%;margin-bottom:5px !important}.module-form-290
+.checkbox{width:100%;margin-bottom:5pxpx !important}.module-form-290 .input-group .input-group-btn
+.btn{min-width:35px;min-height:35px}.module-form-290 .product-option-file .btn i::before{content:\'\\ebd8\' !important;font-family:icomoon !important}.module-form-290 .title.module-title{font-family:\'Poppins\';font-weight:600;font-size:14px;color:rgba(247, 144, 44, 1);background:none;margin-bottom:15px;white-space:normal;overflow:visible;text-overflow:initial;text-align:left}.module-form-290 .title.module-title::after{display:none;left:initial;right:initial;margin-left:0;margin-right:auto;transform:none}.module-form-290 .title.module-title.page-title>span::after{display:none;left:initial;right:initial;margin-left:0;margin-right:auto;transform:none}.module-form-290
+.buttons{border-width:0;border-top-width:1px;border-style:solid;border-color:rgba(221, 221, 221, 1)}.module-form-290 .buttons .pull-right .btn, .module-form-290 .buttons .pull-right .btn:visited{font-family:\'Poppins\';font-weight:600;font-size:16px;color:rgba(255, 255, 255, 1);text-transform:none}.module-form-290 .buttons .pull-right
+.btn{background:rgba(155, 60, 171, 1);padding:6px;padding-right:20px;padding-left:20px;box-shadow:none;border-radius:5px !important;min-height:40px;max-height:40px}.module-form-290 .buttons .pull-right .btn:hover{background:rgba(155, 60, 171, 1) !important}.module-form-290 .buttons .pull-right .btn:active, .module-form-290 .buttons .pull-right .btn:hover:active, .module-form-290 .buttons .pull-right .btn:focus:active{background:rgba(155, 60, 171, 1) !important;box-shadow:none}.module-form-290 .buttons .pull-right .btn:focus{background:rgba(155, 60, 171, 1);box-shadow:none}.desktop .module-form-290 .buttons .pull-right .btn:hover{box-shadow:none}.module-form-290 .buttons .pull-right .btn.btn.disabled::after{content:\'\\e863\' !important;font-family:icomoon !important;font-size:20px;color:rgba(255, 255, 255, 1);animation:fa-spin infinite linear}.module-form-290 .buttons .pull-left
+.btn{background:rgba(109, 118, 125, 1);border-width:0px}.module-form-290 .buttons .pull-left .btn:hover{background:rgba(48, 56, 65, 1) !important}.module-form-290 .buttons .pull-left .btn.btn.disabled::after{font-size:20px}.module-form-290 .buttons .pull-right .btn::after{content:none !important}.module-form-290 .buttons .pull-left .btn::before{content:none !important}.module-form-290 .buttons>div{flex:1;width:auto;flex-basis:0}.module-form-290 .buttons > div
+.btn{width:100%}.module-form-290 .buttons .pull-left{margin-right:0}.module-form-290 .buttons>div+div{padding-left:0px}.module-form-290 .buttons .pull-right:only-child{flex:1;margin:0
+auto 0 auto}.module-form-290 .buttons .pull-right:only-child
+.btn{width:100%}.module-form-290 .buttons input+.btn{margin-top:5px}.module-form-290{background:rgba(255, 255, 255, 1);padding-top:15px;padding-right:20px;padding-bottom:15px;padding-left:20px}@media (max-width: 760px){.module-form-290 .buttons>div{width:100%;flex-basis:auto}.module-form-290 .buttons>div+div{padding-left:0px}}',
+  'fonts' => 
+  array (
+    'fonts' => 
+    array (
+      'Poppins' => 
+      array (
+        400 => '400',
+        600 => '600',
+      ),
+    ),
+    'subsets' => 
+    array (
+      'latin-ext' => 'latin-ext',
+    ),
+  ),
+  'settings' => 
+  array (
+    'schedule' => 
+    array (
+      'from' => '',
+      'to' => '',
+      'between' => true,
+    ),
+    'title' => 'Get Online Classes',
+    'agree' => '',
+    'sentText' => 'Sent',
+    'sentEmailTo' => '',
+    'sentEmailSubject' => '{{ $store }} - Enquiry from {{ $email }}',
+    'sentEmailTitle' => 'A new message has been received!',
+    'sentEmailField' => 'Field',
+    'sentEmailValue' => 'Value',
+    'sentEmailUsingModule' => 'Sent using module',
+    'sentEmailFrom' => 'Sent from',
+    'sentEmailIPAddress' => 'IP Address',
+    'status' => true,
+    'id' => 'form-5f61fa2dacc93',
+    'module_id' => 290,
+    'classes' => 
+    array (
+      0 => 'module',
+      1 => 'module-form',
+      2 => 'module-form-290',
+    ),
+    'text_select' => ' --- Please Select --- ',
+    'text_loading' => 'Loading...',
+    'button_submit' => 'Submit',
+    'button_upload' => 'Upload File',
+    'datepicker' => 'en-gb',
+    'action' => 'http://localhost/ekaksha/index.php?route=journal3/form/send&amp;module_id=290',
+    'agree_data' => NULL,
+    'items' => 
+    array (
+      1 => 
+      array (
+        'label' => '',
+        'placeholder' => 'Full Name',
+        'type' => 'text',
+        'required' => true,
+        'id' => '290-1',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-1',
+        ),
+        'items' => 
+        array (
+        ),
+      ),
+      2 => 
+      array (
+        'label' => '',
+        'placeholder' => 'Mobile Number',
+        'type' => 'tel',
+        'required' => true,
+        'id' => '290-2',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-2',
+        ),
+        'items' => 
+        array (
+        ),
+      ),
+      3 => 
+      array (
+        'label' => '',
+        'placeholder' => 'Email ID',
+        'type' => 'email',
+        'required' => true,
+        'id' => '290-3',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-3',
+        ),
+        'items' => 
+        array (
+        ),
+      ),
+      4 => 
+      array (
+        'label' => '',
+        'placeholder' => 'City',
+        'type' => 'text',
+        'required' => false,
+        'id' => '290-4',
+        'classes' => 
+        array (
+          0 => 'module-item',
+          1 => 'module-item-4',
+        ),
+        'items' => 
+        array (
+        ),
+      ),
+    ),
+  ),
+);

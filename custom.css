@@ -76,14 +76,16 @@
         right: 0px;
     }
 
-    .top-menu.secondary-menu .top-menu-273 .j-menu li.top-menu-item-1>a::before {
+    .top-menu.secondary-menu .top-menu-273 .j-menu li.top-menu-item-1>a::before,
+    .mobile-custom-menu-1::before {
         font-size: 0px;
         background: url(image/catalog/icon-notification.png) no-repeat;
         width: 40px;
         height: 40px;
     }
 
-    .top-menu.secondary-menu .top-menu-273 .j-menu li.top-menu-item-2>a::before {
+    .top-menu.secondary-menu .top-menu-273 .j-menu li.top-menu-item-2>a::before,
+    .mobile-custom-menu-2::before {
         font-size: 0px;
         background: url(image/catalog/icon-user.png) no-repeat;
         width: 40px;
@@ -336,6 +338,17 @@
         z-index: 9;
     }
 
+@media screen and (min-width:120px) and (max-width:768px) {
+    .module.module-testimonials.module-testimonials-289 .module-body:before, .module.module-testimonials.module-testimonials-180 .module-body:before {
+        width: 60px;
+        height: 50px;
+        top: -70px;
+        left: 50px;
+    }
+
+}
+
+
     .module.module-testimonials.module-testimonials-289 .module-body:after, .module.module-testimonials.module-testimonials-180 .module-body:after {
         content: '';
         background: url(image/catalog/testimonial-symbol.png) no-repeat center center;
@@ -347,6 +360,16 @@
         z-index: 9;
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
+    }
+
+    @media screen and (min-width:120px) and (max-width:768px) {
+        .module.module-testimonials.module-testimonials-289 .module-body:after, .module.module-testimonials.module-testimonials-180 .module-body:after {
+            width: 60px;
+            height: 50px;
+            bottom: 75px;
+            right: 70px;
+        }
+    
     }
 
     .module-testimonials-289 .swiper-button-prev, .module-testimonials-180 .swiper-button-prev {
@@ -855,6 +878,14 @@
         padding:10px;
     }
 
-    .grid-row-bottom-1{
+    @media screen and (min-width:120px) and (max-width:768px) {
 
+    .grid-row.grid-row-bottom-1 .grid-cols .grid-col-bottom-1-1, 
+    .grid-row.grid-row-bottom-1 .grid-cols .grid-col-bottom-1-2 {
+        width: 100%;
     }
+}
+
+.mobile-header-active .site-wrapper{
+    background:#eeeded;
+}

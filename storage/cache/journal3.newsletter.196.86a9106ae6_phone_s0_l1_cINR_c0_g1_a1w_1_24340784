@@ -1,0 +1,62 @@
+<?php $val = array (
+  'css' => '.module-newsletter-196 .title.module-title{text-align:center}.module-newsletter-196 .title.module-title::after{left:50%;right:initial;transform:translate3d(-50%,0,0)}.module-newsletter-196{text-align:center;justify-content:center}.module-newsletter-196 .module-body>div{align-self:center}.module-newsletter-196 .title::after{left:50%;right:auto;transform:translate3d(-50%,0,0)}.module-newsletter-196 .module-body{flex-direction:column}.module-newsletter-196 .newsletter-text{font-size:14px;margin-right:40px;margin-bottom:15px;margin-left:40px}.module-newsletter-196 input::-webkit-input-placeholder{color:rgba(51, 51, 51, 1)}.module-newsletter-196 input::-moz-input-placeholder{color:rgba(51, 51, 51, 1)}.module-newsletter-196 input:-ms-input-placeholder{color:rgba(51, 51, 51, 1)}.module-newsletter-196 .module-body .input-group{height:40px}.module-newsletter-196 .module-body .newsletter-form .input-group
+input{width:400px;max-width:100%}.module-newsletter-196 .module-body .form-control{font-family:\'Poppins\' !important;font-weight:600 !important;font-size:14px !important;color:rgba(48, 56, 65, 1) !important;background:rgba(255, 255, 255, 1) !important;border-width:1px !important;border-style:solid !important;border-color:rgba(221, 221, 221, 1) !important;border-radius:5px !important;box-shadow:none}.module-newsletter-196 .module-body .form-control:hover{background:rgba(255, 255, 255, 1) !important;border-color:rgba(196, 202, 253, 1) !important}.module-newsletter-196 .module-body .form-control:focus{background:rgba(255, 255, 255, 1) !important;box-shadow:inset 0 0 5px rgba(0, 0, 0, 0.1)}.module-newsletter-196 .module-body .form-control:focus, .module-newsletter-196 .module-body .form-control:active{border-color:rgba(196, 202, 253, 1) !important}.module-newsletter-196 .module-body .form-control::placeholder{color:rgba(204, 204, 204, 1) !important}.module-newsletter-196 .btn::before{display:none;content:none !important}.module-newsletter-196 .input-group .input-group-btn .btn, .module-newsletter-196 .input-group .input-group-btn .btn:visited{font-family:\'Poppins\';font-weight:600;font-size:16px;color:rgba(255, 255, 255, 1);text-transform:none}.module-newsletter-196 .input-group .input-group-btn
+.btn{background:rgba(155, 60, 171, 1);padding:6px;padding-right:20px;padding-left:20px;box-shadow:none;border-radius:5px !important;min-height:40px;max-height:40px;border-top-left-radius:0px !important;border-top-right-radius:5px !important;border-bottom-right-radius:5px !important;border-bottom-left-radius:0px !important;padding:8px;min-height:40px;height:40px}.module-newsletter-196 .input-group .input-group-btn .btn:hover{background:rgba(155, 60, 171, 1) !important}.module-newsletter-196 .input-group .input-group-btn .btn:active, .module-newsletter-196 .input-group .input-group-btn .btn:hover:active, .module-newsletter-196 .input-group .input-group-btn .btn:focus:active{background:rgba(155, 60, 171, 1) !important;box-shadow:none}.module-newsletter-196 .input-group .input-group-btn .btn:focus{background:rgba(155, 60, 171, 1);box-shadow:none}.desktop .module-newsletter-196 .input-group .input-group-btn .btn:hover{box-shadow:none}.module-newsletter-196 .input-group .input-group-btn .btn.btn.disabled::after{content:\'\\e863\' !important;font-family:icomoon !important;font-size:20px;color:rgba(255, 255, 255, 1);animation:fa-spin infinite linear}.module-newsletter-196 .checkbox
+label{font-size:10px;color:rgba(109, 118, 125, 1)}.module-newsletter-196 .checkbox label
+a{font-weight:400;text-decoration:underline}',
+  'fonts' => 
+  array (
+    'fonts' => 
+    array (
+      'Poppins' => 
+      array (
+        600 => '600',
+      ),
+    ),
+    'subsets' => 
+    array (
+      'latin-ext' => 'latin-ext',
+    ),
+  ),
+  'settings' => 
+  array (
+    'schedule' => 
+    array (
+      'from' => '',
+      'to' => '',
+      'between' => true,
+    ),
+    'title' => 'Get Updates',
+    'text' => 'Sign up to our newsletter and we\'ll send fresh new courses  and special offers direct to your inbox, once a week.',
+    'placeholder' => 'Your email address',
+    'buttonType' => 'text',
+    'buttonText' => 'Subscribe',
+    'tooltipStatus' => true,
+    'tooltipText' => 'Subscribe',
+    'tooltipPosition' => 'top',
+    'subscribedMessage' => 'You have been subscribed to our newsletter.',
+    'subscribedEmail' => true,
+    'subscribedEmailMessage' => 'Thank you for subscribing to our newsletter.&nbsp;',
+    'unsubscribeMessage' => 'You are already subscribed. Do you want to unsubscribe?',
+    'unsubscribedMessage' => 'You have been unsubscribed from our newsletter.',
+    'unsubscribedEmail' => true,
+    'unsubscribedEmailMessage' => 'We\'re sorry to see you go.',
+    'adminAlerts' => true,
+    'agree' => '',
+    'captcha' => false,
+    'status' => true,
+    'id' => 'newsletter-5f6094b1eefeb',
+    'module_id' => 196,
+    'classes' => 
+    array (
+      0 => 'module',
+      1 => 'module-newsletter',
+      2 => 'module-newsletter-196',
+    ),
+    'action' => 'http://localhost/ekaksha/index.php?route=journal3/newsletter/newsletter&amp;module_id=196',
+    'agree_data' => NULL,
+    'items' => 
+    array (
+    ),
+  ),
+);

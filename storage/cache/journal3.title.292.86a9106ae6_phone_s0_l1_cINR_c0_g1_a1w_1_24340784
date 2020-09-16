@@ -1,0 +1,45 @@
+<?php $val = array (
+  'css' => '.module-title-292{text-align:center;margin-bottom:20px}.module-title-292
+.subtitle{display:inline-block;font-size:15px;max-width:900px}.module-title-292 .title-divider{display:block;max-width:50px;height:1px;background:rgba(218, 10, 34, 1);margin-top:10px;margin-bottom:10px;margin-left:auto;margin-right:auto;display:none;margin-left:auto;margin-right:auto}.module-title-292 .title-wrapper{text-align:center;text-align:center}.module-title-292
+h3{font-size:32px;font-weight:700}.module-title-292 .title-wrapper
+h3{font-family:\'Poppins\';font-weight:600;font-size:26px;color:rgba(51, 51, 51, 1)}.module-title-292 .title-wrapper::before{opacity:.05;display:block}@media (max-width: 470px){.module-title-292
+h3{font-size:26px}}',
+  'fonts' => 
+  array (
+    'fonts' => 
+    array (
+      'Poppins' => 
+      array (
+        600 => '600',
+      ),
+    ),
+    'subsets' => 
+    array (
+      'latin-ext' => 'latin-ext',
+    ),
+  ),
+  'settings' => 
+  array (
+    'schedule' => 
+    array (
+      'from' => '',
+      'to' => '',
+      'between' => true,
+    ),
+    'type' => 'custom',
+    'title' => 'Available Courses',
+    'subtitle' => '',
+    'status' => true,
+    'id' => 'title-5f6094b1df018',
+    'module_id' => 292,
+    'classes' => 
+    array (
+      0 => 'module',
+      1 => 'module-title',
+      2 => 'module-title-292',
+    ),
+    'items' => 
+    array (
+    ),
+  ),
+);

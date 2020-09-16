@@ -1,0 +1,52 @@
+<?php $val = array (
+  'css' => '.module-newsletter-113{padding:10px;text-align:left;justify-content:flex-start}.module-newsletter-113 .title.module-title{font-size:18px;font-weight:700;text-transform:uppercase;border-width:0px;padding:0px;margin-bottom:15px;white-space:normal;overflow:visible;text-overflow:initial}.module-newsletter-113 .title.module-title::after{content:\'\';display:block;position:relative;margin-top:7px}.module-newsletter-113 .title.module-title.page-title>span::after{content:\'\';display:block;position:relative;margin-top:7px}.module-newsletter-113 .title.module-title::after, .module-newsletter-113 .title.module-title.page-title>span::after{width:50px;height:1px;background:rgba(218, 10, 34, 1)}.module-newsletter-113 .module-body>div{align-self:flex-start}.module-newsletter-113 .title::after{left:0;right:auto;transform:none}.module-newsletter-113 .module-body{flex-direction:column}.module-newsletter-113 .newsletter-text{font-size:15px;color:rgba(109, 118, 125, 1);padding-bottom:10px}.module-newsletter-113 .module-body .input-group{height:50px}.module-newsletter-113 .module-body .newsletter-form .input-group
+input{width:500px;max-width:100%}.module-newsletter-113 .btn::before{content:\'\\eb79\' !important;font-family:icomoon !important;margin-right:5px}.module-newsletter-113 .input-group .input-group-btn .btn, .module-newsletter-113 .input-group .input-group-btn .btn:visited{font-size:13px;color:rgba(255, 255, 255, 1);text-transform:uppercase}.module-newsletter-113 .input-group .input-group-btn .btn:hover{color:rgba(255, 255, 255, 1) !important;background:rgba(150, 61, 165, 1) !important}.module-newsletter-113 .input-group .input-group-btn .btn:active, .module-newsletter-113 .input-group .input-group-btn .btn:hover:active, .module-newsletter-113 .input-group .input-group-btn .btn:focus:active{color:rgba(255, 255, 255, 1) !important;background:rgba(150, 61, 165, 1) !important}.module-newsletter-113 .input-group .input-group-btn .btn:focus{color:rgba(255, 255, 255, 1) !important;background:rgba(150, 61, 165, 1);box-shadow:inset 0 0 20px rgba(0, 0, 0, 0.25)}.module-newsletter-113 .input-group .input-group-btn
+.btn{background:rgba(129, 41, 144, 1);padding:12px;box-shadow:none;border-radius:5px !important;min-height:40px;height:40px}.module-newsletter-113 .input-group .input-group-btn .btn.btn.disabled::after{content:\'\\e92e\' !important;font-family:icomoon !important;font-size:20px;color:rgba(255, 255, 255, 1)}.module-newsletter-113 .input-group-btn
+.btn{transform:translateX(-5px);margin-top:5px}@media (max-width: 760px){.module-newsletter-113 .module-body .newsletter-form
+.checkbox{padding-top:10px}}',
+  'fonts' => 
+  array (
+  ),
+  'settings' => 
+  array (
+    'schedule' => 
+    array (
+      'from' => '',
+      'to' => '',
+      'between' => true,
+    ),
+    'title' => 'Join our exclusive club',
+    'text' => 'Sign up and Save! Get a $10 gift in your inbox immediately after you sign up for our newsletter.',
+    'placeholder' => 'Your email',
+    'buttonType' => 'both',
+    'buttonText' => 'Sign up',
+    'tooltipStatus' => true,
+    'tooltipText' => 'Subscribe',
+    'tooltipPosition' => 'top',
+    'subscribedMessage' => 'You have been subscribed to our newsletter.',
+    'subscribedEmail' => true,
+    'subscribedEmailMessage' => 'Thank you for subscribing to our newsletter.',
+    'unsubscribeMessage' => 'You are already subscribed. Do you want to unsubscribe?',
+    'unsubscribedMessage' => 'You have been unsubscribed from our newsletter.',
+    'unsubscribedEmail' => true,
+    'unsubscribedEmailMessage' => 'We\'re sorry to see you go.',
+    'adminAlerts' => true,
+    'agree' => '3',
+    'captcha' => false,
+    'status' => false,
+    'id' => 'newsletter-5f6094b21250c',
+    'module_id' => 113,
+    'classes' => 
+    array (
+      0 => 'module',
+      1 => 'module-newsletter',
+      2 => 'module-newsletter-113',
+    ),
+    'action' => 'http://localhost/ekaksha/index.php?route=journal3/newsletter/newsletter&amp;module_id=113',
+    'agree_data' => 
+    array (
+      'text' => 'I have read and agree to the <a href="http://localhost/ekaksha/index.php?route=information/information/agree&amp;information_id=3" class="agree"><b>Privacy Policy</b></a>',
+      'error' => 'Warning: You must agree to the Privacy Policy!',
+    ),
+  ),
+);
