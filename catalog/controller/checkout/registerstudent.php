@@ -175,6 +175,7 @@ class ControllerCheckoutRegisterstudent extends Controller {
 			$this->request->post['customer_group_id'] = 2;
 
 			$customer_id = $this->model_account_customer->addStudent($this->request->post);
+			$this->session->data['student_id'] = $customer_id;
 			
 			// Clear any previous login attempts for unregistered accounts.
 			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
