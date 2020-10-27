@@ -1,0 +1,132 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-question" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid"> {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-question" class="form-horizontal">
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-category">{{ entry_category }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="category_id" value="{{ category_id }}" placeholder="{{ entry_category }}" id="input-category" class="form-control" />
+              {% if error_category %}
+              <div class="text-danger">{{ error_category }}</div>
+              {% endif %} </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-question"><span data-toggle="tooltip" title="{{ help_question }}">{{ entry_question }}</span></label>
+            <div class="col-sm-10">
+              <input type="text" name="question" value="{{ question }}" placeholder="{{ entry_question }}" id="input-question" class="form-control" />
+              <input type="hidden" name="question_id" value="{{ question_id }}" />
+              {% if error_question %}
+              <div class="text-danger">{{ error_question }}</div>
+              {% endif %} </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-explanation">{{ entry_explanation }}</label>
+            <div class="col-sm-10">
+              <textarea name="explanation" cols="60" rows="8" placeholder="{{ entry_explanation }}" id="input-explanation" class="form-control">{{ explanation }}</textarea>
+              {% if error_explanation %}
+              <div class="text-danger">{{ error_explanation }}</div>
+              {% endif %} </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="status" id="input-status" class="form-control">
+                
+                {% if status %}
+                
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                
+                {% else %}
+                
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                
+                {% endif %}
+              
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-options">{{text_option}}</label>
+            <div class="col-sm-10">
+              <div class="row">
+                <div class="col-sm-3">
+                  <input type="text" name="option[0][value]" value="{{question_option_info[0]['option_value']}}" placeholder="Option-1" id="input-option-1" class="form-control">
+                  <input type="hidden" name="option[0][question_option_id]" value="{{ question_option_info[0]['question_option_id'] }}" />
+                  <input type="checkbox" name="option[0][is_correct][0]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[0]['is_correct'] == 1 %} checked {% endif %}/>
+                </div>
+                <div class="col-sm-3">
+                  <input type="text" name="option[1][value]" value="{{question_option_info[1]['option_value']}}" placeholder="Option-2" id="input-option-2" class="form-control">
+                  <input type="hidden" name="option[1][question_option_id]" value="{{ question_option_info[1]['question_option_id'] }}" />
+                  <input type="checkbox" name="option[1][is_correct][1]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[1]['is_correct'] == 1 %} checked {% endif %}/>
+                </div>
+                <div class="col-sm-3">
+                  <input type="text" name="option[2][value]" value="{{question_option_info[2]['option_value']}}" placeholder="Option-3" id="input-option-3" class="form-control">
+                  <input type="hidden" name="option[2][question_option_id]" value="{{ question_option_info[2]['question_option_id'] }}" />
+                  <input type="checkbox" name="option[2][is_correct][2]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[2]['is_correct'] == 1 %} checked {% endif %}/>
+                </div>
+                 <div class="col-sm-3">
+                  <input type="text" name="option[3][value]" value="{{question_option_info[3]['option_value']}}" placeholder="Option-4" id="input-option-4" class="form-control">
+                  <input type="hidden" name="option[3][question_option_id]" value="{{ question_option_info[3]['question_option_id'] }}" />
+                  <input type="checkbox" name="option[3][is_correct][3]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[3]['is_correct'] == 1 %} checked {% endif %}/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript"><!--
+$('.datetime').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: true,
+	pickTime: true
+});
+//--></script> 
+  <script type="text/javascript"><!--
+$('input[name=\'product\']').autocomplete({
+	'source': function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
+			dataType: 'json',			
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item['name'],
+						value: item['product_id']
+					}
+				}));
+			}
+		});
+	},
+	'select': function(item) {
+		$('input[name=\'product\']').val(item['label']);
+		$('input[name=\'product_id\']').val(item['value']);		
+	}	
+});
+//--></script></div>
+{{ footer }}
