@@ -8,7 +8,7 @@ $_['text_list']         = 'Question List';
 $_['text_add']          = 'Add Question';
 $_['text_edit']         = 'Edit Question';
 $_['text_filter']       = 'Filter';
-$_['text_option']       = 'Options';
+$_['text_option']       = 'Option';
 
 // Column
 $_['column_question_id']    = 'Question ID';

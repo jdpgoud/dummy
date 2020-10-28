@@ -173,9 +173,9 @@
                       {% else %}
                       <input type="checkbox" name="selected[]" value="{{ question.question_id }}" />
                       {% endif %}</td>
-                    <td class="text-left">{{ question.question }}</td>
+                    <td id="question" class="text-left">{{ question.question }}</td>
                     <td class="text-left">{{ question.category_id }}</td>
-                    <td class="text-right">{{ question.explanation }}</td>
+                    <td id="explanation" class="text-right">{{ question.explanation }}</td>
                     <td class="text-left">{{ question.status }}</td>
                     <td class="text-right"><a href="{{ question.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                   </tr>
@@ -235,5 +235,42 @@ $('.date').datetimepicker({
 	language: '{{ datepicker }}',
 	pickTime: false
 });
-//--></script></div>
+//--></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js" integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML"></script>
+<script>
+    CKEDITOR.replace( 'question',{
+        extraPlugins : 'mathjax,widget,dialog,lineutils,clipboard',
+        mathJaxLib : 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        mathJaxClass : 'equation',
+        toolbar : [
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: ['PasteFromWord'] },
+                      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                      { name: 'insert', items: [ 'Mathjax','Image', 'Embed' , 'Table', 'HorizontalRule', 'SpecialChar','BootstrapTabs'] },
+                      { name: 'styles', items: [ 'FontSize' ] }
+                      ],
+        width:['100%'],
+        height:["200px"]
+
+       
+    } );
+   
+   
+    CKEDITOR.replace( 'explanation',{
+        extraPlugins : 'mathjax,widget,dialog,lineutils,clipboard',
+        mathJaxLib : 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        mathJaxClass : 'equation',
+        toolbar :  [
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: ['PasteFromWord'] },
+                      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                      { name: 'insert', items: [ 'Mathjax','Image', 'Embed' , 'Table', 'HorizontalRule', 'SpecialChar','BootstrapTabs'] },
+                      { name: 'styles', items: [ 'FontSize' ] }
+                      ],
+        width:['100%'],
+        height:["100px"]
+       
+    } );
+</div>
 {{ footer }}

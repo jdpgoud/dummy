@@ -9,6 +9,16 @@ class ControllerCatalogQuestion extends Controller {
 
 		$this->load->model('catalog/question');
 
+		$this->load->model('catalog/category');
+		$categories = array();
+		$results = $this->model_catalog_category->getCategories(array());
+		foreach ($results as $result) {
+			$categories[] = array(
+				'category_id' => $result['category_id'],
+				'name'        => $result['name']
+			);
+		}
+		
 		$this->getList();
 	}
 
@@ -245,6 +255,16 @@ class ControllerCatalogQuestion extends Controller {
 		$data['add'] = $this->url->link('catalog/question/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['delete'] = $this->url->link('catalog/question/delete', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
+		$this->load->model('catalog/category');
+		$categories = array();
+		$results = $this->model_catalog_category->getCategories(array());
+		foreach ($results as $result) {
+			$categories[$result['category_id']] = array(
+				'category_id' => $result['category_id'],
+				'name'        => $result['name']
+			);
+		}
+
 		$data['questions'] = array();
 
 		$filter_data = array(
@@ -266,12 +286,12 @@ class ControllerCatalogQuestion extends Controller {
 			$data['questions'][] = array(
 				'question_id'  => $result['question_id'],
 				'question'     => $result['question'],
-				'category_id'  => $result['category_id'],
+				'category_id'  => $categories[$result['category_id']]['name'],
 				'explanation'  => $result['explanation'],
 				'status'     => ($result['status']) ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
 				'edit'       => $this->url->link('catalog/question/edit', 'user_token=' . $this->session->data['user_token'] . '&question_id=' . $result['question_id'] . $url, true)
 			);
-		}
+		}		
 
 		$data['user_token'] = $this->session->data['user_token'];
 
@@ -459,8 +479,17 @@ class ControllerCatalogQuestion extends Controller {
 		if (isset($this->request->get['question_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$question_info = $this->model_catalog_question->getQuestion($this->request->get['question_id']);
 			$question_option_info = $this->model_catalog_question->getOptionValues($this->request->get['question_id']);
+			$this->load->model('catalog/category');
+			$categories = array();
+			$results = $this->model_catalog_category->getCategories(array());
+			foreach ($results as $result) {
+				$categories[] = array(
+					'category_id' => $result['category_id'],
+					'name'        => $result['name']
+				);
+			}
+			$data['categories'] = $categories;
 		}
-
 		$data['user_token'] = $this->session->data['user_token'];
 		
 		$this->load->model('catalog/question');

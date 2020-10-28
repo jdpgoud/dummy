@@ -27,7 +27,17 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-category">{{ entry_category }}</label>
             <div class="col-sm-10">
-              <input type="text" name="category_id" value="{{ category_id }}" placeholder="{{ entry_category }}" id="input-category" class="form-control" />
+              {# <input type="text" name="category_id" value="{{ category_id }}" placeholder="{{ entry_category }}" id="input-category" class="form-control" /> #}
+              <select name="category_id" id="input-category" class="form-control">
+                <option value="0">Choose Category</option>
+                {% for category in categories %}
+                {% if category.category_id == category_id %}
+                <option value="{{ category.category_id }}" selected="selected">{{ category.name }}</option>
+                {% else %}
+                <option value="{{ category.category_id }}">{{ category.name }}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
               {% if error_category %}
               <div class="text-danger">{{ error_category }}</div>
               {% endif %} </div>
@@ -35,7 +45,8 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-question"><span data-toggle="tooltip" title="{{ help_question }}">{{ entry_question }}</span></label>
             <div class="col-sm-10">
-              <input type="text" name="question" value="{{ question }}" placeholder="{{ entry_question }}" id="input-question" class="form-control" />
+              {# <input type="text" name="question" value="{{ question }}" placeholder="{{ entry_question }}" id="input-question" class="form-control" /> #}
+              <textarea name="question" cols="60" rows="8" placeholder="{{ entry_question }}" id="input-question" class="form-control">{{ question }}</textarea>
               <input type="hidden" name="question_id" value="{{ question_id }}" />
               {% if error_question %}
               <div class="text-danger">{{ error_question }}</div>
@@ -70,32 +81,49 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-options">{{text_option}}</label>
+            <label class="col-sm-2 control-label" for="input-options">{{text_option}}-1</label>
             <div class="col-sm-10">
-              <div class="row">
-                <div class="col-sm-3">
-                  <input type="text" name="option[0][value]" value="{{question_option_info[0]['option_value']}}" placeholder="Option-1" id="input-option-1" class="form-control">
-                  <input type="hidden" name="option[0][question_option_id]" value="{{ question_option_info[0]['question_option_id'] }}" />
-                  <input type="checkbox" name="option[0][is_correct][0]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[0]['is_correct'] == 1 %} checked {% endif %}/>
-                </div>
-                <div class="col-sm-3">
-                  <input type="text" name="option[1][value]" value="{{question_option_info[1]['option_value']}}" placeholder="Option-2" id="input-option-2" class="form-control">
-                  <input type="hidden" name="option[1][question_option_id]" value="{{ question_option_info[1]['question_option_id'] }}" />
-                  <input type="checkbox" name="option[1][is_correct][1]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[1]['is_correct'] == 1 %} checked {% endif %}/>
-                </div>
-                <div class="col-sm-3">
-                  <input type="text" name="option[2][value]" value="{{question_option_info[2]['option_value']}}" placeholder="Option-3" id="input-option-3" class="form-control">
-                  <input type="hidden" name="option[2][question_option_id]" value="{{ question_option_info[2]['question_option_id'] }}" />
-                  <input type="checkbox" name="option[2][is_correct][2]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[2]['is_correct'] == 1 %} checked {% endif %}/>
-                </div>
-                 <div class="col-sm-3">
-                  <input type="text" name="option[3][value]" value="{{question_option_info[3]['option_value']}}" placeholder="Option-4" id="input-option-4" class="form-control">
-                  <input type="hidden" name="option[3][question_option_id]" value="{{ question_option_info[3]['question_option_id'] }}" />
-                  <input type="checkbox" name="option[3][is_correct][3]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[3]['is_correct'] == 1 %} checked {% endif %}/>
-                </div>
+              <textarea name="option[0][value]" cols="30" rows="4" placeholder="Option-1" id="input-option-1" class="form-control">{{question_option_info[0]['option_value']}}</textarea>              
+              <label class="col-sm-2 control-label">Is Correct</label>
+              <div class="col-sm-2 control-label">
+                <input type="hidden" name="option[0][question_option_id]" value="{{ question_option_info[0]['question_option_id'] }}" />              
+                <input type="checkbox" name="option[0][is_correct][0]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[0]['is_correct'] == 1 %} checked {% endif %}/>              
               </div>
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-options">{{text_option}}-2</label>
+            <div class="col-sm-10">
+              <textarea name="option[1][value]" cols="30" rows="4" placeholder="Option-2" id="input-option-2" class="form-control">{{question_option_info[1]['option_value']}}</textarea>
+              <label class="col-sm-2 control-label">Is Correct</label>
+              <div class="col-sm-2 control-label">
+                <input type="hidden" name="option[1][question_option_id]" value="{{ question_option_info[1]['question_option_id'] }}" />
+                <input type="checkbox" name="option[1][is_correct][1]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[1]['is_correct'] == 1 %} checked {% endif %}/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-options">{{text_option}}-3</label>
+            <div class="col-sm-10">
+              <textarea name="option[2][value]" cols="30" rows="4" placeholder="Option-3" id="input-option-3" class="form-control">{{question_option_info[2]['option_value']}}</textarea>
+              <label class="col-sm-2 control-label">Is Correct</label>
+              <div class="col-sm-2 control-label">
+                <input type="hidden" name="option[2][question_option_id]" value="{{ question_option_info[2]['question_option_id'] }}" />
+                <input type="checkbox" name="option[2][is_correct][2]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[2]['is_correct'] == 1 %} checked {% endif %}/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-options">{{text_option}}-4</label>
+            <div class="col-sm-10">
+              <textarea name="option[3][value]" cols="30" rows="4" placeholder="Option-4" id="input-option-4" class="form-control">{{question_option_info[3]['option_value']}}</textarea>
+              <label class="col-sm-2 control-label">Is Correct</label>
+              <div class="col-sm-2 control-label">
+                <input type="hidden" name="option[3][question_option_id]" value="{{ question_option_info[3]['question_option_id'] }}" />
+                <input type="checkbox" name="option[3][is_correct][3]" value="1" id="input-capture-complete" class="form-control" {% if question_option_info[3]['is_correct'] == 1 %} checked {% endif %}/>
+              </div>
+            </div>
+          </div>          
         </form>
       </div>
     </div>
@@ -128,5 +156,149 @@ $('input[name=\'product\']').autocomplete({
 		$('input[name=\'product_id\']').val(item['value']);		
 	}	
 });
-//--></script></div>
+//--></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js" integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML"></script>
+<script>
+    CKEDITOR.replace( 'input-question',{
+        extraPlugins : 'mathjax,widget,dialog,lineutils,clipboard',
+        mathJaxLib : 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        mathJaxClass : 'equation',
+        toolbar : [
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: ['PasteFromWord'] },
+                      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                      { name: 'insert', items: [ 'Mathjax','Image', 'Embed' , 'Table', 'HorizontalRule', 'SpecialChar','BootstrapTabs'] },
+                      { name: 'styles', items: [ 'FontSize' ] }
+                      ],
+        width:['100%'],
+        height:["200px"]
+
+       
+    } );
+   
+   
+    CKEDITOR.replace( 'input-explanation',{
+        extraPlugins : 'mathjax,widget,dialog,lineutils,clipboard',
+        mathJaxLib : 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        mathJaxClass : 'equation',
+        toolbar :  [
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: ['PasteFromWord'] },
+                      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                      { name: 'insert', items: [ 'Mathjax','Image', 'Embed' , 'Table', 'HorizontalRule', 'SpecialChar','BootstrapTabs'] },
+                      { name: 'styles', items: [ 'FontSize' ] }
+                      ],
+        width:['100%'],
+        height:["100px"]
+       
+    } );
+   
+     CKEDITOR.replace( 'input-option-1',{
+        extraPlugins : 'mathjax,widget,dialog,lineutils,clipboard',
+        mathJaxLib : 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        mathJaxClass : 'equation',
+        toolbar : [
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: ['PasteFromWord'] },
+                      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                      { name: 'insert', items: [ 'Mathjax','Image', 'Embed' , 'Table', 'HorizontalRule', 'SpecialChar','BootstrapTabs'] },
+                      { name: 'styles', items: [ 'FontSize' ] }
+                      ],
+        width:['100%'],
+        height:["100px"]
+       
+    } );
+   
+     CKEDITOR.replace( 'input-option-2',{
+        extraPlugins : 'mathjax,widget,dialog,lineutils,clipboard',
+        mathJaxLib : 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        mathJaxClass : 'equation',
+        toolbar :  [
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: ['PasteFromWord'] },
+                      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                      { name: 'insert', items: [ 'Mathjax','Image', 'Embed' , 'Table', 'HorizontalRule', 'SpecialChar','BootstrapTabs'] },
+                      { name: 'styles', items: [ 'FontSize' ] }
+                      ],
+        width:['100%'],
+        height:["100px"]
+       
+    } );
+   
+     CKEDITOR.replace( 'input-option-3',{
+        extraPlugins : 'mathjax,widget,dialog,lineutils,clipboard',
+        mathJaxLib : 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        mathJaxClass : 'equation',
+        toolbar :  [
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: ['PasteFromWord'] },
+                      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                      { name: 'insert', items: [ 'Mathjax','Image', 'Embed' , 'Table', 'HorizontalRule', 'SpecialChar','BootstrapTabs'] },
+                      { name: 'styles', items: [ 'FontSize' ] }
+                      ],
+        width:['100%'],
+        height:["100px"]
+       
+    } );
+
+    CKEDITOR.replace( 'input-option-4',{
+        extraPlugins : 'mathjax,widget,dialog,lineutils,clipboard',
+        mathJaxLib : 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        mathJaxClass : 'equation',
+        toolbar :  [
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: ['PasteFromWord'] },
+                      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                      { name: 'insert', items: [ 'Mathjax','Image', 'Embed' , 'Table', 'HorizontalRule', 'SpecialChar','BootstrapTabs'] },
+                      { name: 'styles', items: [ 'FontSize' ] }
+                      ],
+        width:['100%'],
+        height:["100px"]
+       
+    } );
+   
+  $(".masterCheck").click(function () {
+     $('input:checkbox').not(this).prop('checked', this.checked);
+ });
+ 
+ 
+ 
+ $(document).ready(function() {
+
+$("#correctMain,#wrongMain,#noAnsMain").on("input", function(evt) {
+  var self = $(this);
+  self.val(self.val().replace(/[^0-9\.]/g, ''));
+  if ((evt.which != 46 || self.val().indexOf('.') != -1) && (evt.which < 48 || evt.which > 57))
+  {
+evt.preventDefault();
+  }
+});
+});
+
+ function setToAll(setType){
+
+if($('#'+setType+"Main").val()==""){
+$('#'+setType+"Main").focus();
+return false;
+}
+
+$(".singleCheck:checked").each(function() {
+ $(this).parent().parent().find('.'+setType+"Input").val($('#'+setType+"Main").val());
+});
+ }
+ 
+  $("body").on("click","#is_write_answer",function(){
+    if($(this).prop("checked") == true){
+        $("#options_box").addClass("hide");
+        $("#add-option").addClass("hide");
+        $("#answer_input").removeClass("hide");
+    }else{
+        $("#options_box").removeClass("hide");
+        $("#add-option").removeClass("hide");
+        $("#answer_input").addClass("hide");
+    }
+ });
+</script>
+</div>
 {{ footer }}
