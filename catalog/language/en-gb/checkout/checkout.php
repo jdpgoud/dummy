@@ -69,6 +69,8 @@ $_['entry_country']                  = 'Country';
 $_['entry_zone']                     = 'Region / State';
 $_['entry_newsletter']               = 'I wish to subscribe to the %s newsletter.';
 $_['entry_shipping']                 = 'My delivery and billing addresses are the same.';
+$_['entry_school_name']              = 'School Name';
+$_['entry_user_id']                  = 'User ID';
 
 // Error
 $_['error_warning']                  = 'There was a problem while trying to process your order! If the problem persists please try selecting a different payment method or you can contact the store owner by <a href="%s">clicking here</a>.';
@@ -76,9 +78,11 @@ $_['error_login']                    = 'Warning: No match for E-Mail Address and
 $_['error_attempts']                 = 'Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.';
 $_['error_approved']                 = 'Warning: Your account requires approval before you can login.';
 $_['error_exists']                   = 'Warning: E-Mail Address is already registered!';
+$_['error_exists_user_id']           = 'Warning: User ID is already registered!';
 $_['error_firstname']                = 'First Name must be between 1 and 32 characters!';
 $_['error_lastname']                 = 'Last Name must be between 1 and 32 characters!';
 $_['error_email']                    = 'E-Mail address does not appear to be valid!';
+$_['error_user_id']                  = 'User ID must be between 6 and 8 characters!';
 $_['error_telephone']                = 'Telephone must be between 3 and 32 characters!';
 $_['error_password']                 = 'Password must be between 4 and 20 characters!';
 $_['error_confirm']                  = 'Password confirmation does not match password!';

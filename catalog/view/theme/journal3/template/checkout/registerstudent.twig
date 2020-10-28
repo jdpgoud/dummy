@@ -28,12 +28,12 @@
         <input type="text" name="lastname" value="" placeholder="{{ entry_lastname }}" id="input-payment-lastname" class="form-control" />
       </div>
       <div class="form-group required">
-        <label class="control-label" for="input-payment-email">{{ entry_email }}</label>
-        <input type="text" name="email" value="" placeholder="{{ entry_email }}" id="input-payment-email" class="form-control" />
+        <label class="control-label" for="input-payment-email">{{ entry_user_id }}</label>
+        <input type="text" name="email" value="" placeholder="{{ entry_user_id }}" id="input-payment-email" class="form-control" />
       </div>
-      <div class="form-group required">
-        <label class="control-label" for="input-payment-telephone">{{ entry_telephone }}</label>
-        <input type="text" name="telephone" value="" placeholder="{{ entry_telephone }}" id="input-payment-telephone" class="form-control" />
+      <div class="form-group">
+        <label class="control-label" for="input-payment-company">{{ entry_school_name }}</label>
+        <input type="text" name="school_name" value="" placeholder="{{ entry_school_name }}" id="input-payment-company" class="form-control" />
       </div>
       {% for custom_field in custom_fields %}
       

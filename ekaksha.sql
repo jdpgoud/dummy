@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2020 at 09:14 AM
+-- Generation Time: Oct 28, 2020 at 11:32 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -304,7 +304,7 @@ INSERT INTO `oc_cart` (`cart_id`, `api_id`, `customer_id`, `session_id`, `produc
 (15, 0, 3, '14fa01057aa502de43ee4b44c1', 50, 0, '[]', 1, '2020-10-21 22:06:48'),
 (17, 0, 4, '14fa01057aa502de43ee4b44c1', 50, 0, '[]', 1, '2020-10-21 23:29:14'),
 (19, 0, 5, '14fa01057aa502de43ee4b44c1', 50, 0, '[]', 1, '2020-10-21 23:35:33'),
-(26, 0, 9, '09031ecaf4899c1443acdb1c8b', 50, 0, '[]', 1, '2020-10-27 15:32:06');
+(26, 0, 9, '48988ba29e62f562a6ac499abb', 50, 0, '[]', 2, '2020-10-27 15:32:06');
 
 -- --------------------------------------------------------
 
@@ -1005,24 +1005,29 @@ CREATE TABLE `oc_customer` (
   `token` text NOT NULL,
   `code` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
-  `parent_id` int(11) NOT NULL
+  `parent_id` int(11) NOT NULL,
+  `school_name` varchar(555) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_customer`
 --
 
-INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `language_id`, `firstname`, `lastname`, `email`, `telephone`, `fax`, `password`, `salt`, `cart`, `wishlist`, `newsletter`, `address_id`, `custom_field`, `ip`, `status`, `safe`, `token`, `code`, `date_added`, `parent_id`) VALUES
-(1, 1, 0, 1, 'test', 'test', 'test@gmail.com', 'test', '', 'cb433941a352e022d7f4f3a62b79d09ef061f41f', 'l93DYLQx3', NULL, NULL, 1, 1, '{}', '::1', 1, 0, '', '', '2020-08-14 22:39:12', 0),
-(15, 2, 0, 1, 'AS', 'SA', 'assa@test.com', '1231231231', '', '0bb401fc5f542d64bc6a86b3eeac5a34a018419d', 'Ir2ICaONc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 14:52:23', 9),
-(14, 2, 0, 1, 'qwert', 'y', 'qwerty@gtest.com', '1231231312', '', '11ca19f1c9eca6186ada410632bfd2e9444b84d9', 'IwCtpsNWU', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:49:08', 9),
-(13, 2, 0, 1, 'student', 'last', 'sl@test.com', '1231234222', '', '', 'l0QSyi7aZ', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:38:01', 9),
-(11, 2, 0, 1, 'fff', 'lll', 'ffff@gtest.com', '1231231231', '', '', 'dDt5qIlkW', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:16:43', 9),
-(12, 2, 0, 1, 'sss', 'ssss', 'test123@gtest.com', '12312312311', '', '', 'mzfRNIOJc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:26:57', 9),
-(10, 0, 0, 1, 'first', 'student', 'fs@student.com', '1234567890', '', '', 'CX1Yr0D8q', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:09:48', 9),
-(9, 1, 0, 1, 'sathish', 'yadavelly', 'sathish.yadavelly@gmail.com', '0123456789', '', '98ba8c61ffde3ef1e833f86f835c2166c867e685', 'fjEHSiBy1', NULL, NULL, 0, 7, '', '::1', 1, 0, '', '', '2020-10-22 00:08:41', 0),
-(16, 2, 0, 1, 'ww', 'ww', 'ww@gtest.comm', '32312312213', '', 'fba68d9ae9b0546f83fa67c4f39a685b12e6b96e', '0cuu06fsF', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 23:00:25', 9),
-(17, 2, 0, 1, 'ab', 'ram', 'ab@gtest.com', '1231231231', '', 'be37ef25c297ac6a3141ee6b5380066964ee90d7', 'K3nRAP9IZ', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-24 11:03:31', 9);
+INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `language_id`, `firstname`, `lastname`, `email`, `telephone`, `fax`, `password`, `salt`, `cart`, `wishlist`, `newsletter`, `address_id`, `custom_field`, `ip`, `status`, `safe`, `token`, `code`, `date_added`, `parent_id`, `school_name`) VALUES
+(1, 1, 0, 1, 'test', 'test', 'test@gmail.com', 'test', '', 'cb433941a352e022d7f4f3a62b79d09ef061f41f', 'l93DYLQx3', NULL, NULL, 1, 1, '{}', '::1', 1, 0, '', '', '2020-08-14 22:39:12', 0, ''),
+(15, 2, 0, 1, 'AS', 'SA', 'assa@test.com', '1231231231', '', '0bb401fc5f542d64bc6a86b3eeac5a34a018419d', 'Ir2ICaONc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 14:52:23', 9, ''),
+(14, 2, 0, 1, 'qwert', 'y', 'qwerty@gtest.com', '1231231312', '', '11ca19f1c9eca6186ada410632bfd2e9444b84d9', 'IwCtpsNWU', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:49:08', 9, ''),
+(13, 2, 0, 1, 'student', 'last', 'sl@test.com', '1231234222', '', '', 'l0QSyi7aZ', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:38:01', 9, ''),
+(11, 2, 0, 1, 'fff', 'lll', 'ffff@gtest.com', '1231231231', '', '', 'dDt5qIlkW', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:16:43', 9, ''),
+(12, 2, 0, 1, 'sss', 'ssss', 'test123@gtest.com', '12312312311', '', '', 'mzfRNIOJc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:26:57', 9, ''),
+(10, 0, 0, 1, 'first', 'student', 'fs@student.com', '1234567890', '', '', 'CX1Yr0D8q', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:09:48', 9, ''),
+(9, 1, 0, 1, 'sathish', 'yadavelly', 'sathish.yadavelly@gmail.com', '0123456789', '', '98ba8c61ffde3ef1e833f86f835c2166c867e685', 'fjEHSiBy1', NULL, NULL, 0, 7, '', '::1', 1, 0, '', '', '2020-10-22 00:08:41', 0, ''),
+(16, 2, 0, 1, 'ww', 'ww', 'ww@gtest.comm', '32312312213', '', 'fba68d9ae9b0546f83fa67c4f39a685b12e6b96e', '0cuu06fsF', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 23:00:25', 9, ''),
+(17, 2, 0, 1, 'ab', 'ram', 'ab@gtest.com', '1231231231', '', 'be37ef25c297ac6a3141ee6b5380066964ee90d7', 'K3nRAP9IZ', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-24 11:03:31', 9, ''),
+(18, 2, 0, 1, 'df', 'fasd', 'aaaaaaa@ekaksha.com', '', '', '26fd87be61ecb9c10c0db431fbb69016f9d459cf', '0fUqzlDd9', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-28 15:24:36', 9, ''),
+(19, 2, 0, 1, 'dasd', 'asda', 'ads123@ekaksha.com', '', '', '91b8712dc1d4d3fe669afca003e43f58c68188ff', 'tK02RYSug', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-28 15:25:39', 9, ''),
+(20, 2, 0, 1, 'qw', 'wq', 'qwerty@ekaksha.com', '', '', '23fc06c34c0d1e640dd396a5be7fcb250df3c4fa', 'NPOyRcJV9', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-28 15:44:46', 9, ''),
+(21, 2, 0, 1, 'qw', 'wq', 'qwerty12@ekaksha.com', '', '', '40d0f903bb3643297453d5192070eb482c6a80ad', 'V3RjyYpvV', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-28 15:53:39', 9, 'qwqew');
 
 -- --------------------------------------------------------
 
@@ -4595,7 +4600,7 @@ INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `is
 (47, 'Product 21', '', '', '', '', '', '', '', 1000, 5, 'catalog/demo/hp_1.jpg', 7, 1, '100.0000', 400, 9, '2009-02-03', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 0, 1, 0, 1, 0, '2009-02-03 21:08:40', '2011-09-30 01:05:28'),
 (48, 'product 20', 'test 1', '', '', '', '', '', 'test 2', 995, 5, 'catalog/demo/ipod_classic_1.jpg', 8, 1, '100.0000', 0, 9, '2009-02-08', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 2, 1, 1, 0, 1, 0, '2009-02-08 17:21:51', '2011-09-30 01:07:06'),
 (49, 'SAM1', '', '', '', '', '', '', '', 0, 8, 'catalog/demo/samsung_tab_1.jpg', 0, 1, '199.9900', 0, 9, '2011-04-25', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2011-04-26 08:57:34', '2011-09-30 01:06:23'),
-(50, 'test', 'test', 'test', '', '', '', '', 'India', 4993, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 0, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 185, '2020-08-10 23:02:56', '2020-10-21 17:44:02'),
+(50, 'test', 'test', 'test', '', '', '', '', 'India', 4993, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 0, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 186, '2020-08-10 23:02:56', '2020-10-21 17:44:02'),
 (51, 'test', '', '', '', '', '', '', 'India', 5000, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 1, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 0, 0, '2020-08-14 15:02:36', '2020-08-14 15:02:36'),
 (52, 'test', '', '', '', '', '', '', 'India', 5000, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 1, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 0, 0, '2020-08-14 15:08:53', '2020-08-14 15:08:53'),
 (53, 'test', '', '', '', '', '', '', 'India', 5000, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 1, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 0, 0, '2020-08-14 15:08:53', '2020-08-14 15:08:53');
@@ -5431,7 +5436,7 @@ INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
 ('32b88b9cf068a40360b2c50bee', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"gq6UkKrlf1ttlKqO6AyApNip6DWtyCfg\",\"jrv\":[\"50\",\"42\"]}', '2020-08-15 13:42:30'),
 ('3744188d7862e37da7ee158fe5', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"j3_checkout_id\":\"4da800030633a5496d4055aad8c38cf8\",\"account\":\"\",\"same_address\":true,\"newsletter\":true,\"customer_id\":\"2\",\"shipping_address\":{\"address_id\":\"3\",\"firstname\":\"Sathish\",\"lastname\":\"Y\",\"company\":\"\",\"address_1\":\"Hyderabad\",\"address_2\":\"\",\"postcode\":\"500081\",\"city\":\"Hyderabad\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[]}}', '2020-10-20 19:09:57'),
 ('3a9db9312dd79c8414a06624d0', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"UqFH6fc33CpAOvXB10tmULTeS7GYnk4E\"}', '2020-08-07 18:32:04'),
-('48988ba29e62f562a6ac499abb', '{\"user_id\":\"1\",\"user_token\":\"DqcFRzENv7GqbLxWCrBVt0BhbJDYK4J1\"}', '2020-10-28 08:38:07'),
+('48988ba29e62f562a6ac499abb', '{\"user_id\":\"1\",\"user_token\":\"oABRuUV6jRKGBcN7exxgy7HVWgAu6K9O\",\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"customer_id\":\"9\",\"shipping_address\":{\"address_id\":\"7\",\"firstname\":\"sathish\",\"lastname\":\"yadavelly\",\"company\":\"\",\"address_1\":\"Hyd\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Hyd\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null},\"payment_address\":{\"address_id\":\"7\",\"firstname\":\"sathish\",\"lastname\":\"yadavelly\",\"company\":\"\",\"address_1\":\"Hyd\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Hyd\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null},\"student_id\":21}', '2020-10-28 10:54:32'),
 ('4fde662ce51f8df29c25c45671', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-08-09 07:38:59'),
 ('5691e84f6d810bd7a965cd7a95', '{\"user_id\":\"1\",\"user_token\":\"iE3qLy970sjv5cKgHwjBnwtwALk1RMlZ\",\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"42\"],\"j3_checkout_id\":\"da346ed637d8267b21dfd33345963207\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"comment\":\"\",\"payment_address\":{\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"test\",\"address_2\":\"test\",\"city\":\"test\",\"postcode\":\"500054\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_address\":{\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"test\",\"address_2\":\"test\",\"city\":\"test\",\"postcode\":\"500054\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_methods\":{\"flat\":{\"title\":\"Flat Rate\",\"quote\":{\"flat\":{\"code\":\"flat.flat\",\"title\":\"Flat Shipping Rate\",\"cost\":\"5.00\",\"tax_class_id\":\"9\",\"text\":\"Rs.5.00\"}},\"sort_order\":\"1\",\"error\":false}},\"shipping_method\":{\"code\":\"flat.flat\",\"title\":\"Flat Shipping Rate\",\"cost\":\"5.00\",\"tax_class_id\":\"9\",\"text\":\"Rs.5.00\"},\"payment_methods\":{\"cod\":{\"code\":\"cod\",\"title\":\"Cash On Delivery\",\"terms\":\"\",\"sort_order\":\"5\"}},\"payment_method\":{\"code\":\"cod\",\"title\":\"Cash On Delivery\",\"terms\":\"\",\"sort_order\":\"5\"},\"order_id\":1,\"customer_id\":\"1\",\"payment_address_type\":\"new\",\"shipping_address_type\":\"new\"}', '2020-08-14 17:47:18'),
 ('5d385e76b4e4b6031b12b8f650', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"eMHPze71LRH8bUXfYZRjw0aGetkojQQB\"}', '2020-08-09 17:28:57'),
@@ -11317,7 +11322,7 @@ ALTER TABLE `oc_banner_image`
 -- AUTO_INCREMENT for table `oc_cart`
 --
 ALTER TABLE `oc_cart`
-  MODIFY `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `oc_category`
@@ -11359,7 +11364,7 @@ ALTER TABLE `oc_currency`
 -- AUTO_INCREMENT for table `oc_customer`
 --
 ALTER TABLE `oc_customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `oc_customer_activity`

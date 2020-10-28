@@ -228,6 +228,9 @@ $(document).delegate('#button-register', 'click', function() {
         beforeSend: function() {
 			$('#button-register').button('loading');
 		},
+        complete: function() {
+			$('#button-register').button('reset');
+        },
         success: function(json) {
             $('.alert-dismissible, .text-danger').remove();
             $('.form-group').removeClass('has-error');
