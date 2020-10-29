@@ -22,12 +22,17 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">
+    <div id="content" class="{{ class }} checkout-page">
       {% if j3.settings.get('pageTitlePosition') == 'default' %}
         <h1 class="title page-title">{{ heading_title }}</h1>
       {% endif %}
       {{ content_top }}
-      <div class="panel-group" id="accordion">
+
+      <!-- Steps  -->
+
+      <!-- Steps  -->
+
+      <div class="panel-group  checkout-panel" id="accordion">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title"><a>{{ text_checkout_option }}</a></h4>
@@ -228,9 +233,6 @@ $(document).delegate('#button-register', 'click', function() {
         beforeSend: function() {
 			$('#button-register').button('loading');
 		},
-        complete: function() {
-			$('#button-register').button('reset');
-        },
         success: function(json) {
             $('.alert-dismissible, .text-danger').remove();
             $('.form-group').removeClass('has-error');
