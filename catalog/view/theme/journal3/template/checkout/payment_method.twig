@@ -1,43 +1,48 @@
+<div class="payment-details">
+
+
 {% if error_warning %}
 <div class="alert alert-warning alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
 {% endif %}
 {% if payment_methods %}
 <p>{{ text_payment_method }}</p>
 {% for payment_method in payment_methods %}
-<div class="radio">
-  <label>{% if payment_method.code == code or not code %}
-    {% set code = payment_method.code %}
-    <input type="radio" name="payment_method" value="{{ payment_method.code }}" checked="checked" />
-    {% else %}
-    <input type="radio" name="payment_method" value="{{ payment_method.code }}" />
-    {% endif %}
-    {{ payment_method.title }}
-    {% if payment_method.terms %}
-    ({{ payment_method.terms }})
-    {% endif %} </label>
+<div class="payments-options">
+  <div class="radio">
+    <label>{% if payment_method.code == code or not code %}
+      {% set code = payment_method.code %}
+      <input type="radio" name="payment_method" value="{{ payment_method.code }}" checked="checked" />
+      {% else %}
+      <input type="radio" name="payment_method" value="{{ payment_method.code }}" />
+      {% endif %}
+      {{ payment_method.title }}
+      {% if payment_method.terms %}
+      ({{ payment_method.terms }})
+      {% endif %} </label>
+  </div>
 </div>
+
 {% endfor %}
 {% endif %}
-<p><strong>{{ text_comments }}</strong></p>
-<p>
-  <textarea name="comment" rows="8" class="form-control">{{ comment }}</textarea>
-</p>
+<!-- <p><strong>{{ text_comments }}</strong></p> -->
+<div class="payment-comments">
+  <textarea name="comment" rows="8" class="form-control" placeholder="{{ text_comments }}">{{ comment }}</textarea>
+</div>
 {% if text_agree %}
-<div class="buttons">
-  <div class="pull-right">{{ text_agree }}
+<div class="buttons btn-continue">
     {% if agree %}
     <input type="checkbox" name="agree" value="1" checked="checked" />
     {% else %}
     <input type="checkbox" name="agree" value="1" />
     {% endif %}
+    {{ text_agree }}
     &nbsp;
     <button type="button" id="button-payment-method" data-loading-text="{{ text_loading }}" class="btn btn-primary" ><span>{{ button_continue }}</span></button>
-  </div>
 </div>
 {% else %}
-<div class="buttons">
-  <div class="pull-right">
+<div class="buttons btn-continue">
     <button type="button" id="button-payment-method" data-loading-text="{{ text_loading }}" class="btn btn-primary"><span>{{ button_continue }}</span></button>
-  </div>
 </div>
 {% endif %} 
+
+</div>

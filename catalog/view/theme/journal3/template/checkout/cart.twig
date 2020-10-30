@@ -113,7 +113,7 @@
             </table>
           </div>
         </form>
-        <div class="cart-bottom">
+        <div class="cart-bottom test">
           <div class="panels-total">
               {% if modules and j3.settings.get('cartPanelsStatus') %}
                 <div class="cart-panels">
@@ -137,8 +137,8 @@
             </div>
           </div>
           <div class="buttons clearfix">
-            <div class="pull-left"><a href="{{ continue }}" class="btn btn-default"><span>{{ button_shopping }}</span></a></div>
-            <div class="pull-right"><a href="{{ checkout }}" class="btn btn-primary"><span>{{ button_checkout }}</span></a></div>
+            <div class="pull-left"><a href="{{ continue }}" class="btn btn-default btn-cont-shop"><span>{{ button_shopping }}</span></a></div>
+            <div class="pull-right"><a href="{{ checkout }}" class="btn btn-primary btn-continue"><span>{{ button_checkout }}</span></a></div>
           </div>
         </div>
       </div>

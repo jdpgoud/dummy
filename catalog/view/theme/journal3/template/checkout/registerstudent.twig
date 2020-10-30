@@ -1,4 +1,4 @@
-<div class="row register-page">
+<div class="row register-page student">
   <div class="col-sm-6">
     <fieldset id="account">
       <legend>{{ text_student_details }}</legend>
@@ -20,19 +20,19 @@
         {% endif %}
         {% endfor %}</div>
       <div class="form-group required">
-        <label class="control-label" for="input-payment-firstname">{{ entry_firstname }}</label>
+        <!-- <label class="control-label" for="input-payment-firstname">{{ entry_firstname }}</label> -->
         <input type="text" name="firstname" value="" placeholder="{{ entry_firstname }}" id="input-payment-firstname" class="form-control" />
       </div>
       <div class="form-group required">
-        <label class="control-label" for="input-payment-lastname">{{ entry_lastname }}</label>
+        <!-- <label class="control-label" for="input-payment-lastname">{{ entry_lastname }}</label> -->
         <input type="text" name="lastname" value="" placeholder="{{ entry_lastname }}" id="input-payment-lastname" class="form-control" />
       </div>
       <div class="form-group required">
-        <label class="control-label" for="input-payment-email">{{ entry_user_id }}</label>
+        <!-- <label class="control-label" for="input-payment-email">{{ entry_user_id }}</label> -->
         <input type="text" name="email" value="" placeholder="{{ entry_user_id }}" id="input-payment-email" class="form-control" />
       </div>
       <div class="form-group">
-        <label class="control-label" for="input-payment-company">{{ entry_school_name }}</label>
+        <!-- <label class="control-label" for="input-payment-company">{{ entry_school_name }}</label> -->
         <input type="text" name="school_name" value="" placeholder="{{ entry_school_name }}" id="input-payment-company" class="form-control" />
       </div>
       {% for custom_field in custom_fields %}
@@ -41,7 +41,7 @@
       
       {% if custom_field.type == 'select' %}
       <div id="payment-custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-        <label class="control-label" for="input-payment-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
+        <!-- <label class="control-label" for="input-payment-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
         <select name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" id="input-payment-custom-field{{ custom_field.custom_field_id }}" class="form-control">
           <option value="">{{ text_select }}</option>
           
@@ -65,7 +65,7 @@
       
       {% if custom_field.type == 'radio' %}
       <div id="payment-custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-        <label class="control-label">{{ custom_field.name }}</label>
+        <!-- <label class="control-label">{{ custom_field.name }}</label> -->
         <div id="input-payment-custom-field{{ custom_field.custom_field_id }}"> {% for custom_field_value in custom_field.custom_field_value %}
           <div class="radio">
             <label>
@@ -78,7 +78,7 @@
       
       {% if custom_field.type == 'checkbox' %}
       <div id="payment-custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-        <label class="control-label">{{ custom_field.name }}</label>
+        <!-- <label class="control-label">{{ custom_field.name }}</label> -->
         <div id="input-payment-custom-field{{ custom_field.custom_field_id }}"> {% for custom_field_value in custom_field.custom_field_value %}
           <div class="checkbox">
             <label>
@@ -91,14 +91,14 @@
       
       {% if custom_field.type == 'text' %}
       <div id="payment-custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-        <label class="control-label" for="input-payment-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
+        <!-- <label class="control-label" for="input-payment-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
         <input type="text" name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" value="{{ custom_field.value }}" placeholder="{{ custom_field.name }}" id="input-payment-custom-field{{ custom_field.custom_field_id }}" class="form-control" />
       </div>
       {% endif %}
       
       {% if custom_field.type == 'textarea' %}
       <div id="payment-custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-        <label class="control-label" for="input-payment-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
+        <!-- <label class="control-label" for="input-payment-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
         <textarea name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" rows="5" placeholder="{{ custom_field.name }}" id="input-payment-custom-field{{ custom_field.custom_field_id }}" class="form-control">{{ custom_field.value }}</textarea>
       </div>
       {% endif %}
@@ -152,19 +152,17 @@
     <fieldset>
       {# <legend>{{ text_student_password }}</legend> #}
       <div class="form-group required">
-        <label class="control-label" for="input-payment-password">{{ entry_password }}</label>
+        <!-- <label class="control-label" for="input-payment-password">{{ entry_password }}</label> -->
         <input type="password" name="password" value="" placeholder="{{ entry_password }}" id="input-payment-password" class="form-control" />
       </div>
       <div class="form-group required">
-        <label class="control-label" for="input-payment-confirm">{{ entry_confirm }}</label>
+        <!-- <label class="control-label" for="input-payment-confirm">{{ entry_confirm }}</label> -->
         <input type="password" name="confirm" value="" placeholder="{{ entry_confirm }}" id="input-payment-confirm" class="form-control" />
       </div>
     </fieldset>
   </div>
-<div class="buttons clearfix">
-  <div class="pull-right">
+<div class="buttons btn-continue clearfix">
     <button type="button" id="button-register-student" data-loading-text="{{ text_loading }}" class="btn btn-primary"><span>{{ button_continue }}</span></button>
-  </div>
 </div>
 <script type="text/javascript"><!--
 // Sort the custom fields
