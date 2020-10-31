@@ -99,6 +99,8 @@ $_['button_category_add']           = 'Add Category';
 $_['button_order']                  = 'View Order';
 $_['button_order_recurring']        = 'View Recurring Order';
 $_['button_buy']                    = 'Buy';
+$_['button_share']                  = 'Share Now';
+$_['button_go_home']                = 'Go to Home';
 
 // Tab
 $_['tab_affiliate']                 = 'Affiliate';
