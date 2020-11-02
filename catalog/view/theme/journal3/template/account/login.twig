@@ -57,9 +57,9 @@
               <label class="tab" id="student-tab" for="student">Student</label>
                 </div>
               <div class="panels">
-              <!-- Parent content  -->
-              <div class="panel" id="parent-panel">
-                <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal login-form">
+              <!-- Student content  -->
+              <div class="panel" id="student-panel">
+                <form method="post" enctype="multipart/form-data" class="form-horizontal login-form">
                   <div class="form-group">
                     <!-- <label class="control-label" for="input-email">{{ entry_email }}</label> -->
                     <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
@@ -71,12 +71,48 @@
                   </div>
                   <div class="buttons">
                     <div class="pull-right">
-                      <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ text_submit }}</span>"><span>{{ text_submit }}</span></button>
+                      {# <button type="submit" class="btn btn-primary" onclick="userlogin()"><span>{{ text_submit }}</span></button> #}
+                      <input id="userlogin-btn" type="button" value="Submit" onclick="userlogin()" class="btn btn-primary button"/>
+                      <p id="errormsg"></p> 
                     </div>
                   </div>
 
                   <div class="forgot-password"><a href="{{ forgotten }}" target="_top">{{ text_forgotten }}</a></div>
 
+                  
+                  {% if redirect %}
+                  <input type="hidden" name="redirect" value="{{ redirect }}" />
+                  {% endif %}
+                </form>
+              </div>
+
+              <!-- Parent content  -->
+              <div class="panel" id="parent-panel">
+               
+                <form method="post" enctype="multipart/form-data" class="form-horizontal login-form">
+                  <div class="form-group">
+                    <input type="text" name="mobile" value="{{ email }}" placeholder="{{ entry_phone }}" id="input-mobile" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="otp" value="{{ password }}" placeholder="{{ entry_otp }}" id="input-otp" class="form-control" />
+                  
+                  </div>
+                  {# <div class="buttons">
+                    <div class="pull-right">
+                      <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ text_submit }}</span>"><span>{{ text_submit }}</span></button>
+                    </div>
+                  </div> #}
+
+                  <div class="buttons">
+                      <div class="pull-right">
+                            <input id="checkuser-btn" type="button" value="Send OTP" onclick="checkuser()" class="btn btn-primary"/>
+                            <input id="verifyotp-btn" type="button" value="Verify" onclick="verifyotp()" class="btn btn-primary button"/>
+                            <p id="errormsg"></p> 
+                    </div>
+                  </div>
+
+                  <div class="forgot-password"><a href="#" target="_top">{{ text_resend }}</a></div>
+                  
                   <div class="buttons">
                     <div class="pull-right">
                       <a href="{{ register }}" class="btn btn-primary">{{ text_register }}</a>
@@ -86,31 +122,7 @@
                   <div class="login-note">
                     <p>Dear user please register as a parent and then <br>you can share the user credentials with your child(ren)</p>
                   </div>
-                  {% if redirect %}
-                  <input type="hidden" name="redirect" value="{{ redirect }}" />
-                  {% endif %}
-                </form>
-              </div>
-
-              <!-- Student content  -->
-              <div class="panel" id="student-panel">
-               
-                <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal login-form">
-                  <div class="form-group">
-                    <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_phone }}" id="input-email" class="form-control" />
-                  </div>
-                  <div class="form-group">
-                    <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_otp }}" id="input-password" class="form-control" />
                   
-                  </div>
-                  <div class="buttons">
-                    <div class="pull-right">
-                      <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ text_submit }}</span>"><span>{{ text_submit }}</span></button>
-                    </div>
-                  </div>
-
-                  <div class="forgot-password"><a href="#" target="_top">{{ text_resend }}</a></div>
-
                   {% if redirect %}
                   <input type="hidden" name="redirect" value="{{ redirect }}" />
                   {% endif %}
@@ -134,3 +146,117 @@
 </div>
 {% endif %}
 {{ footer }}
+
+<script>
+
+$('#verifyotp-btn').hide();
+$('#verifyotp-btn').prop('disabled', true);
+$('#checkuser-btn').prop('disabled', true);
+$('#input-mobile').keyup(function() {
+  if($(this).val() != '') {
+      $('#checkuser-btn').prop('disabled', false);
+  }
+});
+$('#input-otp').keyup(function() {
+  if($(this).val() != '') {
+      $('#verifyotp-btn').prop('disabled', false);
+  }
+});
+
+ $('#input-mobile').change(function() { 
+  if($(this).val() != '') {
+      $('#verifyotp-btn').prop('disabled', false);
+  }
+
+ })
+
+
+$('#input-otp').bind('input propertychange', function() { 
+
+   if($(this).val() != '') {
+      $('#verifyotp-btn').prop('disabled', false);
+  }
+
+
+});
+
+
+
+
+
+function checkuser() {
+  $.ajax({
+    url: 'index.php?route=journal3/ajax/checkuser',
+    type: 'post',
+    data: $('#parent-panel input[name=\'mobile\']'),
+    dataType: 'json',
+    success: function (json) {
+      if(!json['error']){
+       
+        $('#verifyotp-btn').show();
+        $('#checkuser-btn').hide();
+        document.getElementById("errormsg").style.color = "green";
+        $('#errormsg').text(json['msg']);
+      } else {
+        document.getElementById("errormsg").style.color = "red";
+        $('#errormsg').text(json['msg']);
+      }
+      $('#errormsg').fadeIn('slow', function(){
+          $('#errormsg').delay(3000).fadeOut(); 
+      });
+    }
+  })
+}
+
+function verifyotp() {
+  $.ajax({
+    url: 'index.php?route=journal3/ajax/verifyotp',
+    type: 'post',
+    data: $('#parent-panel input[name=\'mobile\'], #parent-panel input[name=\'otp\']'),
+    dataType: 'json',
+    success: function (json) {
+      if(!json['error']){
+        document.getElementById("errormsg").style.color = "green";
+        $('#errormsg').text(json['msg']);
+        $("#popup-close-btn",parent.document).click();
+        parent.location.href = json['redirect'];
+        return true;
+      } else {
+        document.getElementById("errormsg").style.color = "red";
+         $('#errormsg').text(json['msg']);
+      }
+
+      $('#errormsg').fadeIn('slow', function(){
+          $('#errormsg').delay(3000).fadeOut(); 
+      });
+      
+    }
+  })
+}
+
+function userlogin() {
+  $.ajax({
+    url: 'index.php?route=journal3/ajax/userlogin',
+    type: 'post',
+    data: $('#student-panel input[name=\'email\'], #student-panel input[name=\'password\']'),
+    dataType: 'json',
+    success: function (json) {
+      if(!json['error']){
+        document.getElementById("errormsg").style.color = "green";
+        $('#errormsg').text(json['msg']);
+        $("#popup-close-btn",parent.document).click();
+        parent.location.href = json['redirect'];
+        return true;
+      } else {
+        document.getElementById("errormsg").style.color = "red";
+         $('#errormsg').text(json['msg']);
+      }
+
+      $('#errormsg').fadeIn('slow', function(){
+          $('#errormsg').delay(3000).fadeOut(); 
+      });
+      
+    }
+  })
+}
+</script>

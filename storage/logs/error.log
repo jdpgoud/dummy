@@ -1707,3 +1707,20 @@
 2020-10-31 10:19:44 - PHP Warning:  fflush() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
 2020-10-31 10:19:44 - PHP Warning:  flock() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
 2020-10-31 10:19:44 - PHP Warning:  fclose() expects parameter 1 to be resource, bool given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-11-02 7:08:00 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.catalog.language.1604304480): failed to open stream: No such file or directory in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-11-02 7:08:00 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-11-02 7:08:00 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-11-02 7:08:00 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-11-02 7:08:00 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-11-02 7:08:00 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-11-02 7:08:00 - PHP Warning:  fopen(D:/xampp/htdocs/ekaksha/storage/cache/cache.currency.1604304480): failed to open stream: No such file or directory in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 49
+2020-11-02 7:08:00 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 51
+2020-11-02 7:08:00 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 53
+2020-11-02 7:08:00 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 55
+2020-11-02 7:08:00 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 57
+2020-11-02 7:08:00 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\ekaksha\storage\modification\system\library\cache\file.php on line 59
+2020-11-02 7:08:03 - PHP Warning:  file_put_contents(D:/xampp/htdocs/ekaksha/storage/cache/journal3.settings.86a9106ae6_desktop_s0_l1_cINR_c0_g1_a1w_1_24340784.5f9fb0536af2c8.32626067.tmp): failed to open stream: No such file or directory in D:\xampp\htdocs\ekaksha\system\library\journal3\vendor\SuperCache\SuperCache.php on line 123
+2020-11-02 7:08:03 - PHP Warning:  file_put_contents(D:/xampp/htdocs/ekaksha/storage/cache/journal3.header.240.5.86a9106ae6_desktop_s0_l1_cINR_c0_g1_a1w_1_24340784.5f9fb053d1f0e3.80327986.tmp): failed to open stream: No such file or directory in D:\xampp\htdocs\ekaksha\system\library\journal3\vendor\SuperCache\SuperCache.php on line 123
+2020-11-02 7:42:59 - PHP Notice:  Undefined index: mobile in D:\xampp\htdocs\machili\catalog\controller\journal3\ajax.php on line 12
+2020-11-02 7:43:12 - PHP Notice:  Undefined index: mobile in D:\xampp\htdocs\machili\catalog\controller\journal3\ajax.php on line 12
+2020-11-02 7:43:52 - PHP Notice:  Undefined index: mobile in D:\xampp\htdocs\machili\catalog\controller\journal3\ajax.php on line 12

@@ -22,6 +22,24 @@ class ModelAccountCustomer extends Model {
 		return $customer_id;
 	}
 
+	public function verifyOTP($data){
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE otp_pin = '" . (int)$data['otp_pin'] . "' and telephone = '" . $this->db->escape($data['telephone']) . "'");
+		if(isset($query->row)){
+			$this->db->query("UPDATE " . DB_PREFIX . "customer SET otp_pin = '', is_otp_verified = '" . (int)1 . "' WHERE telephone = '" . $this->db->escape($data['telephone']) . "'");
+			return $query->row;
+		}else{
+			return false;
+		}
+	}
+
+    public function getCustomerByMobile($mobile, $otp_pin) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE telephone = '" . $this->db->escape($mobile) . "'");
+		if(isset($query->row)){
+			$this->db->query("UPDATE " . DB_PREFIX . "customer SET otp_pin = '" .(int)$otp_pin. "', is_otp_verified = '" . (int)0 . "' WHERE telephone = '" . $this->db->escape($mobile) . "'");
+		}
+		return $query->row;
+	}
+
 	// Add Customer as a Student under Parent
 	public function addStudent($data) {
 

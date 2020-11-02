@@ -59,6 +59,12 @@ class ControllerCheckoutSuccess extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
+		//Student info
+		$data['student_id'] = $this->session->data['student_id'];
+		$data['student_name'] = $this->session->data['student_name'];
+		$data['user_id'] = $this->session->data['user_id'];
+		$data['password'] = $this->session->data['password'];
+
 		$this->response->setOutput($this->load->view('common/success', $data));
 	}
 }
