@@ -232,7 +232,7 @@ class ControllerCheckoutRegister extends Controller {
 					$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
 				}
 			} else {
-				$json['redirect'] = $this->url->link('account/success');
+				// $json['redirect'] = $this->url->link('account/success');
 			}
 
 			unset($this->session->data['guest']);

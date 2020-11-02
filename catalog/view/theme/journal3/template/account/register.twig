@@ -21,7 +21,7 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }} register-page">
+    <div id="content" class="{{ class }} register-page 5">
       {% if j3.settings.get('pageTitlePosition') == 'default' %}
         <h1 class="title page-title">{{ heading_title }}</h1>
       {% endif %}
@@ -33,7 +33,7 @@
           <legend>{{ text_your_details }}</legend>
           <div class="form-group required account-customer-group" style="display: {% if customer_groups|length > 1 %} block {% else %} none {% endif %};">
             <label class="col-sm-2 control-label">{{ entry_customer_group }}</label>
-            <div class="col-sm-10">{% for customer_group in customer_groups %}
+            <div class="col-sm-12">{% for customer_group in customer_groups %}
               {% if customer_group.customer_group_id == customer_group_id %}
               <div class="radio">
                 <label>
@@ -50,32 +50,32 @@
               {% endfor %}</div>
           </div>
           <div class="form-group {% if j3.settings.get('accountAccountFirstNameField') == 'required' %}required{% endif %} account-firstname">
-            <label class="col-sm-2 control-label" for="input-firstname">{{ entry_firstname }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-firstname">{{ entry_firstname }}</label> -->
+            <div class="col-sm-12">
               <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-firstname" class="form-control" />
               {% if error_firstname %}
               <div class="text-danger">{{ error_firstname }}</div>
               {% endif %} </div>
           </div>
           <div class="form-group {% if j3.settings.get('accountAccountLastNameField') == 'required' %}required{% endif %} account-lastname">
-            <label class="col-sm-2 control-label" for="input-lastname">{{ entry_lastname }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-lastname">{{ entry_lastname }}</label> -->
+            <div class="col-sm-12">
               <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-lastname" class="form-control" />
               {% if error_lastname %}
               <div class="text-danger">{{ error_lastname }}</div>
               {% endif %} </div>
           </div>
           <div class="form-group required account-email">
-            <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label> -->
+            <div class="col-sm-12">
               <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
               {% if error_email %}
               <div class="text-danger">{{ error_email }}</div>
               {% endif %} </div>
           </div>
           <div class="form-group {% if j3.settings.get('accountAccountTelephoneField') == 'required' %}required{% endif %} account-telephone">
-            <label class="col-sm-2 control-label" for="input-telephone">{{ entry_telephone }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-telephone">{{ entry_telephone }}</label> -->
+            <div class="col-sm-12">
               <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" />
               {% if error_telephone %}
               <div class="text-danger">{{ error_telephone }}</div>
@@ -84,8 +84,8 @@
           {% for custom_field in custom_fields %}
           {% if custom_field.type == 'select' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <select name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" id="input-custom-field{{ custom_field.custom_field_id }}" class="form-control">
                 <option value="">{{ text_select }}</option>
                 
@@ -132,8 +132,8 @@
           {% endif %}
           {% if custom_field.type == 'radio' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <div> {% for custom_field_value in custom_field.custom_field_value %}
                 <div class="radio">{% if register_custom_field[custom_field.custom_field_id] and custom_field_value.custom_field_value_id == register_custom_field[custom_field.custom_field_id] %}
                   <label>
@@ -152,8 +152,8 @@
           {% endif %}
           {% if custom_field.type == 'checkbox' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <div> {% for custom_field_value in custom_field.custom_field_value %}
                 <div class="checkbox">{% if register_custom_field[custom_field.custom_field_id] and custom_field_value.custom_field_value_id in register_custom_field[custom_field.custom_field_id] %}
                   <label>
@@ -172,8 +172,8 @@
           {% endif %}
           {% if custom_field.type == 'text' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <input type="text" name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" value="{% if register_custom_field[custom_field.custom_field_id] %}{{ register_custom_field[custom_field.custom_field_id] }}{% else %}{{ custom_field.value }}{% endif %}" placeholder="{{ custom_field.name }}" id="input-custom-field{{ custom_field.custom_field_id }}" class="form-control" />
               {% if error_custom_field[custom_field.custom_field_id] %}
               <div class="text-danger">{{ error_custom_field[custom_field.custom_field_id] }}</div>
@@ -182,8 +182,8 @@
           {% endif %}
           {% if custom_field.type == 'textarea' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <textarea name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" rows="5" placeholder="{{ custom_field.name }}" id="input-custom-field{{ custom_field.custom_field_id }}" class="form-control">{% if register_custom_field[custom_field.custom_field_id] %}{{ register_custom_field[custom_field.custom_field_id] }}{% else %}{{ custom_field.value }}{% endif %}</textarea>
               {% if error_custom_field[custom_field.custom_field_id] %}
               <div class="text-danger">{{ error_custom_field[custom_field.custom_field_id] }}</div>
@@ -192,8 +192,8 @@
           {% endif %}
           {% if custom_field.type == 'file' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <button type="button" id="button-custom-field{{ custom_field.custom_field_id }}" data-loading-text="{{ text_loading }}" class="btn btn-default"><i class="fa fa-upload"></i> {{ button_upload }}</button>
               <input type="hidden" name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" value="{% if register_custom_field[custom_field.custom_field_id] %}  {{ register_custom_field[custom_field.custom_field_id] }} {% endif %}" />
               {% if error_custom_field[custom_field.custom_field_id] %}
@@ -203,8 +203,8 @@
           {% endif %}
           {% if custom_field.type == 'date' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <div class="input-group date">
                 <input type="text" name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" value="{% if register_custom_field[custom_field.custom_field_id] %}{{ register_custom_field[custom_field.custom_field_id] }}{% else %}{{ custom_field.value }}{% endif %}" placeholder="{{ custom_field.name }}" data-date-format="YYYY-MM-DD" id="input-custom-field{{ custom_field.custom_field_id }}" class="form-control" />
                 <span class="input-group-btn">
@@ -217,8 +217,8 @@
           {% endif %}
           {% if custom_field.type == 'time' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <div class="input-group time">
                 <input type="text" name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" value="{% if register_custom_field[custom_field.custom_field_id] %}{{ register_custom_field[custom_field.custom_field_id] }}{% else %}{{ custom_field.value }}{% endif %}" placeholder="{{ custom_field.name }}" data-date-format="HH:mm" id="input-custom-field{{ custom_field.custom_field_id }}" class="form-control" />
                 <span class="input-group-btn">
@@ -231,8 +231,8 @@
           {% endif %}
           {% if custom_field.type == 'time' %}
           <div id="custom-field{{ custom_field.custom_field_id }}" class="form-group custom-field" data-sort="{{ custom_field.sort_order }}">
-            <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-custom-field{{ custom_field.custom_field_id }}">{{ custom_field.name }}</label> -->
+            <div class="col-sm-12">
               <div class="input-group datetime">
                 <input type="text" name="custom_field[{{ custom_field.location }}][{{ custom_field.custom_field_id }}]" value="{% if register_custom_field[custom_field.custom_field_id] %}{{ register_custom_field[custom_field.custom_field_id] }}{% else %}{{ custom_field.value }}{% endif %}" placeholder="{{ custom_field.name }}" data-date-format="YYYY-MM-DD HH:mm" id="input-custom-field{{ custom_field.custom_field_id }}" class="form-control" />
                 <span class="input-group-btn">
@@ -246,18 +246,18 @@
           {% endfor %}
         </div>
         <fieldset>
-          <legend>{{ text_your_password }}</legend>
+          <!-- <legend>{{ text_your_password }}</legend> -->
           <div class="form-group required">
-            <label class="col-sm-2 control-label account-pass" for="input-password">{{ entry_password }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label account-pass" for="input-password">{{ entry_password }}</label> -->
+            <div class="col-sm-12">
               <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
               {% if error_password %}
               <div class="text-danger">{{ error_password }}</div>
               {% endif %} </div>
           </div>
           <div class="form-group required account-pass2">
-            <label class="col-sm-2 control-label" for="input-confirm">{{ entry_confirm }}</label>
-            <div class="col-sm-10">
+            <!-- <label class="col-sm-2 control-label" for="input-confirm">{{ entry_confirm }}</label> -->
+            <div class="col-sm-12">
               <input type="password" name="confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" id="input-confirm" class="form-control" />
               {% if error_confirm %}
               <div class="text-danger">{{ error_confirm }}</div>
@@ -265,10 +265,10 @@
           </div>
         </fieldset>
         <fieldset>
-          <legend>{{ text_newsletter }}</legend>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">{{ entry_newsletter }}</label>
-            <div class="col-sm-10"> {% if newsletter %}
+          <!-- <legend>{{ text_newsletter }}</legend> -->
+          <div class="form-group newsletter">
+            <label class="col-sm-12 control-label">{{ entry_newsletter }}</label>
+            <div class="col-sm-12"> {% if newsletter %}
               <label class="radio-inline">
                 <input type="radio" name="newsletter" value="1" checked="checked" />
                 {{ text_yes }}</label>
@@ -287,21 +287,18 @@
         </fieldset>
         {{ captcha }}
         {% if text_agree %}
-        <div class="buttons">
-          <div class="pull-right">{{ text_agree }}
+        <div class="buttons btn-continue btn-register">
+          <div class="agree-text">
             {% if agree %}
             <input type="checkbox" name="agree" value="1" checked="checked" />
             {% else %}
             <input type="checkbox" name="agree" value="1" />
-            {% endif %}
-            <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ button_continue }}</span>"><span>{{ button_continue }}</span></button>
-          </div>
+            {% endif %}{{ text_agree }}</div>
+          <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ button_continue }}</span>"><span>{{ button_continue }}</span></button>
         </div>
         {% else %}
         <div class="buttons">
-          <div class="pull-right">
             <button type="submit" class="btn btn-primary" data-loading-text="<span>{{ button_continue }}</span>"><span>{{ button_continue }}</span></button>
-          </div>
         </div>
         {% endif %}
       </form>

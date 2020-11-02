@@ -5,10 +5,10 @@ $_['heading_title']        = 'Register Account';
 // Text
 $_['text_account']         = 'Account';
 $_['text_register']        = 'Register';
-$_['text_account_already'] = 'If you already have an account with us, please login at the <a href="%s">login page</a>.';
-$_['text_your_details']    = 'Your Personal Details';
+$_['text_account_already'] = 'Already a member? Please fill details below to <a href="%s">Log In</a>.';
+$_['text_your_details']    = 'Fill Your Details';
 $_['text_newsletter']      = 'Newsletter';
-$_['text_your_password']   = 'Your Password';
+$_['text_your_password']   = 'Enter Password';
 $_['text_agree']           = 'I have read and agree to the <a href="%s" class="agree"><b>%s</b></a>';
 
 // Entry
@@ -17,7 +17,7 @@ $_['entry_firstname']      = 'First Name';
 $_['entry_lastname']       = 'Last Name';
 $_['entry_email']          = 'E-Mail';
 $_['entry_telephone']      = 'Telephone';
-$_['entry_newsletter']     = 'Subscribe';
+$_['entry_newsletter']     = 'Subscribe Our Newsletter';
 $_['entry_password']       = 'Password';
 $_['entry_confirm']        = 'Password Confirm';
 
