@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2020 at 01:21 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.3.20
+-- Generation Time: Nov 02, 2020 at 01:42 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -307,7 +307,6 @@ INSERT INTO `oc_cart` (`cart_id`, `api_id`, `customer_id`, `session_id`, `produc
 (15, 0, 3, '14fa01057aa502de43ee4b44c1', 50, 0, '[]', 1, '2020-10-21 22:06:48'),
 (17, 0, 4, '14fa01057aa502de43ee4b44c1', 50, 0, '[]', 1, '2020-10-21 23:29:14'),
 (19, 0, 5, '14fa01057aa502de43ee4b44c1', 50, 0, '[]', 1, '2020-10-21 23:35:33'),
-(21, 0, 9, '79c6a8ae9abd3aac8ec39cabf3', 50, 0, '[]', 4, '2020-10-22 00:08:41'),
 (26, 0, 17, 'bf73ece0e2b251a95fdd4b6d67', 50, 0, '[]', 3, '2020-10-27 22:33:04'),
 (33, 0, 19, '7a9c7597fde08e189786f1524e', 50, 0, '[]', 1, '2020-10-30 21:08:44');
 
@@ -1010,26 +1009,30 @@ CREATE TABLE `oc_customer` (
   `token` text NOT NULL,
   `code` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
-  `parent_id` int(11) NOT NULL
+  `parent_id` int(11) NOT NULL,
+  `school_name` varchar(555) NOT NULL,
+  `otp_pin` int(6) DEFAULT NULL,
+  `is_otp_verified` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_customer`
 --
 
-INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `language_id`, `firstname`, `lastname`, `email`, `telephone`, `fax`, `password`, `salt`, `cart`, `wishlist`, `newsletter`, `address_id`, `custom_field`, `ip`, `status`, `safe`, `token`, `code`, `date_added`, `parent_id`) VALUES
-(1, 1, 0, 1, 'test', 'test', 'test@gmail.com', 'test', '', 'cb433941a352e022d7f4f3a62b79d09ef061f41f', 'l93DYLQx3', NULL, NULL, 1, 1, '{}', '::1', 1, 0, '', '', '2020-08-14 22:39:12', 0),
-(15, 2, 0, 1, 'AS', 'SA', 'assa@test.com', '1231231231', '', '0bb401fc5f542d64bc6a86b3eeac5a34a018419d', 'Ir2ICaONc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 14:52:23', 9),
-(14, 2, 0, 1, 'qwert', 'y', 'qwerty@gtest.com', '1231231312', '', '11ca19f1c9eca6186ada410632bfd2e9444b84d9', 'IwCtpsNWU', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:49:08', 9),
-(13, 2, 0, 1, 'student', 'last', 'sl@test.com', '1231234222', '', '', 'l0QSyi7aZ', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:38:01', 9),
-(11, 2, 0, 1, 'fff', 'lll', 'ffff@gtest.com', '1231231231', '', '', 'dDt5qIlkW', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:16:43', 9),
-(12, 2, 0, 1, 'sss', 'ssss', 'test123@gtest.com', '12312312311', '', '', 'mzfRNIOJc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:26:57', 9),
-(10, 0, 0, 1, 'first', 'student', 'fs@student.com', '1234567890', '', '', 'CX1Yr0D8q', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:09:48', 9),
-(9, 1, 0, 1, 'sathish', 'yadavelly', 'sathish.yadavelly@gmail.com', '0123456789', '', '98ba8c61ffde3ef1e833f86f835c2166c867e685', 'fjEHSiBy1', NULL, NULL, 0, 7, '', '::1', 1, 0, '', '', '2020-10-22 00:08:41', 0),
-(16, 2, 0, 1, 'ww', 'ww', 'ww@gtest.comm', '32312312213', '', 'fba68d9ae9b0546f83fa67c4f39a685b12e6b96e', '0cuu06fsF', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 23:00:25', 9),
-(17, 1, 0, 1, 'Durga', 'Prasad', 'jdpgoud@gmail.com', '8688877409', '', '795e7fce5fcdafa3eba00632bb9e423330b8a245', '3DBwYJZfA', NULL, NULL, 1, 8, '', '::1', 1, 0, '', '', '2020-10-27 22:14:32', 0),
-(18, 2, 0, 1, 'Bhavishya', 'Goud', 'bhavi@gmail.com', '8688877409', '', 'a87127e22f8925bcafe231646c3db617f332d7d0', 'bJIY5qPY9', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-27 22:32:14', 17),
-(19, 1, 0, 1, 'HARIKA DRUGS', 'LIMITED', 'scemantech.solutions@gmail.com', '08688877409', '', 'edf59daf06f9c35b2de32ba615c73585de501aae', 'HryaIEerW', NULL, NULL, 1, 9, '', '::1', 1, 0, '', '', '2020-10-30 21:08:28', 0);
+INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `language_id`, `firstname`, `lastname`, `email`, `telephone`, `fax`, `password`, `salt`, `cart`, `wishlist`, `newsletter`, `address_id`, `custom_field`, `ip`, `status`, `safe`, `token`, `code`, `date_added`, `parent_id`, `school_name`, `otp_pin`, `is_otp_verified`) VALUES
+(1, 1, 0, 1, 'test', 'test', 'test@gmail.com', 'test', '', 'cb433941a352e022d7f4f3a62b79d09ef061f41f', 'l93DYLQx3', NULL, NULL, 1, 1, '{}', '::1', 1, 0, '', '', '2020-08-14 22:39:12', 0, '', NULL, 0),
+(15, 2, 0, 1, 'AS', 'SA', 'assa@test.com', '1231231231', '', '0bb401fc5f542d64bc6a86b3eeac5a34a018419d', 'Ir2ICaONc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 14:52:23', 9, '', NULL, 0),
+(14, 2, 0, 1, 'qwert', 'y', 'qwerty@gtest.com', '1231231312', '', '11ca19f1c9eca6186ada410632bfd2e9444b84d9', 'IwCtpsNWU', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:49:08', 9, '', NULL, 0),
+(13, 2, 0, 1, 'student', 'last', 'sl@test.com', '1231234222', '', '', 'l0QSyi7aZ', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:38:01', 9, '', NULL, 0),
+(11, 2, 0, 1, 'fff', 'lll', 'ffff@gtest.com', '1231231231', '', '', 'dDt5qIlkW', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:16:43', 9, '', NULL, 0),
+(12, 2, 0, 1, 'sss', 'ssss', 'test123@gtest.com', '12312312311', '', '', 'mzfRNIOJc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:26:57', 9, '', NULL, 0),
+(10, 0, 0, 1, 'first', 'student', 'fs@student.com', '1234567890', '', '', 'CX1Yr0D8q', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:09:48', 9, '', NULL, 0),
+(9, 1, 0, 1, 'sathish', 'yadavelly', 'sathish.yadavelly@gmail.com', '0123456789', '', '98ba8c61ffde3ef1e833f86f835c2166c867e685', 'fjEHSiBy1', NULL, NULL, 0, 7, '', '::1', 1, 0, '', '', '2020-10-22 00:08:41', 0, '', NULL, 0),
+(16, 2, 0, 1, 'ww', 'ww', 'ww@gtest.comm', '32312312213', '', 'fba68d9ae9b0546f83fa67c4f39a685b12e6b96e', '0cuu06fsF', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 23:00:25', 9, '', NULL, 0),
+(17, 1, 0, 1, 'Durga', 'Prasad', 'jdpgoud@gmail.com', '8688877409', '', '795e7fce5fcdafa3eba00632bb9e423330b8a245', '3DBwYJZfA', NULL, NULL, 1, 8, '', '::1', 1, 0, '', '', '2020-10-27 22:14:32', 0, '', NULL, 0),
+(18, 2, 0, 1, 'Bhavishya', 'Goud', 'bhavi@gmail.com', '8688877409', '', 'a87127e22f8925bcafe231646c3db617f332d7d0', 'bJIY5qPY9', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-27 22:32:14', 17, '', NULL, 0),
+(19, 1, 0, 1, 'HARIKA DRUGS', 'LIMITED', 'scemantech.solutions@gmail.com', '08688877409', '', 'edf59daf06f9c35b2de32ba615c73585de501aae', 'HryaIEerW', NULL, NULL, 1, 9, '', '::1', 1, 0, '', '', '2020-10-30 21:08:28', 0, '', NULL, 0),
+(20, 2, 0, 1, 'first', 'student', 'firststudent@ekaksha.com', '', '', '7b524057cf7f42859b706bd080fbe40adf79bd8a', 'ENvTHt3IT', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-02 17:34:49', 9, 'new model school', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -4325,7 +4328,8 @@ INSERT INTO `oc_order` (`order_id`, `invoice_no`, `invoice_prefix`, `store_id`, 
 (12, 0, 'INV-2020-00', 0, 'ekaksha', 'http://localhost/ekaksha/', 0, 1, 'DURGA', 'PRASAD', 'JDPGOUD@GMAIL.COM', '08688877409', '', '[]', 'DURGA', 'PRASAD', 'Scemantech Solutions', 'Chintal', 'Hyderabad', 'HYDERABAD', '500054', 'India', 99, 'Kerala', 1490, '', '[]', 'Pay by Razorpay <br> <a href=\"https://www.razorpay.com\" target=\"_blank\"><img src=\"https://cdn.razorpay.com/static/assets/logo/pa', 'razorpay', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', '', '', '', '1200.0000', 0, 0, '0.0000', 0, '', 1, 4, 'INR', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36', 'en-US,en;q=0.9', '2020-10-30 22:45:22', '2020-10-30 22:45:22'),
 (13, 0, 'INV-2020-00', 0, 'ekaksha', 'http://localhost/ekaksha/', 0, 1, 'DURGA', 'PRASAD', 'JDPGOUD@GMAIL.COM', '08688877409', '', '[]', 'DURGA', 'PRASAD', 'Scemantech Solutions', 'Chintal', 'Hyderabad', 'HYDERABAD', '500054', 'India', 99, 'Kerala', 1490, '', '[]', 'Pay by Razorpay <br> <a href=\"https://www.razorpay.com\" target=\"_blank\"><img src=\"https://cdn.razorpay.com/static/assets/logo/pa', 'razorpay', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', '', '', '', '1200.0000', 0, 0, '0.0000', 0, '', 1, 4, 'INR', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36', 'en-US,en;q=0.9', '2020-10-30 22:48:02', '2020-10-30 22:48:02'),
 (14, 0, 'INV-2020-00', 0, 'ekaksha', 'http://localhost/ekaksha/', 0, 1, 'DURGA', 'PRASAD', 'JDPGOUD@GMAIL.COM', '08688877409', '', '[]', 'DURGA', 'PRASAD', 'Scemantech Solutions', 'Chintal', 'Hyderabad', 'HYDERABAD', '500054', 'India', 99, 'Kerala', 1490, '', '[]', 'Pay by Razorpay <br> <a href=\"https://www.razorpay.com\" target=\"_blank\"><img src=\"https://cdn.razorpay.com/static/assets/logo/pa', 'razorpay', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', '', '', '', '1200.0000', 2, 0, '0.0000', 0, '', 1, 4, 'INR', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36', 'en-US,en;q=0.9', '2020-10-30 22:51:20', '2020-10-30 22:51:33'),
-(15, 0, 'INV-2020-00', 0, 'ekaksha', 'http://localhost/ekaksha/', 0, 1, 'DANAPHA PHARMACEUTICAL', 'STOCK', 'JDPGOUD@GMAIL.COM', '08688877409', '', '[]', 'DANAPHA PHARMACEUTICAL', 'STOCK', 'Scemantech Solutions', 'COMPANY-DANAPHA', 'Hyderabad', 'HO CHI MINH CITY', '500054', 'Viet Nam', 230, 'Dien Bien', 3768, '', '[]', 'Pay by Razorpay <br> <a href=\"https://www.razorpay.com\" target=\"_blank\"><img src=\"https://cdn.razorpay.com/static/assets/logo/pa', 'razorpay', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', '', '', '', '1200.0000', 2, 0, '0.0000', 0, '', 1, 4, 'INR', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36', 'en-US,en;q=0.9', '2020-10-31 12:41:10', '2020-10-31 12:41:30');
+(15, 0, 'INV-2020-00', 0, 'ekaksha', 'http://localhost/ekaksha/', 0, 1, 'DANAPHA PHARMACEUTICAL', 'STOCK', 'JDPGOUD@GMAIL.COM', '08688877409', '', '[]', 'DANAPHA PHARMACEUTICAL', 'STOCK', 'Scemantech Solutions', 'COMPANY-DANAPHA', 'Hyderabad', 'HO CHI MINH CITY', '500054', 'Viet Nam', 230, 'Dien Bien', 3768, '', '[]', 'Pay by Razorpay <br> <a href=\"https://www.razorpay.com\" target=\"_blank\"><img src=\"https://cdn.razorpay.com/static/assets/logo/pa', 'razorpay', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', '', '', '', '1200.0000', 2, 0, '0.0000', 0, '', 1, 4, 'INR', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36', 'en-US,en;q=0.9', '2020-10-31 12:41:10', '2020-10-31 12:41:30'),
+(16, 0, 'INV-2020-00', 0, 'ekaksha', 'http://localhost/ekaksha/', 9, 1, 'sathish', 'yadavelly', 'sathish.yadavelly@gmail.com', '0123456789', '', '', 'sathish', 'yadavelly', '', 'Hyd', '', 'Hyd', '', 'India', 99, 'Telangana', 4231, '', '[]', 'Pay by Razorpay <br> <a href=\"https://www.razorpay.com\" target=\"_blank\"><img src=\"https://cdn.razorpay.com/static/assets/logo/pa', 'razorpay', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', '', '', '', '6000.0000', 2, 0, '0.0000', 0, '', 1, 4, 'INR', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36', 'en-GB,en-US;q=0.9,en;q=0.8', '2020-11-02 17:35:02', '2020-11-02 17:35:42');
 
 -- --------------------------------------------------------
 
@@ -4351,7 +4355,8 @@ INSERT INTO `oc_order_history` (`order_history_id`, `order_id`, `order_status_id
 (2, 3, 1, 0, '', '2020-10-21 00:11:56'),
 (3, 10, 2, 1, 'Payment Successful. Razorpay Payment Id:pay_Fu079XecgCG8TI', '2020-10-27 22:32:38'),
 (4, 14, 2, 1, 'Payment Successful. Razorpay Payment Id:pay_FvC2WDx80zF78L', '2020-10-30 22:51:33'),
-(5, 15, 2, 1, 'Payment Successful. Razorpay Payment Id:pay_FvQBDjlM3sAYhK', '2020-10-31 12:41:30');
+(5, 15, 2, 1, 'Payment Successful. Razorpay Payment Id:pay_FvQBDjlM3sAYhK', '2020-10-31 12:41:30'),
+(6, 16, 2, 1, 'Payment Successful. Razorpay Payment Id:pay_FwIJiu52ysBAcb', '2020-11-02 17:35:42');
 
 -- --------------------------------------------------------
 
@@ -4410,7 +4415,8 @@ INSERT INTO `oc_order_product` (`order_product_id`, `order_id`, `product_id`, `n
 (68, 12, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0),
 (69, 13, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0),
 (70, 14, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0),
-(71, 15, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0);
+(71, 15, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0),
+(72, 16, 50, 'Polynomials', 'test', 5, '1200.0000', '6000.0000', '0.0000', 0, 9, 20);
 
 -- --------------------------------------------------------
 
@@ -4555,7 +4561,9 @@ INSERT INTO `oc_order_total` (`order_total_id`, `order_id`, `code`, `title`, `va
 (168, 14, 'sub_total', 'Sub-Total', '1200.0000', 1),
 (169, 14, 'total', 'Total', '1200.0000', 9),
 (170, 15, 'sub_total', 'Sub-Total', '1200.0000', 1),
-(171, 15, 'total', 'Total', '1200.0000', 9);
+(171, 15, 'total', 'Total', '1200.0000', 9),
+(172, 16, 'sub_total', 'Sub-Total', '6000.0000', 1),
+(173, 16, 'total', 'Total', '6000.0000', 9);
 
 -- --------------------------------------------------------
 
@@ -4642,7 +4650,7 @@ INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `is
 (47, 'Product 21', '', '', '', '', '', '', '', 1000, 5, 'catalog/demo/hp_1.jpg', 7, 1, '100.0000', 400, 9, '2009-02-03', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 0, 1, 0, 1, 1, '2009-02-03 21:08:40', '2011-09-30 01:05:28'),
 (48, 'product 20', 'test 1', '', '', '', '', '', 'test 2', 995, 5, 'catalog/demo/ipod_classic_1.jpg', 8, 1, '100.0000', 0, 9, '2009-02-08', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 2, 1, 1, 0, 1, 0, '2009-02-08 17:21:51', '2011-09-30 01:07:06'),
 (49, 'SAM1', '', '', '', '', '', '', '', 0, 8, 'catalog/demo/samsung_tab_1.jpg', 0, 1, '199.9900', 0, 9, '2011-04-25', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2011-04-26 08:57:34', '2011-09-30 01:06:23'),
-(50, 'test', 'test', 'test', '', '', '', '', 'India', 4993, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 0, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 206, '2020-08-10 23:02:56', '2020-10-21 17:44:02'),
+(50, 'test', 'test', 'test', '', '', '', '', 'India', 4988, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 0, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 207, '2020-08-10 23:02:56', '2020-10-21 17:44:02'),
 (51, 'test', '', '', '', '', '', '', 'India', 5000, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 1, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 0, 0, '2020-08-14 15:02:36', '2020-08-14 15:02:36'),
 (52, 'test', '', '', '', '', '', '', 'India', 5000, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 1, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 0, 0, '2020-08-14 15:08:53', '2020-08-14 15:08:53'),
 (53, 'test', '', '', '', '', '', '', 'India', 5000, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 1, '1200.0000', 0, 9, '2020-08-10', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 0, 0, '2020-08-14 15:08:53', '2020-08-14 15:08:53');
@@ -5425,6 +5433,7 @@ INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
 ('3744188d7862e37da7ee158fe5', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"j3_checkout_id\":\"4da800030633a5496d4055aad8c38cf8\",\"account\":\"\",\"same_address\":true,\"newsletter\":true,\"customer_id\":\"2\",\"shipping_address\":{\"address_id\":\"3\",\"firstname\":\"Sathish\",\"lastname\":\"Y\",\"company\":\"\",\"address_1\":\"Hyderabad\",\"address_2\":\"\",\"postcode\":\"500081\",\"city\":\"Hyderabad\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[]}}', '2020-10-20 19:09:57'),
 ('3a9db9312dd79c8414a06624d0', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"UqFH6fc33CpAOvXB10tmULTeS7GYnk4E\"}', '2020-08-07 18:32:04'),
 ('4fde662ce51f8df29c25c45671', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-08-09 07:38:59'),
+('5096016547564419204bc38e3a', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"customer_id\":\"9\",\"payment_address\":{\"address_id\":\"7\",\"firstname\":\"sathish\",\"lastname\":\"yadavelly\",\"company\":\"\",\"address_1\":\"Hyd\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Hyd\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null},\"student_id\":20,\"student_name\":\"first student\",\"user_id\":\"firststudent\",\"password\":\"123123\",\"razorpay_order_id\":\"order_FwIJALYcjX4gHE\"}', '2020-11-02 12:29:56'),
 ('5691e84f6d810bd7a965cd7a95', '{\"user_id\":\"1\",\"user_token\":\"iE3qLy970sjv5cKgHwjBnwtwALk1RMlZ\",\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"42\"],\"j3_checkout_id\":\"da346ed637d8267b21dfd33345963207\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"comment\":\"\",\"payment_address\":{\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"test\",\"address_2\":\"test\",\"city\":\"test\",\"postcode\":\"500054\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_address\":{\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"test\",\"address_2\":\"test\",\"city\":\"test\",\"postcode\":\"500054\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_methods\":{\"flat\":{\"title\":\"Flat Rate\",\"quote\":{\"flat\":{\"code\":\"flat.flat\",\"title\":\"Flat Shipping Rate\",\"cost\":\"5.00\",\"tax_class_id\":\"9\",\"text\":\"Rs.5.00\"}},\"sort_order\":\"1\",\"error\":false}},\"shipping_method\":{\"code\":\"flat.flat\",\"title\":\"Flat Shipping Rate\",\"cost\":\"5.00\",\"tax_class_id\":\"9\",\"text\":\"Rs.5.00\"},\"payment_methods\":{\"cod\":{\"code\":\"cod\",\"title\":\"Cash On Delivery\",\"terms\":\"\",\"sort_order\":\"5\"}},\"payment_method\":{\"code\":\"cod\",\"title\":\"Cash On Delivery\",\"terms\":\"\",\"sort_order\":\"5\"},\"order_id\":1,\"customer_id\":\"1\",\"payment_address_type\":\"new\",\"shipping_address_type\":\"new\"}', '2020-08-14 17:47:18'),
 ('5d385e76b4e4b6031b12b8f650', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"eMHPze71LRH8bUXfYZRjw0aGetkojQQB\"}', '2020-08-09 17:28:57'),
 ('5f75993463a067cc6fc17d6659', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"47\"],\"user_id\":\"1\",\"user_token\":\"uJkLssXbRpXNtmhyIsdB24o4s7aV6pGc\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"comment\":\"\",\"payment_address\":{\"firstname\":\"\",\"lastname\":\"\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"postcode\":\"\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_address\":{\"firstname\":\"\",\"lastname\":\"\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"postcode\":\"\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"order_id\":11,\"j3_checkout_id\":\"559ff57f4bca3d6fedfc16d578528253\",\"razorpay_order_id\":\"order_FuOYj6XZuhyIzZ\"}', '2020-10-28 19:57:26'),
@@ -5716,7 +5725,7 @@ CREATE TABLE `oc_statistics` (
 --
 
 INSERT INTO `oc_statistics` (`statistics_id`, `code`, `value`) VALUES
-(1, 'order_sale', '8410.0000'),
+(1, 'order_sale', '14410.0000'),
 (2, 'order_processing', '0.0000'),
 (3, 'order_complete', '0.0000'),
 (4, 'order_other', '0.0000'),
@@ -11303,7 +11312,7 @@ ALTER TABLE `oc_banner_image`
 -- AUTO_INCREMENT for table `oc_cart`
 --
 ALTER TABLE `oc_cart`
-  MODIFY `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `oc_category`
@@ -11345,7 +11354,7 @@ ALTER TABLE `oc_currency`
 -- AUTO_INCREMENT for table `oc_customer`
 --
 ALTER TABLE `oc_customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `oc_customer_activity`
@@ -11603,13 +11612,13 @@ ALTER TABLE `oc_option_value`
 -- AUTO_INCREMENT for table `oc_order`
 --
 ALTER TABLE `oc_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `oc_order_history`
 --
 ALTER TABLE `oc_order_history`
-  MODIFY `order_history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `order_history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `oc_order_option`
@@ -11621,7 +11630,7 @@ ALTER TABLE `oc_order_option`
 -- AUTO_INCREMENT for table `oc_order_product`
 --
 ALTER TABLE `oc_order_product`
-  MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `oc_order_recurring`
@@ -11651,7 +11660,7 @@ ALTER TABLE `oc_order_status`
 -- AUTO_INCREMENT for table `oc_order_total`
 --
 ALTER TABLE `oc_order_total`
-  MODIFY `order_total_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
+  MODIFY `order_total_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT for table `oc_order_voucher`
