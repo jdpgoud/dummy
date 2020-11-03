@@ -71,6 +71,8 @@ class ControllerJournal3Ajax extends Controller {
                     $this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
                 }
 
+                $this->session->data['customer_group_id'] = $this->customer->getGroupId();
+
                // $this->response->redirect($this->url->link('common/home', '', true));
             }
             if(!$isVerified){
@@ -95,7 +97,7 @@ class ControllerJournal3Ajax extends Controller {
         if($this->request->post['email'] != '' && $this->request->post['password'] != ''){
             $this->load->model('account/customer');
 
-            if ($this->customer->login($this->request->post['email'], $this->request->post['password'], false, true)) {
+            if ($this->customer->login($this->request->post['email'].'@ekaksha.com', $this->request->post['password'], false, true)) {
                 // Default Addresses
                 $this->load->model('account/address');
 
@@ -106,11 +108,11 @@ class ControllerJournal3Ajax extends Controller {
                 if ($this->config->get('config_tax_customer') == 'shipping') {
                     $this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
                 }
-
+                $this->session->data['customer_group_id'] = $this->customer->getGroupId();
                // $this->response->redirect($this->url->link('common/home', '', true));
                 $data['error'] = false;
                 $data['msg'] = 'successfully verified the User.';
-                $data['redirect'] = $this->url->link('product/category&path=60', '', true);
+                $data['redirect'] = $this->url->link('common/home', '', true);
             }else{
                 $data['error'] = true;
                 $data['msg'] = 'Please enter valid the email/password!';

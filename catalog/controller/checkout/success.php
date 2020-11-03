@@ -2,8 +2,11 @@
 class ControllerCheckoutSuccess extends Controller {
 	public function index() {
 		$this->load->language('checkout/success');
-
+		
 		if (isset($this->session->data['order_id'])) {
+
+			$order_id = $this->session->data['order_id'];
+
 			$this->cart->clear();
 
 			unset($this->session->data['shipping_method']);
@@ -64,7 +67,8 @@ class ControllerCheckoutSuccess extends Controller {
 		$data['student_name'] = $this->session->data['student_name'];
 		$data['user_id'] = $this->session->data['user_id'];
 		$data['password'] = $this->session->data['password'];
+		$data['order_id'] = $order_id;
 
-		$this->response->setOutput($this->load->view('common/success', $data));
+		$this->response->setOutput($this->load->view('common/ordersuccess', $data));
 	}
 }

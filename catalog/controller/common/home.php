@@ -15,7 +15,12 @@ class ControllerCommonHome extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+		//$this->session->data['customer_group_id']
+		if(isset($this->session->data['customer_group_id']) && $this->session->data['customer_group_id'] == 2){
 
-		$this->response->setOutput($this->load->view('common/home', $data));
+			$this->response->setOutput($this->load->view('common/homestudent', $data));
+		}else{
+			$this->response->setOutput($this->load->view('common/home', $data));
+		}
 	}
 }

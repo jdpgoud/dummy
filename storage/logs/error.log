@@ -1735,3 +1735,9 @@
 2020-11-02 16:28:34 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\ekaksha\system\library\mail\mail.php on line 77
 2020-11-02 16:33:41 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\ekaksha\system\library\mail\mail.php on line 77
 2020-11-02 16:36:30 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\ekaksha\system\library\mail\mail.php on line 77
+2020-11-03 8:18:59 - PHP Notice:  Undefined index: customer_group_id in D:\xampp\htdocs\ekaksha\catalog\controller\common\home.php on line 18
+2020-11-03 8:19:03 - PHP Notice:  Undefined index: customer_group_id in D:\xampp\htdocs\ekaksha\catalog\controller\common\home.php on line 18
+2020-11-03 8:19:10 - PHP Notice:  Undefined index: customer_group_id in D:\xampp\htdocs\ekaksha\catalog\controller\common\home.php on line 18
+2020-11-03 8:19:21 - PHP Notice:  Undefined index: customer_group_id in D:\xampp\htdocs\ekaksha\catalog\controller\common\home.php on line 18
+2020-11-03 8:29:43 - PHP Notice:  Undefined index: order_id in D:\xampp\htdocs\ekaksha\catalog\controller\checkout\success.php on line 67
+2020-11-03 8:37:56 - PHP Notice:  Undefined variable: order_id in D:\xampp\htdocs\ekaksha\catalog\controller\checkout\success.php on line 70
