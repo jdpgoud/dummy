@@ -190,3 +190,6 @@ $_['datepicker']            = 'en-gb';
 //$_['datepicker']            = 'zh-cn';
 //$_['datepicker']            = 'zh-hk';
 //$_['datepicker']            = 'zh-tw';
+
+
+$_['text_continue']            = 'Continue';
