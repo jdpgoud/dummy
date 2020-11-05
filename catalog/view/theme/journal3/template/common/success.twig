@@ -8,7 +8,7 @@
   <h1 class="title page-title"><span>{{ heading_title }}</span></h1>
 {% endif %}
 {{ j3.loadController('journal3/layout', 'top') }}
-<div id="common-success" class="container">
+<div id="common-success" class="container registration-success">
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
@@ -22,9 +22,24 @@
         <h1 class="title page-title">{{ heading_title }}</h1>
       {% endif %}
       {{ content_top }}
-      {{ text_message }}
-      <div class="buttons">
-        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+
+      <div class="success-wrapper">
+
+        <div class="success-top-block">
+          <div class="success-icon"></div>
+          <h2>{{text_congracts}}</h2>
+          <p class="text_success_1">{{text_message}}</p>
+          <p class="text_success_1">{{text_message_1}}</p>
+
+          <p class="text-1">{{text_approval}}</p>
+          <!-- {{ text_message }} -->
+        </div>
+      </div>
+
+
+      <!-- {{ text_message }} -->
+      <div class="buttons btn-continue">
+        <a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a>
       </div>
       {{ content_bottom }}</div>
     {{ column_right }}</div>
