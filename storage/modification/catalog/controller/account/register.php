@@ -52,7 +52,7 @@ class ControllerAccountRegister extends Controller {
                 }
             }
             
-			$this->response->redirect($this->url->link('account/success'));
+			// $this->response->redirect($this->url->link('account/success'));
 		}
 
 		$data['breadcrumbs'] = array();

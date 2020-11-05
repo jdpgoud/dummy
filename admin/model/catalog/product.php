@@ -455,6 +455,36 @@ class ModelCatalogProduct extends Model {
 		return $product_category_data;
 	}
 
+	public function getTopicsByCategory($category_id) {
+		$topics_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "topic WHERE category_id = '" . (int)$category_id . "'");
+
+		foreach ($query->rows as $result) {
+			$topics_data[] = array(
+				'topic_id' => $result['topic_id'],
+				'title' => $result['title'],
+				'category_id' => $result['category_id']
+			);
+		}
+
+		return $topics_data;
+	}
+
+	public function getProductTopics($product_id) {
+		$product_topics_data = array();
+
+		$query = $this->db->query("SELECT product_id, topic_id FROM " . DB_PREFIX . "product_topic WHERE product_id = '" . (int)$product_id . "'");
+
+		foreach ($query->rows as $result) {
+			$product_topics_data[] = array(
+				'topic_id' => $result['topic_id']
+			);
+		}
+
+		return $product_topics_data;
+	}
+
 	public function getProductFilters($product_id) {
 		$product_filter_data = array();
 

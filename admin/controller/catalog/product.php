@@ -887,6 +887,19 @@ class ControllerCatalogProduct extends Controller {
 			}
 		}
 
+		if(count($data['product_categories'])){ // We should expecting to have only one third level category
+			$data['category_id'] = $data['product_categories'][0]['category_id'];
+			$data['product_id']  = $this->request->get['product_id'];
+			$data['topic_data'] = $this->model_catalog_product->getTopicsByCategory($data['product_categories'][0]['category_id']);
+		}
+
+		//Get products's topic ids
+		$product_topic_ids = $this->model_catalog_product->getProductTopics($this->request->get['product_id']);
+		if(count($product_topic_ids)){
+			$data['product_topic_ids'] = $product_topic_ids;
+		}
+		
+		
 		// Filters
 		$this->load->model('catalog/filter');
 

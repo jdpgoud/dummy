@@ -1741,3 +1741,32 @@
 2020-11-03 8:19:21 - PHP Notice:  Undefined index: customer_group_id in D:\xampp\htdocs\ekaksha\catalog\controller\common\home.php on line 18
 2020-11-03 8:29:43 - PHP Notice:  Undefined index: order_id in D:\xampp\htdocs\ekaksha\catalog\controller\checkout\success.php on line 67
 2020-11-03 8:37:56 - PHP Notice:  Undefined variable: order_id in D:\xampp\htdocs\ekaksha\catalog\controller\checkout\success.php on line 70
+2020-11-03 12:02:08 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\ekaksha\storage\modification\system\engine\loader.php on line 91
+2020-11-04 5:55:43 - PHP Notice:  Undefined variable: categories in D:\xampp\htdocs\ekaksha\admin\controller\catalog\question.php on line 26
+2020-11-04 6:57:56 - PHP Notice:  Undefined index: topic_id in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 80
+2020-11-04 6:57:56 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 14
+2020-11-04 7:03:07 - PHP Notice:  Undefined index: topic_id in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 80
+2020-11-04 7:03:07 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 14
+2020-11-04 7:03:16 - PHP Notice:  Undefined index: topic_id in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 80
+2020-11-04 7:03:16 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 14
+2020-11-04 7:05:45 - PHP Notice:  Undefined index: topic_id in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 80
+2020-11-04 7:05:45 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 14
+2020-11-04 7:11:01 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\ekaksha\system\library\template\Twig\Environment.php(403) : eval()'d code on line 358
+2020-11-04 7:13:05 - PHP Notice:  Undefined index: topic_id in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 80
+2020-11-04 7:13:05 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 14
+2020-11-04 7:14:39 - PHP Notice:  Undefined index: topic_id in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 80
+2020-11-04 7:19:37 - PHP Notice:  Undefined index: topic_id in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 80
+2020-11-04 7:19:37 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 14
+2020-11-04 7:20:29 - PHP Notice:  Undefined index: topic_id in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 80
+2020-11-04 7:21:18 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 14
+2020-11-04 7:21:26 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 14
+2020-11-05 11:55:15 - PHP Notice:  Undefined offset: 37 in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 288
+2020-11-05 11:55:15 - PHP Notice:  Undefined offset: 35 in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 288
+2020-11-05 11:55:27 - PHP Notice:  Undefined offset: 37 in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 288
+2020-11-05 11:55:27 - PHP Notice:  Undefined offset: 35 in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topic.php on line 288
+2020-11-05 13:24:27 - PHP Warning:  mysqli::real_escape_string() expects parameter 1 to be string, array given in D:\xampp\htdocs\ekaksha\system\library\db\mysqli.php on line 45
+2020-11-05 13:24:27 - PHP Warning:  mysqli::real_escape_string() expects parameter 1 to be string, array given in D:\xampp\htdocs\ekaksha\system\library\db\mysqli.php on line 45
+2020-11-05 13:24:27 - PHP Warning:  mysqli::real_escape_string() expects parameter 1 to be string, array given in D:\xampp\htdocs\ekaksha\system\library\db\mysqli.php on line 45
+2020-11-05 13:24:27 - PHP Warning:  mysqli::real_escape_string() expects parameter 1 to be string, array given in D:\xampp\htdocs\ekaksha\system\library\db\mysqli.php on line 45
+2020-11-05 13:24:27 - PHP Notice:  Undefined variable: dats in D:\xampp\htdocs\ekaksha\admin\model\catalog\topic.php on line 132
+2020-11-05 13:24:27 - PHP Notice:  Undefined variable: url in D:\xampp\htdocs\ekaksha\admin\controller\catalog\topicsession.php on line 37

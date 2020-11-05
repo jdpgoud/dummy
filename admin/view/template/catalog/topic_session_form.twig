@@ -1,0 +1,208 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-topic" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid"> {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-topic" class="form-horizontal">
+          <div id="session-box">
+            {% set session_row = 0 %}
+            {% set video_row = 0 %}
+            {% if topic_sessions %}
+              {% for topic_session in topic_sessions %}
+                
+              <div id="session-row{{ session_row}}" style="border: 0px solid; background: #f3eded; margin: 5px;">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-session">Session-1</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="session[{{session_row}}][title]" value="{{ topic_session.title }}" placeholder="Session-1" id="input-session" class="form-control" />
+                    </div>
+                    {% if session_row > 0 %}
+                      <div class="col-sm-2 pull-right">
+                        <button type="button" onclick="$('#session-row{{ session_row}}').remove();" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
+                      </div>
+                    {% endif %}
+                    <div class="col-sm-2 pull-right" id="add-session{{ session_row }}">
+                      <button type="button" onclick="addSeession();" data-toggle="tooltip" title="Add Session" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                    </div>
+                  </div>   
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-test">Test</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="session[{{session_row}}][test_id]" value="{{ topic_session.test_id }}" placeholder="Test" id="input-test" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-assignment">Assignment</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="session[{{session_row}}][assignment_file]" value="{{ topic_session.assignment_file }}" placeholder="Assignment" id="input-assignment" class="form-control" />
+                    </div>
+                  </div>
+                  <div id="video-box{{ session_row }}">   
+                    {% set video_row = 0 %}                 
+                    {% for video in topic_session.video %}                    
+                    <div id="video-row{{ video_row }}" style="border: 0px solid; background: #dad3d3; margin: 5px;">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-video">Video</label>
+                        <div class="col-sm-6">
+                          <input type="text" name="session[{{session_row}}][video][{{video_row}}][video]" value="{{ video.video }}" placeholder="Video" id="input-video" class="form-control" />
+                        </div>
+                        {% if video_row > 0 %}
+                        <div class="col-sm-4 pull-right">
+                          <button type="button" onclick="$('#video-row1').remove();" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
+                        </div>
+                        {% else %}
+                        <div class="col-sm-4 pull-right" id="add-video{{ video_row }}">
+                          <button type="button" onclick="addVideo({{session_row}});" data-toggle="tooltip" title="Add Video" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                        </div>
+                        {% endif %}
+                      </div>                            
+                    </div>
+                    {% set video_row = video_row + 1 %}
+                    {% endfor %}
+                  </div>
+              </div>
+              {% set session_row = session_row + 1 %}
+              {% endfor %}
+            {% else %}
+              <div id="session-row{{ session_row }}" style="border: 0px solid; background: #f3eded; margin: 5px;">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-session">Session-1</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="session[{{session_row}}][title]" value="{{ session }}" placeholder="Session-1" id="input-session" class="form-control" />
+                    </div>
+                      <div class="col-sm-4 pull-right" id="add-session{{ session_row }}">
+                      <button type="button" onclick="addSeession();" data-toggle="tooltip" title="Add Session" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                    </div>
+                  </div>   
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-test">Test</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="session[{{session_row}}][test_id]" value="{{ test }}" placeholder="Test" id="input-test" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-assignment">Assignment</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="session[{{session_row}}][assignment_file]" value="{{ assignment }}" placeholder="Assignment" id="input-assignment" class="form-control" />
+                    </div>
+                  </div>
+                  <div id="video-box{{ session_row }}">
+                    {% set video_row = 0 %}
+                    <div id="video-row{{ video_row }}" style="border: 0px solid; background: #dad3d3; margin: 5px;">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-video">Video</label>
+                        <div class="col-sm-6">
+                          <input type="text" name="session[{{session_row}}][video][{{video_row}}][video]" value="{{ video }}" placeholder="Video" id="input-video" class="form-control" />
+                        </div>
+                        <div class="col-sm-4 pull-right" id="add-video{{ video_row }}">
+                          <button type="button" onclick="addVideo({{session_row}});" data-toggle="tooltip" title="Add Video" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                        </div>
+                      </div>                            
+                    </div>
+                    {% set video_row = video_row + 1 %}
+                  </div>
+              </div>
+              {% set session_row = session_row + 1 %}
+            {% endif %}
+          </div>          
+        </form>
+      </div>
+    </div>
+  </div>
+  </script> 
+  <script type="text/javascript"><!--
+  
+  var session_row = {{ session_row }}
+  var video_row = {{ video_row }}
+
+  function addSeession() {
+    video_row = 0;
+    html = '<div id="session-row'+ session_row +'" style="border: 0px solid; background: #f3eded; margin: 5px;">';
+    html += '    <div class="form-group">';
+    html += '      <label class="col-sm-2 control-label" for="input-session">Session-'+(session_row+1)+'</label>';
+    html += '      <div class="col-sm-6">';
+    html += '        <input type="text" name="session['+session_row+'][title]" value="{{ session }}" placeholder="Session-'+(session_row+1)+'" id="input-session" class="form-control" />';
+    html += '      </div>';
+    html += '     <div class="col-sm-2 pull-right">'; 
+    html +=         '<button type="button" onclick="$(\'#session-row'+ session_row +'\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>';
+    html +=      '</div>';
+    html += '     <div class="col-sm-2 pull-right">';
+    html += '       <button type="button" onclick="addSeession();" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Add Session"><i class="fa fa-plus-circle"></i></button>';
+    html += '     </div>';
+    html += '    </div>';
+    html += '    <div class="form-group">';
+    html += '      <label class="col-sm-2 control-label" for="input-test">Test</label>';
+    html += '      <div class="col-sm-6">';
+    html += '        <input type="text" name="session['+session_row+'][test_id]" value="{{ test }}" placeholder="Test" id="input-test" class="form-control" />';
+    html += '      </div>';
+    html += '    </div>';
+    html += '    <div class="form-group">';
+    html += '      <label class="col-sm-2 control-label" for="input-assignment">Assignment</label>';
+    html += '      <div class="col-sm-6">';
+    html += '        <input type="text" name="session['+session_row+'][assignment_file]" value="{{ assignment }}" placeholder="Assignment" id="input-assignment" class="form-control" />';
+    html += '      </div>';
+    html += '    </div>';
+    html += '    <div id="video-box'+ session_row +'">';
+    html += '     <div id="video-row'+ video_row +'" style="border: 0px solid; background: #dad3d3; margin: 5px;">';
+    html += '       <div class="form-group">';
+    html += '         <label class="col-sm-2 control-label" for="input-video">Video</label>';
+    html += '         <div class="col-sm-6">';
+    html += '           <input type="text" name="session['+session_row+'][video]['+video_row+'][video]" value="{{ video }}" placeholder="Video" id="input-video" class="form-control" />';
+    html += '         </div>';  
+    html += '        <div class="col-sm-4 pull-right">'; 
+    html +=            '<button type="button" onclick="addVideo('+session_row+');" data-toggle="tooltip" title="Add Video" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>';
+    html +=          '</div>';
+    html += '       </div>';
+    html += '     </div>';
+    html += '    </div>';
+    html += '</div>';
+
+    $("#session-box").append(html);
+    session_row++;
+    video_row++;   
+  }
+
+  function addVideo(session_current_index) {
+    console.log("session_current_index ",session_current_index)
+    console.log("session_row ",session_row)
+    console.log("video_row ",video_row)
+    var session_row_minus = session_row-1;
+    
+    html = '     <div id="video-row'+ video_row +'" style="border: 0px solid; background: #dad3d3; margin: 5px;">';
+    html += '       <div class="form-group">';
+    html += '         <label class="col-sm-2 control-label" for="input-video">Video</label>';
+    html += '         <div class="col-sm-6">';
+    html += '           <input type="text" name="session['+session_row_minus+'][video]['+video_row+'][video]" value="{{ video }}" placeholder="Video" id="input-video" class="form-control" />';
+    html += '         </div>';  
+    html += '        <div class="col-sm-4 pull-right">'; 
+    html +=            '<button type="button" onclick="$(\'#video-row'+ video_row +'\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>';
+    html +=          '</div>';
+    html += '       </div>';
+    html += '     </div>';
+    console.log("#video-box" + session_current_index);
+    $("#video-box" + session_current_index).append(html);
+    video_row++;
+  }
+</script>
+</div>
+{{ footer }}
