@@ -1871,3 +1871,7 @@
 2020-11-03 16:16:25 - PHP Warning:  Illegal string offset 'text_order_id' in D:\xampp\htdocs\ekaksha\catalog\controller\event\language.php on line 6
 2020-11-03 16:16:25 - PHP Warning:  Illegal string offset 'text_total' in D:\xampp\htdocs\ekaksha\catalog\controller\event\language.php on line 6
 2020-11-03 16:16:25 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\ekaksha\storage\modification\system\engine\loader.php on line 129
+2020-11-05 16:01:52 - PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in D:\xampp\htdocs\ekaksha\system\library\db\mysqli.php on line 7
+2020-11-05 16:01:52 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\ekaksha\system\library\db\mysqli.php on line 10
+2020-11-05 16:01:52 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\ekaksha\system\library\db\mysqli.php on line 10
