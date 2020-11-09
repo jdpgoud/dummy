@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2020 at 08:44 PM
+-- Generation Time: Nov 09, 2020 at 01:44 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -812,7 +812,7 @@ CREATE TABLE `oc_currency` (
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(4, 'Rupees', 'INR', 'Rs.', '', '2', 1.00000000, 1, '2020-11-05 14:13:49');
+(4, 'Rupees', 'INR', 'Rs.', '', '2', 1.00000000, 1, '2020-11-09 04:47:02');
 
 -- --------------------------------------------------------
 
@@ -4488,7 +4488,8 @@ CREATE TABLE `oc_product` (
 
 INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`, `mpn`, `location`, `quantity`, `stock_status_id`, `image`, `manufacturer_id`, `shipping`, `price`, `points`, `tax_class_id`, `date_available`, `weight`, `weight_class_id`, `length`, `width`, `height`, `length_class_id`, `subtract`, `minimum`, `sort_order`, `status`, `viewed`, `date_added`, `date_modified`) VALUES
 (54, 'Class_9_Maths', '', '', '', '', '', '', '', 1, 6, '', 0, 1, '0.0000', 0, 0, '2020-11-05', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-06 01:08:12', '2020-11-06 01:08:12'),
-(55, 'Class_9_Science', '', '', '', '', '', '', '', 1, 6, '', 0, 1, '0.0000', 0, 0, '2020-11-05', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-06 01:08:30', '2020-11-06 01:08:30');
+(55, 'Class_9_Science', '', '', '', '', '', '', '', 1, 6, '', 0, 1, '0.0000', 0, 0, '2020-11-05', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-06 01:08:30', '2020-11-06 01:08:30'),
+(56, 'test', '', '', '', '', '', '', '', 1, 6, '', 0, 1, '0.0000', 0, 0, '2020-11-09', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-09 15:01:57', '2020-11-09 15:01:57');
 
 -- --------------------------------------------------------
 
@@ -4526,7 +4527,8 @@ CREATE TABLE `oc_product_description` (
 
 INSERT INTO `oc_product_description` (`product_id`, `language_id`, `name`, `description`, `tag`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 (54, 1, 'Class 9 Maths', '', '', 'Class 9 Maths', '', ''),
-(55, 1, 'Class 9 Science', '', '', 'Class 9 Science', '', '');
+(55, 1, 'Class 9 Science', '', '', 'Class 9 Science', '', ''),
+(56, 1, 'Test prod', '', '', 'test', '', '');
 
 -- --------------------------------------------------------
 
@@ -4695,7 +4697,8 @@ CREATE TABLE `oc_product_to_category` (
 
 INSERT INTO `oc_product_to_category` (`product_id`, `category_id`) VALUES
 (54, 3),
-(55, 4);
+(55, 4),
+(56, 4);
 
 -- --------------------------------------------------------
 
@@ -4725,6 +4728,7 @@ CREATE TABLE `oc_product_to_layout` (
 --
 
 INSERT INTO `oc_product_to_layout` (`product_id`, `store_id`, `layout_id`) VALUES
+(56, 0, 0),
 (55, 0, 0),
 (54, 0, 0);
 
@@ -4745,7 +4749,8 @@ CREATE TABLE `oc_product_to_store` (
 
 INSERT INTO `oc_product_to_store` (`product_id`, `store_id`) VALUES
 (54, 0),
-(55, 0);
+(55, 0),
+(56, 0);
 
 -- --------------------------------------------------------
 
@@ -4762,6 +4767,45 @@ CREATE TABLE `oc_question` (
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `oc_question`
+--
+
+INSERT INTO `oc_question` (`question_id`, `question`, `category_id`, `explanation`, `status`, `date_added`, `date_modified`) VALUES
+(1, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 3, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 1, '2020-11-08 11:42:46', '0000-00-00 00:00:00'),
+(2, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 3, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 1, '2020-11-08 12:05:14', '0000-00-00 00:00:00'),
+(3, '&lt;p&gt;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 4, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 1, '2020-11-08 12:54:17', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_question_option`
+--
+
+CREATE TABLE `oc_question_option` (
+  `question_option_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `option_value` varchar(525) NOT NULL,
+  `is_correct` tinyint(1) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `oc_question_option`
+--
+
+INSERT INTO `oc_question_option` (`question_option_id`, `question_id`, `option_value`, `is_correct`, `status`, `date_added`, `date_modified`) VALUES
+(1, 2, '&lt;p&gt;-4&lt;/p&gt;\r\n', 1, 1, '2020-11-08 12:05:15', '0000-00-00 00:00:00'),
+(2, 2, '&lt;p&gt;-2&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '0000-00-00 00:00:00'),
+(3, 2, '&lt;p&gt;-3&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '0000-00-00 00:00:00'),
+(4, 2, '&lt;p&gt;-1&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '0000-00-00 00:00:00'),
+(5, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:54:17', '0000-00-00 00:00:00'),
+(6, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:54:17', '0000-00-00 00:00:00'),
+(7, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:54:18', '0000-00-00 00:00:00'),
+(8, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 1, 1, '2020-11-08 12:54:18', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -4977,6 +5021,7 @@ INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
 ('32b88b9cf068a40360b2c50bee', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"gq6UkKrlf1ttlKqO6AyApNip6DWtyCfg\",\"jrv\":[\"50\",\"42\"]}', '2020-08-15 13:42:30'),
 ('3744188d7862e37da7ee158fe5', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"j3_checkout_id\":\"4da800030633a5496d4055aad8c38cf8\",\"account\":\"\",\"same_address\":true,\"newsletter\":true,\"customer_id\":\"2\",\"shipping_address\":{\"address_id\":\"3\",\"firstname\":\"Sathish\",\"lastname\":\"Y\",\"company\":\"\",\"address_1\":\"Hyderabad\",\"address_2\":\"\",\"postcode\":\"500081\",\"city\":\"Hyderabad\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[]}}', '2020-10-20 19:09:57'),
 ('3a9db9312dd79c8414a06624d0', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"UqFH6fc33CpAOvXB10tmULTeS7GYnk4E\"}', '2020-08-07 18:32:04'),
+('4b30990ae5723d8f16fc129ffe', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-11-08 06:35:34'),
 ('4fde662ce51f8df29c25c45671', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-08-09 07:38:59'),
 ('5096016547564419204bc38e3a', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"customer_id\":\"9\",\"payment_address\":{\"address_id\":\"7\",\"firstname\":\"sathish\",\"lastname\":\"yadavelly\",\"company\":\"\",\"address_1\":\"Hyd\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Hyd\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null},\"student_id\":20,\"student_name\":\"first student\",\"user_id\":\"firststudent\",\"password\":\"123123\",\"razorpay_order_id\":\"order_FwIJALYcjX4gHE\"}', '2020-11-02 12:29:56'),
 ('5691e84f6d810bd7a965cd7a95', '{\"user_id\":\"1\",\"user_token\":\"iE3qLy970sjv5cKgHwjBnwtwALk1RMlZ\",\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"42\"],\"j3_checkout_id\":\"da346ed637d8267b21dfd33345963207\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"comment\":\"\",\"payment_address\":{\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"test\",\"address_2\":\"test\",\"city\":\"test\",\"postcode\":\"500054\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_address\":{\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"test\",\"address_2\":\"test\",\"city\":\"test\",\"postcode\":\"500054\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_methods\":{\"flat\":{\"title\":\"Flat Rate\",\"quote\":{\"flat\":{\"code\":\"flat.flat\",\"title\":\"Flat Shipping Rate\",\"cost\":\"5.00\",\"tax_class_id\":\"9\",\"text\":\"Rs.5.00\"}},\"sort_order\":\"1\",\"error\":false}},\"shipping_method\":{\"code\":\"flat.flat\",\"title\":\"Flat Shipping Rate\",\"cost\":\"5.00\",\"tax_class_id\":\"9\",\"text\":\"Rs.5.00\"},\"payment_methods\":{\"cod\":{\"code\":\"cod\",\"title\":\"Cash On Delivery\",\"terms\":\"\",\"sort_order\":\"5\"}},\"payment_method\":{\"code\":\"cod\",\"title\":\"Cash On Delivery\",\"terms\":\"\",\"sort_order\":\"5\"},\"order_id\":1,\"customer_id\":\"1\",\"payment_address_type\":\"new\",\"shipping_address_type\":\"new\"}', '2020-08-14 17:47:18'),
@@ -4998,18 +5043,22 @@ INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
 ('8f650b393731bab5a696d8422d', '{\"user_id\":\"1\",\"user_token\":\"ecH94nN7O3MSZhd0A8kB0lGV3p0qXeU4\",\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"42\",\"50\"]}', '2020-08-14 10:11:02'),
 ('93d04a9ee629befd8edd0df934', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"47\"],\"user_token\":\"2qAvSnerhjiy1Ypoy8lrO8zhLdteXqR5\",\"wishlist\":[\"50\"],\"customer_group_id\":\"2\",\"student_id\":26,\"student_name\":\"test student student\",\"password\":\"123456\",\"razorpay_order_id\":\"order_FwjztGjOi1CSsg\",\"customer_id\":\"26\",\"shipping_address\":false,\"user_id\":\"1\"}', '2020-11-03 16:40:39'),
 ('9d5e20afda29f8e31437796f07', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"qoohl6f5ioJEWHJPd2CSbqYJdf57OqEi\"}', '2020-08-08 17:59:22'),
+('9fac327fb4460d470ec9f30091', '{\"user_id\":\"1\",\"user_token\":\"qyzOIXv108ks9kJ5JXuwRfMfog99akgu\",\"topic_id\":\"3\",\"topic_product_id\":\"54\",\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-11-09 13:03:24'),
 ('a1d15fc82a1dc160071b74b9e4', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"30\",\"42\"],\"user_id\":\"1\",\"user_token\":\"qSVkaqbEFsxXJbIlGmCZ4l2sWwRCwSQ7\"}', '2020-08-17 20:15:30'),
 ('b294eaef934f1fc88f961b2843', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"qu4Rle9o8pgrpsISUPo3zjz9ELzLLTjM\",\"jrv\":[\"50\"],\"j3_checkout_id\":\"cf1d25eaccbc9a8744e108624a76c08a\"}', '2020-08-13 13:54:57'),
 ('b580132b5b4f0e5d42c9aff217', '{\"user_id\":\"1\",\"user_token\":\"7utTskKT1jndhmR1aV1R3DLKGKMdIIG8\",\"topic_id\":\"1\",\"topic_product_id\":\"54\"}', '2020-11-05 20:07:46'),
 ('bebb7f152667a920f9a612b6f9', '{\"api_id\":\"1\"}', '2020-08-10 18:02:47'),
 ('bf73ece0e2b251a95fdd4b6d67', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"oW3SJZkrscPyyrGM6DREADkA3cpX3yqI\",\"jrv\":[\"50\",\"47\"],\"account\":\"guest\",\"payment_address\":{\"address_id\":\"10\",\"firstname\":\"DURGA\",\"lastname\":\"PRASAD\",\"company\":\"Scemantech Solutions\",\"address_1\":\"6-269\\/3, Plot 82, Indrasingh Nagar, Chintal\",\"address_2\":\"Hyderabad\",\"postcode\":\"500054\",\"city\":\"Hyderabad\",\"zone_id\":\"1493\",\"zone\":\"Maharashtra\",\"zone_code\":\"MA\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null},\"razorpay_order_id\":\"order_FvQB0gH8fDH118\",\"customer_id\":\"17\",\"shipping_address\":{\"address_id\":\"8\",\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"q\",\"address_1\":\"tsts\",\"address_2\":\"sdfsdfgsd\",\"postcode\":\"\",\"city\":\"sdfsdfsdfs\",\"zone_id\":\"1494\",\"zone\":\"Manipur\",\"zone_code\":\"MN\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null}}', '2020-10-31 12:44:15'),
+('c254c9b5ea457718232caf2cca', 'false', '2020-11-09 05:10:53'),
 ('c27505c3a6fee20814c40d40dc', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"47\",\"50\"],\"j3_checkout_id\":\"1c017f855bbe09e798b352f00657bd72\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"razorpay_order_id\":\"order_Fu06y86jSZsmLB\",\"wishlist\":[],\"student_id\":18,\"customer_id\":\"17\",\"shipping_address\":{\"address_id\":\"8\",\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"q\",\"address_1\":\"tsts\",\"address_2\":\"sdfsdfgsd\",\"postcode\":\"\",\"city\":\"sdfsdfsdfs\",\"zone_id\":\"1494\",\"zone\":\"Manipur\",\"zone_code\":\"MN\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null}}', '2020-10-27 17:38:16'),
 ('c638d572b36ade64544c8872df', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"ltv0zCqrMll0Z2pBLkuXNzDqDydslq0V\",\"jrv\":[\"50\"]}', '2020-11-05 17:32:28'),
 ('c8187d54c665a5dcef9648306c', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"JJrXqTtWrV85g529YDW8V0B5LseGY49v\"}', '2020-08-11 04:38:57'),
+('ccb917d82f1d8f4f2de1dd2340', '{\"user_id\":\"1\",\"user_token\":\"JvOq6eDXPIRYuFEIWbpZOPWD0aizWVVs\"}', '2020-11-08 07:50:04'),
 ('d0529764e0c20c942663a97f5a', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"47\"],\"user_token\":\"aTHSeJI3YLG6m83SER8qUx4c0fGiLSzy\",\"student_id\":21,\"student_name\":\"Bhavishya Goud\",\"password\":\"123456\",\"razorpay_order_id\":\"order_FwMaD0u9LrJYBO\",\"user_id\":\"1\"}', '2020-11-02 16:47:45'),
 ('e05c4f8ed6f33bd4ef2441c9e3', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-10-30 05:33:32'),
 ('e5fa19ba4e01d3ce87fb789aaa', 'false', '2020-08-14 09:54:30'),
 ('e83d773eba76e767a864b06f6d', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"47\"]}', '2020-10-29 03:44:46'),
+('ec7c1d5f1ddfe3cbaa416a57b3', '{\"user_id\":\"1\",\"user_token\":\"RXpBmoEdD0yInrxqQBEyODfBB2omdMRO\",\"topic_id\":\"1\",\"topic_product_id\":\"54\"}', '2020-11-07 04:06:58'),
 ('f9a644d481720075cd4c60f0f1', '{\"user_id\":\"1\",\"user_token\":\"euMaXeHrK5WiOjHxfHRp2X70jgywNizw\",\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-08-05 10:40:10'),
 ('fc132feb29e9f5211d039d9557', '{\"user_id\":\"1\",\"user_token\":\"wxSxrkdggB72XuNUjA84HRmvG5olKC4l\",\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"j3_checkout_id\":\"2603cf0bf17fa42d37e405af2a777999\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"comment\":\"\",\"payment_address\":{\"firstname\":\"\",\"lastname\":\"\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"postcode\":\"\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_address\":{\"firstname\":\"\",\"lastname\":\"\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"postcode\":\"\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"order_id\":2,\"wishlist\":[\"50\"]}', '2020-09-14 18:03:58'),
 ('fd5bef79857c67e14fda94aa28', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-09-16 12:07:05');
@@ -5034,7 +5083,9 @@ CREATE TABLE `oc_session_video` (
 
 INSERT INTO `oc_session_video` (`video_id`, `video`, `topic_session_id`, `date_added`, `date_modified`) VALUES
 (1, '123qwe', 1, '2020-11-06 01:13:42', '2020-11-06 01:13:42'),
-(2, '321qwe', 1, '2020-11-06 01:13:42', '2020-11-06 01:13:42');
+(2, '321qwe', 1, '2020-11-06 01:13:42', '2020-11-06 01:13:42'),
+(11, 'lkjhg', 7, '2020-11-09 16:32:32', '2020-11-09 16:32:32'),
+(12, 'tynb', 7, '2020-11-09 16:32:32', '2020-11-09 16:32:32');
 
 -- --------------------------------------------------------
 
@@ -5466,7 +5517,8 @@ CREATE TABLE `oc_topic` (
 
 INSERT INTO `oc_topic` (`topic_id`, `title`, `category_id`, `status`, `date_added`, `date_modified`) VALUES
 (1, 'Real Numbers', 3, 1, '2020-11-06 01:09:01', NULL),
-(2, 'Structure of Atom', 4, 1, '2020-11-06 01:13:11', NULL);
+(2, 'Structure of Atom', 4, 1, '2020-11-06 01:13:11', NULL),
+(3, 'Polynomials', 3, 1, '2020-11-09 16:24:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -10693,6 +10745,12 @@ ALTER TABLE `oc_question`
   ADD PRIMARY KEY (`question_id`);
 
 --
+-- Indexes for table `oc_question_option`
+--
+ALTER TABLE `oc_question_option`
+  ADD PRIMARY KEY (`question_option_id`);
+
+--
 -- Indexes for table `oc_recurring`
 --
 ALTER TABLE `oc_recurring`
@@ -11321,7 +11379,7 @@ ALTER TABLE `oc_order_voucher`
 -- AUTO_INCREMENT for table `oc_product`
 --
 ALTER TABLE `oc_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `oc_product_discount`
@@ -11363,13 +11421,19 @@ ALTER TABLE `oc_product_special`
 -- AUTO_INCREMENT for table `oc_product_topic`
 --
 ALTER TABLE `oc_product_topic`
-  MODIFY `product_topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `product_topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `oc_question`
 --
 ALTER TABLE `oc_question`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `oc_question_option`
+--
+ALTER TABLE `oc_question_option`
+  MODIFY `question_option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `oc_recurring`
@@ -11423,7 +11487,7 @@ ALTER TABLE `oc_seo_url`
 -- AUTO_INCREMENT for table `oc_session_video`
 --
 ALTER TABLE `oc_session_video`
-  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `oc_setting`
@@ -11477,13 +11541,13 @@ ALTER TABLE `oc_theme`
 -- AUTO_INCREMENT for table `oc_topic`
 --
 ALTER TABLE `oc_topic`
-  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `oc_topic_session`
 --
 ALTER TABLE `oc_topic_session`
-  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `oc_translation`
