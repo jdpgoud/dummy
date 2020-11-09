@@ -456,7 +456,7 @@
                       <label class="col-sm-2 control-label" for="input-topic"><span data-toggle="tooltip" title="Select Topic">Select Topic</span></label>
                       <div class="col-sm-6">
                         <select name="topic_id" id="input-topic" class="form-control topicselect">
-                          <option value="" selected="selected">Choose Topic</option>
+                          <option value="" selected="selected" >Choose Topic</option>
                           {% for topic in topic_data %}
                             {% if topic.topic_id == product_topic_id.topic_id %}
                               <option value="{{topic.topic_id}}" selected="selected">{{ topic.title }}</option>
@@ -465,8 +465,11 @@
                             {% endif %}
                           {% endfor %}                      
                         </select>
+                      </div>                      
+                      <div class="col-sm-2 pull-right" >
+                        <button type="button" onclick="removeTopic({{topic_row}}, {{product_topic_id.topic_id}});" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
                       </div>
-                      <div class="col-sm-4 pull-right">
+                      <div class="col-sm-2 pull-right">
                         <button type="button" onclick="saveAndContinue({{ topic_row }});" data-toggle="tooltip" title="" class="btn btn-primary savebtn" data-original-title="Add Topic" aria-describedby="tooltip695748">Save and Continue</button>
                       </div>
                     </div>               
@@ -490,7 +493,7 @@
                           {% endfor %}                      
                         </select>
                       </div>
-                      <div class="col-sm-4 pull-right">
+                      <div class="col-sm-2 pull-right">
                         <button type="button" onclick="saveAndContinue({{ topic_row }});" data-toggle="tooltip" title="" class="btn btn-primary savebtn" data-original-title="Add Topic" aria-describedby="tooltip695748">Save and Continue</button>
                       </div>
                     </div>               
@@ -1357,13 +1360,12 @@ function addTopic() {
   html += '  <label class="col-sm-2 control-label" for="input-topic"><span data-toggle="tooltip" title="Select Topic">Select Topic</span></label>';
   html += '  <div class="col-sm-6">';
   html += '    <select name="topic_id" id="input-topic" class="form-control topicselect">';
-                {% if status %}
-  html += '      <option value="1" selected="selected">{{ text_enabled }}</option>';
-  html += '      <option value="0">{{ text_disabled }}</option>';
-                {% else %}
-  html += '      <option value="1">{{ text_enabled }}</option>';
-  html += '      <option value="0" selected="selected">{{ text_disabled }}</option>';
-                {% endif %}
+  html += '     <option value="" selected="selected">Choose Topic</option>';
+              {% for topic in topic_data %}
+                          
+  html += '     <option value="{{topic.topic_id}}">{{ topic.title }}</option>';                          
+
+                {% endfor %} 
   html += '    </select>';
   html += '  </div>';
   html +=   '<div class="col-sm-2 pull-right" id="add-topic{{ topic_row }}">'; 
@@ -1378,24 +1380,43 @@ function addTopic() {
   $('#tab-topic-box').append(html);
   topic_row++;
 }
-  function saveAndContinue(current) {
-    //console.log(current)
-    //console.log($("#topic-row"+current).find('select[name="topic_id"] option:selected').val())
-    $.ajax({
-      url: 'index.php?route=catalog/topicsession/saveandcontinue&user_token={{ user_token }}',
-      type: 'post',
-      data: 'topic_id='+$("#topic-row"+current).find('select[name="topic_id"] option:selected').val()+'&product_id={{product_id}}&category_id={{category_id}}',
-      //$('#topic-row"+current input[type=\'time\']'),
-      dataType: 'json',
-      success: function(json) {
-        if(json['error']){
-          console.log('Error');
-        }else{
-          location = json['redirect'];
-        }
+
+function removeTopic(topic_current_row, topic_id) {
+  $('#topic-row'+topic_current_row).remove();
+  $.ajax({
+    url: 'index.php?route=catalog/topicsession/removetopic&user_token={{ user_token }}',
+    type: 'post',
+    data: 'topic_id='+topic_id+'&product_id={{product_id}}&category_id={{category_id}}',
+    //$('#topic-row"+current input[type=\'time\']'),
+    dataType: 'json',
+    success: function(json) {
+      if(json['error']){
+        console.log(json['msg']);
+      }else{
+        alert(json['msg']);
       }
-    })
-  }
+    }
+  })
+}
+
+function saveAndContinue(current) {
+  //console.log(current)
+  //console.log($("#topic-row"+current).find('select[name="topic_id"] option:selected').val())
+  $.ajax({
+    url: 'index.php?route=catalog/topicsession/saveandcontinue&user_token={{ user_token }}',
+    type: 'post',
+    data: 'topic_id='+$("#topic-row"+current).find('select[name="topic_id"] option:selected').val()+'&product_id={{product_id}}&category_id={{category_id}}',
+    //$('#topic-row"+current input[type=\'time\']'),
+    dataType: 'json',
+    success: function(json) {
+      if(json['error']){
+        console.log('Error');
+      }else{
+        location = json['redirect'];
+      }
+    }
+  })
+}
 //--></script>
   <script type="text/javascript"><!--
 var attribute_row = {{ attribute_row }};

@@ -18,6 +18,23 @@ class ControllerCatalogTopicsession extends Controller {
 		$this->response->setOutput(json_encode($data));
 	}
 
+	public function removetopic() {
+		if (($this->request->server['REQUEST_METHOD'] == 'POST')){
+			$this->load->model('catalog/topic');
+			$result = $this->model_catalog_topic->removeTopicDetails($this->request->post);
+			$data = [];
+			if($result){
+				$data['error'] = false;
+				$data['msg'] = 'Deleted successfully!';
+			}else{
+				$data['error'] = true;
+				$data['msg'] = 'Something went wrong!';
+			}
+			$this->response->setOutput(json_encode($data));
+			
+		}
+	}
+
 	public function add() {
 
 		$this->document->setTitle('Topic Sessions');
@@ -120,7 +137,7 @@ class ControllerCatalogTopicsession extends Controller {
 	}
 
 	protected function getForm() {
-		$data['text_form'] = !isset($this->request->get['topic_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+		$data['text_form'] = 'Add Sessions';
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -184,7 +201,7 @@ class ControllerCatalogTopicsession extends Controller {
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
+			'text' => 'Topic Session',
 			'href' => $this->url->link('catalog/topic', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
 
@@ -203,9 +220,9 @@ class ControllerCatalogTopicsession extends Controller {
 
 		if(isset($this->session->data['topic_id']) && isset($this->session->data['topic_product_id'])){
 			$this->load->model('catalog/topic');
-			$result = $this->model_catalog_topic->getTopicWithSession($this->session->data['topic_id']);
-			
-			$data['topic_sessions'] = $result;
+			$result = $this->model_catalog_topic->getTopicWithSession($this->session->data['topic_id'], $this->session->data['topic_product_id']);
+			$data['topic_sessions'] = $result['session_data'];
+			$data['product_topic'] = $result['product_topic'];
 		}
 		
 		// $data['user_token'] = $this->session->data['user_token'];

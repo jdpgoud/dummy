@@ -28,6 +28,8 @@
             {% set session_row = 0 %}
             {% set video_row = 0 %}
             {% if topic_sessions %}
+                <input type="hidden" name="product_id" value="{{ product_topic.product_id }}" />
+                <input type="hidden" name="topic_id" value="{{ product_topic.topic_id }}" />
               {% for topic_session in topic_sessions %}
                 
               <div id="session-row{{ session_row}}" style="border: 0px solid; background: #f3eded; margin: 5px;">
@@ -35,10 +37,12 @@
                     <label class="col-sm-2 control-label" for="input-session">Session-1</label>
                     <div class="col-sm-6">
                       <input type="text" name="session[{{session_row}}][title]" value="{{ topic_session.title }}" placeholder="Session-1" id="input-session" class="form-control" />
+                      <input id="session_id{{session_row}}" type="hidden" name="session[{{session_row}}][session_id]" value="{{ topic_session.session_id }}" />                      
                     </div>
                     {% if session_row > 0 %}
                       <div class="col-sm-2 pull-right">
-                        <button type="button" onclick="$('#session-row{{ session_row}}').remove();" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
+                        {# <button type="button" onclick="$('#session-row{{ session_row}}').remove();" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button> #}
+                        <button type="button" onclick="removeSession({{ session_row}}, {{ topic_session.session_id }});" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
                       </div>
                     {% endif %}
                     <div class="col-sm-2 pull-right" id="add-session{{ session_row }}">
@@ -60,15 +64,17 @@
                   <div id="video-box{{ session_row }}">   
                     {% set video_row = 0 %}                 
                     {% for video in topic_session.video %}                    
-                    <div id="video-row{{ video_row }}" style="border: 0px solid; background: #dad3d3; margin: 5px;">
+                    <div id="video-row{{session_row}}{{ video_row }}" style="border: 0px solid; background: #dad3d3; margin: 5px;">
                       <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-video">Video</label>
                         <div class="col-sm-6">
                           <input type="text" name="session[{{session_row}}][video][{{video_row}}][video]" value="{{ video.video }}" placeholder="Video" id="input-video" class="form-control" />
+                          <input id="video_id{{session_row}}{{video_row}}" type="hidden" name="session[{{session_row}}][video][{{video_row}}][video_id]" value="{{ video.video_id }}" />
                         </div>
                         {% if video_row > 0 %}
                         <div class="col-sm-4 pull-right">
-                          <button type="button" onclick="$('#video-row1').remove();" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
+                          {# <button type="button" onclick="$('#video-row1').remove();" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button> #}
+                          <button type="button" onclick="removeVideo({{session_row}},{{video_row}},{{ video.video_id }});" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
                         </div>
                         {% else %}
                         <div class="col-sm-4 pull-right" id="add-video{{ video_row }}">
@@ -108,7 +114,7 @@
                   </div>
                   <div id="video-box{{ session_row }}">
                     {% set video_row = 0 %}
-                    <div id="video-row{{ video_row }}" style="border: 0px solid; background: #dad3d3; margin: 5px;">
+                    <div id="video-row{{ session_row }}{{ video_row }}" style="border: 0px solid; background: #dad3d3; margin: 5px;">
                       <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-video">Video</label>
                         <div class="col-sm-6">
@@ -144,7 +150,8 @@
     html += '        <input type="text" name="session['+session_row+'][title]" value="{{ session }}" placeholder="Session-'+(session_row+1)+'" id="input-session" class="form-control" />';
     html += '      </div>';
     html += '     <div class="col-sm-2 pull-right">'; 
-    html +=         '<button type="button" onclick="$(\'#session-row'+ session_row +'\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>';
+    //html +=         '<button type="button" onclick="removeSession('+session_row+');" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>';
+    html +=         '<utton type="button" onclick="$(\'#session-row'+ session_row +'\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>';
     html +=      '</div>';
     html += '     <div class="col-sm-2 pull-right">';
     html += '       <button type="button" onclick="addSeession();" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Add Session"><i class="fa fa-plus-circle"></i></button>';
@@ -163,7 +170,7 @@
     html += '      </div>';
     html += '    </div>';
     html += '    <div id="video-box'+ session_row +'">';
-    html += '     <div id="video-row'+ video_row +'" style="border: 0px solid; background: #dad3d3; margin: 5px;">';
+    html += '     <div id="video-row'+ session_row+''+video_row +'" style="border: 0px solid; background: #dad3d3; margin: 5px;">';
     html += '       <div class="form-group">';
     html += '         <label class="col-sm-2 control-label" for="input-video">Video</label>';
     html += '         <div class="col-sm-6">';
@@ -188,20 +195,39 @@
     console.log("video_row ",video_row)
     var session_row_minus = session_row-1;
     
-    html = '     <div id="video-row'+ video_row +'" style="border: 0px solid; background: #dad3d3; margin: 5px;">';
+    html = '     <div id="video-row'+ session_row_minus+''+video_row +'" style="border: 0px solid; background: #dad3d3; margin: 5px;">';
     html += '       <div class="form-group">';
     html += '         <label class="col-sm-2 control-label" for="input-video">Video</label>';
     html += '         <div class="col-sm-6">';
     html += '           <input type="text" name="session['+session_row_minus+'][video]['+video_row+'][video]" value="{{ video }}" placeholder="Video" id="input-video" class="form-control" />';
     html += '         </div>';  
     html += '        <div class="col-sm-4 pull-right">'; 
-    html +=            '<button type="button" onclick="$(\'#video-row'+ video_row +'\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>';
+    //html +=            '<button type="button" onclick="removeVideo('+video_row+');" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>';
+    html +=            '<button type="button" onclick="$(\'#video-row'+ session_row_minus+''+video_row +'\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>';
     html +=          '</div>';
     html += '       </div>';
     html += '     </div>';
     console.log("#video-box" + session_current_index);
     $("#video-box" + session_current_index).append(html);
     video_row++;
+  }
+
+  function removeSession(session_current_index, session_id) {
+    console.log('#session-row'+ (Number(session_current_index)-1))
+    $('#session-row'+ session_current_index).remove();
+    //var session_id = $('#session_id'+session_current_index).val();
+    $('#session-row'+ (Number(session_current_index)-1)).append('<input type="hidden" name="delete['+session_current_index+'][session][session_id]" value="'+session_id+'" />' );
+  }
+
+  function removeVideo(session_current_index, video_current_index, video_id) {
+    console.log('#video-row'+ session_current_index+''+video_current_index)
+    $('#video-row'+ session_current_index+''+video_current_index).remove();
+    /*
+    var video_id = $('#video_id'+session_current_index+video_current_index).val();
+    console.log('video_id ' , '#video_id'+session_current_index+video_current_index, video_id)
+    */
+    $('#video-box'+ session_current_index).append('<input type="hidden" name="delete['+session_current_index+'][video]['+video_current_index+'][video_id]" value="'+video_id+'" />' );
+    console.log('vbox ' ,'#video-box'+ session_current_index)
   }
 </script>
 </div>

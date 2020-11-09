@@ -894,9 +894,11 @@ class ControllerCatalogProduct extends Controller {
 		}
 
 		//Get products's topic ids
-		$product_topic_ids = $this->model_catalog_product->getProductTopics($this->request->get['product_id']);
-		if(count($product_topic_ids)){
-			$data['product_topic_ids'] = $product_topic_ids;
+		if(isset($this->request->get['product_id'])){
+			$product_topic_ids = $this->model_catalog_product->getProductTopics($this->request->get['product_id']);
+			if(count($product_topic_ids)){
+				$data['product_topic_ids'] = $product_topic_ids;
+			}
 		}
 		
 		

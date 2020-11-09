@@ -116,40 +116,99 @@ class ModelCatalogTopic extends Model {
 
 	public function addTopicWithSession($data) {
 		if(isset($data['session'])){
-			foreach ($data['session'] as $topic_session) {				
-				$this->db->query("INSERT INTO " . DB_PREFIX . "topic_session SET title = '" . $this->db->escape($topic_session['title']) . "', test_id = '" . $this->db->escape($topic_session['test_id']) . "', topic_id = '" . $this->db->escape($data['topic_id']) . "', assignment_file = '" . $this->db->escape($topic_session['assignment_file']) . "', date_added = NOW(), date_modified = NOW()");
-
-				$topic_session_id = $this->db->getLastId();
-
-				if(isset($topic_session['video'])){
+			foreach ($data['session'] as $topic_session) {
+				if(isset($topic_session['session_id'])){ //if its exist one then we should update record
+					$this->db->query("UPDATE " . DB_PREFIX . "topic_session SET title = '" . $this->db->escape($topic_session['title']) . "', test_id = '" . $this->db->escape($topic_session['test_id']) . "', topic_id = '" . $this->db->escape($data['topic_id']) . "', assignment_file = '" . $this->db->escape($topic_session['assignment_file']) . "', date_modified = NOW() WHERE session_id = '" . (int)$topic_session['session_id'] . "'");
 					
-					foreach ($topic_session['video'] as $session_video) {
-						$this->db->query("INSERT INTO " . DB_PREFIX . "session_video SET video = '" . $this->db->escape($session_video['video']) . "', topic_session_id = '" . $this->db->escape($topic_session_id) . "', date_added = NOW(), date_modified = NOW()");
+					if(isset($topic_session['video'])){
+						foreach ($topic_session['video'] as $session_video) {
+							if(isset($session_video['video_id'])){ //if its exist one then we should update record
+								$this->db->query("UPDATE " . DB_PREFIX . "session_video SET video = '" . $this->db->escape($session_video['video']) . "', topic_session_id = '" . $this->db->escape($topic_session['session_id']) . "', date_modified = NOW() WHERE video_id = '" . (int)$session_video['video_id'] . "'");
+							}else{
+								$this->db->query("INSERT INTO " . DB_PREFIX . "session_video SET video = '" . $this->db->escape($session_video['video']) . "', topic_session_id = '" . $this->db->escape($topic_session['session_id']) . "', date_added = NOW(), date_modified = NOW()");
+							}
+						}
+					}
+
+				}else{
+					$this->db->query("INSERT INTO " . DB_PREFIX . "topic_session SET title = '" . $this->db->escape($topic_session['title']) . "', test_id = '" . $this->db->escape($topic_session['test_id']) . "', topic_id = '" . $this->db->escape($data['topic_id']) . "', assignment_file = '" . $this->db->escape($topic_session['assignment_file']) . "', date_added = NOW(), date_modified = NOW()");
+
+					$topic_session_id = $this->db->getLastId();
+
+					if(isset($topic_session['video'])){
+						
+						foreach ($topic_session['video'] as $session_video) {							
+							$this->db->query("INSERT INTO " . DB_PREFIX . "session_video SET video = '" . $this->db->escape($session_video['video']) . "', topic_session_id = '" . $this->db->escape($topic_session_id) . "', date_added = NOW(), date_modified = NOW()");
+							
+						}
+					}
+				}			
+				
+			}
+
+			if(isset($data['topic_product_id'])){
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_topic SET product_id = '" . $this->db->escape($data['topic_product_id']) . "', topic_id = '" . $this->db->escape($data['topic_id']) . "', date_added = NOW(), date_modified = NOW()");
+			}
+
+		}
+
+		if(isset($data['delete'])){
+			foreach ($data['delete'] as $delete) {
+				if(isset($delete['session'])){
+					foreach($delete['session']  as $session){
+						$this->db->query("DELETE FROM " . DB_PREFIX . "topic_session WHERE session_id = '" . (int)$session['session_id'] . "'");
+	
+						$this->cache->delete('topic_session');
+					}
+				}
+				if(isset($delete['video'])){
+					foreach($delete['video']  as $video){
+						$this->db->query("DELETE FROM " . DB_PREFIX . "session_video WHERE video_id = '" . (int)$video['video_id'] . "'");
+
+						$this->cache->delete('session_video');
 					}
 				}
 			}
-
-			$this->db->query("INSERT INTO " . DB_PREFIX . "product_topic SET product_id = '" . $this->db->escape($data['topic_product_id']) . "', topic_id = '" . $this->db->escape($data['topic_id']) . "', date_added = NOW(), date_modified = NOW()");
-
 		}
 		return $data['topic_id'];
 
 	}
 
-	public function getTopicWithSession($topic_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "topic_session WHERE topic_id = '" . (int)$topic_id . "'");
+	public function getTopicWithSession($topic_id, $product_id) {
+		
 		$topic_session_data = array();
-		foreach($query->rows as $topic_session){
-			$query2 = $this->db->query("SELECT * FROM " . DB_PREFIX . "session_video WHERE topic_session_id = '" . (int)$topic_session['session_id'] . "'");
-			
-			$topic_session_data[] = array(
-				'session_id' => $topic_session['session_id'],
-				'title' => $topic_session['title'],
-				'test_id' => $topic_session['test_id'],
-				'assignment_file' => $topic_session['assignment_file'],
-				'video' => $query2->rows
-			);
+		$q = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_topic WHERE topic_id = '" . (int)$topic_id . "' AND product_id = '".$product_id."'");
+		if(count($q->row)){
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "topic_session WHERE topic_id = '" . (int)$topic_id . "'");
+			foreach($query->rows as $topic_session){
+				$query2 = $this->db->query("SELECT * FROM " . DB_PREFIX . "session_video WHERE topic_session_id = '" . (int)$topic_session['session_id'] . "'");
+				
+				$topic_session_data[] = array(
+					'session_id' => $topic_session['session_id'],
+					'title' => $topic_session['title'],
+					'test_id' => $topic_session['test_id'],
+					'assignment_file' => $topic_session['assignment_file'],
+					'video' => $query2->rows
+				);
+			}
 		}
-		return $topic_session_data;
+
+		return array('session_data' => $topic_session_data, 'product_topic'=>$q->row);
+	}
+
+	public function removeTopicDetails($data) {
+		try {
+			$this->db->query("DELETE FROM " . DB_PREFIX . "product_topic WHERE topic_id = '" . (int)$data['topic_id'] . "'");
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "topic_session WHERE topic_id = '" . (int)$data['topic_id'] . "'");
+			foreach($query->rows as $topic_session) {
+				$this->db->query("DELETE FROM " . DB_PREFIX . "session_video WHERE topic_session_id = '" . (int)$topic_session['session_id'] . "'");
+			}
+			$this->db->query("DELETE FROM " . DB_PREFIX . "topic_session WHERE topic_id = '" . (int)$data['topic_id'] . "'");
+
+			return true;
+		} catch (Exception $e) {
+			$this->renderJson(self::ERROR, $e->getMessage());
+			return false;
+		}
 	}
 }
