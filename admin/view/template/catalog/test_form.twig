@@ -1,0 +1,98 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-user-group" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-user-group" class="form-horizontal">
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-name">{{ entry_test }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="title" value="{{ title }}" placeholder="{{ entry_test }}" id="input-name" class="form-control" />
+              {% if error_name %}
+              <div class="text-danger">{{ error_test_tile }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label">{{ entry_testquestions }}</label>
+            <div class="col-sm-10">
+              <div class="well well-sm" style="height: 150px; overflow: auto;">
+                {% for question in questions %}
+                <div class="checkbox">
+                  <label>
+                    {% if question.question_id in collection %}
+                    <input type="checkbox" name="questions[collection][]" value="{{ question.question_id }}" checked="checked" />
+                    <span class="question">{{ question.question }}</span>
+                    {% else %}
+                    <input class="question" type="checkbox" name="questions[collection][]" value="{{ question.question_id }}" />
+                    <span class="question">{{ question.question }}</span>
+                    {% endif %}
+                  </label>
+                </div>
+                {% endfor %}
+              </div>
+              <button type="button" onclick="$(this).parent().find(':checkbox').prop('checked', true);" class="btn btn-link">{{ text_select_all }}</button> / <button type="button" onclick="$(this).parent().find(':checkbox').prop('checked', false);" class="btn btn-link">{{ text_unselect_all }}</button></div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-name">{{ entry_testkey }}</label>
+            <div class="col-sm-10">
+              <input type="file" name="test_key" value="{{ test_key }}" placeholder="{{ entry_testkey }}" id="input-name" class="form-control" />
+              {% if error_name %}
+              <div class="text-danger">{{ error_test_key }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="status" id="input-status" class="form-control">
+                
+                {% if status %}
+                
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                
+                {% else %}
+                
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                
+                {% endif %}
+              
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"><!--
+$( ".question" ).each(function( index ) { //decode entities
+  $(this).html($( this ).text());
+});
+//--></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js" integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML"></script>
+{{ footer }} 

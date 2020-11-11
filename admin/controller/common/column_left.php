@@ -117,6 +117,14 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);		
 			}
+
+			if ($this->user->hasPermission('access', 'catalog/testquestion')) {		
+				$catalog[] = array(
+					'name'	   => $this->language->get('text_testquestion'),
+					'href'     => $this->url->link('catalog/testquestion', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);		
+			}
 			
 			if ($this->user->hasPermission('access', 'catalog/review')) {		
 				$catalog[] = array(

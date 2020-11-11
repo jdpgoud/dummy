@@ -47,6 +47,7 @@ $_['text_product']              = 'Products';
 $_['text_reports']              = 'Reports';
 $_['text_review']               = 'Reviews';
 $_['text_question']             = 'Questions';
+$_['text_testquestion']         = 'Tests';
 $_['text_return']               = 'Returns';
 $_['text_return_action']        = 'Return Actions';
 $_['text_return_reason']        = 'Return Reasons';
