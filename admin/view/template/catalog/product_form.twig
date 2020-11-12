@@ -470,7 +470,7 @@
                         <button type="button" onclick="removeTopic({{topic_row}}, {{product_topic_id.topic_id}});" data-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
                       </div>
                       <div class="col-sm-2 pull-right">
-                        <button type="button" onclick="saveAndContinue({{ topic_row }});" data-toggle="tooltip" title="" class="btn btn-primary savebtn" data-original-title="Add Topic" aria-describedby="tooltip695748">Save and Continue</button>
+                        <button type="button" onclick="saveAndContinue({{ topic_row }}, {{product_topic_id.product_topic_id}});" data-toggle="tooltip" title="" class="btn btn-primary savebtn" data-original-title="Add Topic" aria-describedby="tooltip695748">Save and Continue</button>
                       </div>
                     </div>               
                   </div>
@@ -1399,13 +1399,13 @@ function removeTopic(topic_current_row, topic_id) {
   })
 }
 
-function saveAndContinue(current) {
-  //console.log(current)
+function saveAndContinue(current, product_topic_id=0) {
+  console.log("product_topic_id ", product_topic_id)
   //console.log($("#topic-row"+current).find('select[name="topic_id"] option:selected').val())
   $.ajax({
     url: 'index.php?route=catalog/topicsession/saveandcontinue&user_token={{ user_token }}',
     type: 'post',
-    data: 'topic_id='+$("#topic-row"+current).find('select[name="topic_id"] option:selected').val()+'&product_id={{product_id}}&category_id={{category_id}}',
+    data: 'topic_id='+$("#topic-row"+current).find('select[name="topic_id"] option:selected').val()+'&product_id={{product_id}}&category_id={{category_id}}&product_topic_id='+product_topic_id,
     //$('#topic-row"+current input[type=\'time\']'),
     dataType: 'json',
     success: function(json) {

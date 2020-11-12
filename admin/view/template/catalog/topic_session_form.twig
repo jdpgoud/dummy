@@ -18,6 +18,11 @@
       <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>
     {% endif %}
+    {% if success %}
+    <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
@@ -48,17 +53,30 @@
                     <div class="col-sm-2 pull-right" id="add-session{{ session_row }}">
                       <button type="button" onclick="addSeession();" data-toggle="tooltip" title="Add Session" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                     </div>
-                  </div>   
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-test">Test</label>
+                  </div>
+                  <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-test">Select Test Paper</label>
                     <div class="col-sm-6">
-                      <input type="text" name="session[{{session_row}}][test_id]" value="{{ topic_session.test_id }}" placeholder="Test" id="input-test" class="form-control" />
+                      <select name="session[{{session_row}}][test_id]" id="input-test" class="form-control">
+                        <option value="0">Choose Test Paper</option>
+                        {% for test in testquestions %}
+                        {% if test.test_id == topic_session.test_id %}
+                        <option value="{{ test.test_id }}" selected="selected">{{ test.title }}</option>
+                        {% else %}
+                        <option value="{{ test.test_id }}">{{ test.title }}</option>
+                        {% endif %}
+                        {% endfor %}
+                      </select>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-assignment">Assignment</label>
+                    <label class="col-sm-2 control-label" for="input-assignment{{session_row}}">Assignment</label>
                     <div class="col-sm-6">
-                      <input type="text" name="session[{{session_row}}][assignment_file]" value="{{ topic_session.assignment_file }}" placeholder="Assignment" id="input-assignment" class="form-control" />
+                      <input type="file" name="session[{{session_row}}][assignment_file]" value="{{ topic_session.assignment_file }}" placeholder="Assignment" id="input-assignment{{session_row}}" class="form-control" />
+                      {% if topic_session.assignment_file %}
+                        <a id="source-link{{session_row}}" href="{{HTTP_CATALOG}}storage/upload/{{topic_session.assignment_file}}" download>{{topic_session.assignment_file}}</a>
+                        <button style="font-size:10px; margin: 5px;" type="button" onclick="removeFile('{{topic_session.assignment_file}}', {{session_row}}, {{ topic_session.session_id }});" class="btn btn-danger btn-sm" >Delete</button>
+                      {% endif %}
                     </div>
                   </div>
                   <div id="video-box{{ session_row }}">   
@@ -100,16 +118,27 @@
                       <button type="button" onclick="addSeession();" data-toggle="tooltip" title="Add Session" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                     </div>
                   </div>   
-                  <div class="form-group">
+                  {# <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-test">Test</label>
                     <div class="col-sm-6">
                       <input type="text" name="session[{{session_row}}][test_id]" value="{{ test }}" placeholder="Test" id="input-test" class="form-control" />
+                    </div>
+                  </div> #}
+                  <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-test">Select Test Paper</label>
+                    <div class="col-sm-6">
+                      <select name="session[{{session_row}}][test_id]" id="input-test" class="form-control">
+                        <option value="0" selected="selected">Choose Test Paper</option>
+                        {% for test in testquestions %}
+                        <option value="{{ test.test_id }}">{{ test.title }}</option>
+                        {% endfor %}
+                      </select>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-assignment">Assignment</label>
                     <div class="col-sm-6">
-                      <input type="text" name="session[{{session_row}}][assignment_file]" value="{{ assignment }}" placeholder="Assignment" id="input-assignment" class="form-control" />
+                      <input type="file" name="session[{{session_row}}][assignment_file]" value="{{ assignment }}" placeholder="Assignment" id="input-assignment" class="form-control" />
                     </div>
                   </div>
                   <div id="video-box{{ session_row }}">
@@ -157,16 +186,21 @@
     html += '       <button type="button" onclick="addSeession();" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Add Session"><i class="fa fa-plus-circle"></i></button>';
     html += '     </div>';
     html += '    </div>';
-    html += '    <div class="form-group">';
-    html += '      <label class="col-sm-2 control-label" for="input-test">Test</label>';
-    html += '      <div class="col-sm-6">';
-    html += '        <input type="text" name="session['+session_row+'][test_id]" value="{{ test }}" placeholder="Test" id="input-test" class="form-control" />';
-    html += '      </div>';
+    html += '    <div class="form-group required">';
+    html += '     <label class="col-sm-2 control-label" for="input-test">Select Test Paper</label>';
+    html += '     <div class="col-sm-6">';
+    html += '      <select name="session[{{session_row}}][test_id]" id="input-test" class="form-control">';
+    html += '       <option value="0" selected="selected">Choose Test Paper</option>';
+                      {% for test in testquestions %}
+    html += '           <option value="{{ test.test_id }}">{{ test.title }}</option>';
+                      {% endfor %}
+    html += '      </select>';
+    html += '     </div>';
     html += '    </div>';
     html += '    <div class="form-group">';
     html += '      <label class="col-sm-2 control-label" for="input-assignment">Assignment</label>';
     html += '      <div class="col-sm-6">';
-    html += '        <input type="text" name="session['+session_row+'][assignment_file]" value="{{ assignment }}" placeholder="Assignment" id="input-assignment" class="form-control" />';
+    html += '        <input type="file" name="session['+session_row+'][assignment_file]" value="{{ assignment }}" placeholder="Assignment" id="input-assignment" class="form-control" />';
     html += '      </div>';
     html += '    </div>';
     html += '    <div id="video-box'+ session_row +'">';
@@ -228,6 +262,26 @@
     */
     $('#video-box'+ session_current_index).append('<input type="hidden" name="delete['+session_current_index+'][video]['+video_current_index+'][video_id]" value="'+video_id+'" />' );
     console.log('vbox ' ,'#video-box'+ session_current_index)
+  }
+
+  function removeFile(source, session_row, session_id) {
+    $("#input-assignment"+session_row).attr("value", "");
+    $("#source-link"+session_row).remove();
+    $(this).remove();
+    $.ajax({
+      url: 'index.php?route=catalog/topicsession/removefile&user_token={{ user_token }}',
+      type: 'post',
+      data: 'source='+source+'&session_id='+session_id,
+      //$('#topic-row"+current input[type=\'time\']'),
+      dataType: 'json',
+      success: function(json) {
+        if(json['error']){
+          console.log(json['msg']);
+        }else{
+          alert(json['msg']);         
+        }
+      }
+    })
   }
 </script>
 </div>

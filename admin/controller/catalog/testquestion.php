@@ -12,6 +12,24 @@ class ControllerCatalogTestquestion extends Controller {
 		$this->getList();
 	}
 
+	public function removefile() {
+		$data = [];
+		if (($this->request->server['REQUEST_METHOD'] == 'POST')){
+			if (file_exists(DIR_UPLOAD.$this->request->post['source'])) {
+				unlink(DIR_UPLOAD.$this->request->post['source']);
+			}
+			$this->load->model('catalog/testquestion');
+			$this->model_catalog_testquestion->removeTestKeyFile($this->request->post['test_id']);
+			
+			$data['error'] = false;
+			$data['msg'] = 'Deleted successfully!';
+		}else{
+			$data['error'] = true;
+			$data['msg'] = 'Something went wrong!';
+		}
+		$this->response->setOutput(json_encode($data));
+	}
+
 	public function add() {
 		$this->load->language('catalog/testquestion');
 
@@ -69,7 +87,9 @@ class ControllerCatalogTestquestion extends Controller {
 		$this->load->model('catalog/testquestion');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_catalog_question->editTestQuestion($this->request->get['test_id'], $this->request->post);
+			$res = $this->uploadFile();
+			$this->request->post['test_key'] =  $res['filename'];
+			$this->model_catalog_testquestion->editTestQuestion($this->request->get['test_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -392,15 +412,15 @@ class ControllerCatalogTestquestion extends Controller {
 		}
 
 		if (isset($this->error['test_title'])) {
-			$data['error_test_title'] = $this->error['test_title'];
+			$data['error_warning'] = $this->error['test_title'];
 		} else {
-			$data['error_test_title'] = '';
+			$data['error_warning'] = '';
 		}
 
 		if (isset($this->error['test_key'])) {
-			$data['error_test_key'] = $this->error['test_key'];
+			$data['error_warning'] = $this->error['test_key'];
 		} else {
-			$data['error_test_key'] = '';
+			$data['error_warning'] = '';
 		}
 
 		$url = '';
@@ -467,7 +487,6 @@ class ControllerCatalogTestquestion extends Controller {
 			$testquestion_info = $this->model_catalog_testquestion->getTest($this->request->get['test_id']);
 			
 		}
-		
 		$data['user_token'] = $this->session->data['user_token'];
 		
 		$this->load->model('catalog/testquestion');
@@ -520,11 +539,12 @@ class ControllerCatalogTestquestion extends Controller {
 			$data['status'] = '';
 		}
 		
+		$data['HTTP_CATALOG'] = HTTP_CATALOG;
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
-
+		
 		$this->response->setOutput($this->load->view('catalog/test_form', $data));
 	}
 

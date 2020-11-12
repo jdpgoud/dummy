@@ -474,11 +474,13 @@ class ModelCatalogProduct extends Model {
 	public function getProductTopics($product_id) {
 		$product_topics_data = array();
 
-		$query = $this->db->query("SELECT product_id, topic_id FROM " . DB_PREFIX . "product_topic WHERE product_id = '" . (int)$product_id . "'");
+		$query = $this->db->query("SELECT product_topic_id, product_id, topic_id FROM " . DB_PREFIX . "product_topic WHERE product_id = '" . (int)$product_id . "'");
 
 		foreach ($query->rows as $result) {
 			$product_topics_data[] = array(
-				'topic_id' => $result['topic_id']
+				'product_topic_id' => $result['product_topic_id'],
+				'topic_id' => $result['topic_id'],
+				'product_id' => $result['product_id']
 			);
 		}
 

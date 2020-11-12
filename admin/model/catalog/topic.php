@@ -145,8 +145,7 @@ class ModelCatalogTopic extends Model {
 				}			
 				
 			}
-
-			if(isset($data['topic_product_id'])){
+			if(isset($data['topic_product_id']) && $data['product_topic_id'] == 0){
 				$this->db->query("INSERT INTO " . DB_PREFIX . "product_topic SET product_id = '" . $this->db->escape($data['topic_product_id']) . "', topic_id = '" . $this->db->escape($data['topic_id']) . "', date_added = NOW(), date_modified = NOW()");
 			}
 
@@ -210,5 +209,9 @@ class ModelCatalogTopic extends Model {
 			$this->renderJson(self::ERROR, $e->getMessage());
 			return false;
 		}
+	}
+
+	public function removeAssignmentFile($session_id) {
+		$this->db->query("UPDATE " . DB_PREFIX . "topic_session SET assignment_file = '' WHERE session_id = '" . (int)$session_id . "'");
 	}
 }

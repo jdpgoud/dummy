@@ -111,4 +111,8 @@ class ModelCatalogTestquestion extends Model {
 
 		return $query->row['total'];
 	}
+
+	public function removeTestKeyFile($test_id) {
+		$this->db->query("UPDATE " . DB_PREFIX . "testquestion SET test_key = '' WHERE test_id = '" . (int)$test_id . "'");
+	}
 }
