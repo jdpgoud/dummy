@@ -257,6 +257,7 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function getLatestProducts($limit) {
+		
 		$product_data = $this->cache->get('product.latest.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id') . '.' . (int)$limit);
 
 		if (!$product_data) {
@@ -272,6 +273,46 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 	}
 
+	//custome code by satish
+	
+	public function getLatestSubjects($limit) {
+		
+		$product_data = $this->cache->get('product.latest.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id') . '.' . (int)$limit);
+
+		if (!$product_data) {
+			$query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.date_added DESC LIMIT " . (int)$limit);
+
+			foreach ($query->rows as $result) {
+				$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+			}
+
+			$this->cache->set('product.latest.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id') . '.' . (int)$limit, $product_data);
+		}
+
+		return $product_data;
+	}
+	
+	//custome code by satish
+	
+	public function getCustomerId($customer_id, $customer_group_id) {
+		
+	$where ="";
+	if($customer_group_id==2)
+	{
+		$where="op.student_id=".$customer_id;
+	}else{
+		$where="op.parent_id=".$customer_id;
+	}
+		
+		
+			$product_data = $this->db->query("SELECT * FROM `" . DB_PREFIX . "product` p INNER JOIN `" . DB_PREFIX . "order_product` op ON p.product_id = op.product_id WHERE " . $where . " LIMIT 2");
+			
+
+		return $product_data->rows;
+			
+	}
+	
+	
 	public function getPopularProducts($limit) {
 		$product_data = $this->cache->get('product.popular.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id') . '.' . (int)$limit);
 	

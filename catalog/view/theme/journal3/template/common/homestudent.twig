@@ -1,6 +1,5 @@
 {{ header }}
 
-
 <link rel="stylesheet" href="image/catalog/flexslider.css" type="text/css" media="screen" />
 <div class="student-main">
 
@@ -30,29 +29,25 @@
             <div class="left-pane">
                 <h2>Subscribed Subjects</h2>
                 <!-- Top blcok -->
+				{% for product in products %}
+
                 <div class="top-block">
                     <div class="box">
                         <div class="img-box">
-                            <img src="image/catalog/subject-img-maths.png">
+                            <img src="{{ product.image }}">
                         </div>
-                        <h2>Mathematics</h2>
+                        <h2>{{ product.name }}</h2>
                         <div class="buttons">
-                            <a class="btn" href=""><span>{{ text_continue }}</span></a>
+                            <a class="btn" href="{{product.href }}"><span>{{ text_continue }}</span></a>
                         </div>
                     </div>
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="image/catalog/subject-img-science.png">
-                        </div>
-                        <h2>Science</h2>
-                        <div class="buttons">
-                            <a class="btn" href=""><span>{{ text_continue }}</span></a>
-                        </div>
                     </div>
-                </div>
-
+                {% endfor %}
+			
+			
             </div>
             <!-- Top blcok -->
+
 
             <!-- Bottom Block  -->
             <div class="bottom-block">
