@@ -16,8 +16,7 @@ class ControllerCommonHome extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
-		//$this->session->data['customer_group_id']
-		if(isset($this->session->data['customer_group_id']) && $this->session->data['customer_group_id'] == 2){
+		if($this->customer->isLogged() && $this->customer->getGroupId() == 2){ //isset($this->session->data['customer_group_id']) && $this->session->data['customer_group_id'] == 2
 			
 			$this->load->model('catalog/product');
 			$results = $this->model_catalog_product->getCustomerId($this->customer->getId(), $this->session->data['customer_group_id']);

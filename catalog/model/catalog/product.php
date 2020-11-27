@@ -296,18 +296,15 @@ class ModelCatalogProduct extends Model {
 	
 	public function getCustomerId($customer_id, $customer_group_id) {
 		
-	$where ="";
-	if($customer_group_id==2)
-	{
-		$where="op.student_id=".$customer_id;
-	}else{
-		$where="op.parent_id=".$customer_id;
-	}
-		
-		
-			$product_data = $this->db->query("SELECT * FROM `" . DB_PREFIX . "product` p INNER JOIN `" . DB_PREFIX . "order_product` op ON p.product_id = op.product_id WHERE " . $where . " LIMIT 2");
+		$where ="";
+		if($customer_group_id==2)
+		{
+			$where="op.student_id=".$customer_id;
+		}else{
+			$where="op.parent_id=".$customer_id;
+		}		
 			
-
+		$product_data = $this->db->query("SELECT * FROM `" . DB_PREFIX . "product` p INNER JOIN `" . DB_PREFIX . "order_product` op ON p.product_id = op.product_id WHERE " . $where . " LIMIT 2");
 		return $product_data->rows;
 			
 	}
