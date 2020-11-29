@@ -30,6 +30,12 @@ WATERMARK;
   $otp_response = curl_exec($curl);
   curl_close($curl);
   $otp_response = json_decode($otp_response);
+  if(property_exists($otp_response, 'message') && $otp_response->message == 'video not found'){
+    $heredoc = <<< EOF
+    <div id="vdo" style="width: 150px; max-width:100%; height:150px;">$otp_response->message</div>
+EOF;
+    return $heredoc;
+  }
   $OTP = $otp_response->otp;
   $playbackInfo = $otp_response->playbackInfo;
 $heredoc = <<< EOF

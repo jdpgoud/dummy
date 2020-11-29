@@ -22,6 +22,16 @@ class ControllerCommonStudentassignment extends Controller {
 		$data['topics'] = $this->model_catalog_studentassignment->getLeftTopicMenu($this->request->get['product_id']);
 		
 		$data['first_topic_session_videos'] = $this->model_catalog_studentassignment->getFirstTopicSessionVideos($this->request->get['product_id'], reset($data['topics'])['sessions'][0]['session_id']);
+		
+		$videosArr = [];
+		foreach($data['first_topic_session_videos']['sessionvideosresult'] as $result){
+			$videosArr[] = array(
+				"video_id" => $result['video_id'],
+				"topic_session_id" => $result['topic_session_id'],
+				"player" => vdo_embed($result['video'], '9ae8bbe8dd964ddc9bdb932cca1cb59a'),
+			);
+		}
+		$data['first_topic_session_videos']['sessionvideosresult'] = $videosArr;
 		$this->response->setOutput($this->load->view('common/studentassignment',$data));
 		
 	}
@@ -43,11 +53,10 @@ class ControllerCommonStudentassignment extends Controller {
 		//$json=array('a'=>'a');
 		$arr = [];
 		foreach($data['SessionVideo'] as $video){
-			$video['video_id'] = 'e46cadca7efa4f809c7d2d59a96d20bb';
 			$arr['SessionVideo'][] = array(
 				"video_id" => $video['video_id'],
 				"topic_session_id" => $video['topic_session_id'],
-				"player" => vdo_embed($video['video_id'], '9ae8bbe8dd964ddc9bdb932cca1cb59a'),
+				"player" => vdo_embed($video['video'], '9ae8bbe8dd964ddc9bdb932cca1cb59a'),
 			);
 		}
 		$this->response->addHeader('Content-Type: application/json');

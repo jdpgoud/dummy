@@ -75,13 +75,14 @@
                                     {% if loop.first %}
                                         <div class="classes-list"> {# open row #}
                                     {% endif %}
-                                    <div class="class-info">
+                                    {# <div class="class-info">
                                         <img src="image/catalog/class-img.png">
                                         <div class="class-desc">
                                             <h4>{{session_video.video}}</h4>
                                             <p>Class: X | CBSE<span>Guru: Lakshmi Narayana Sir</span></p>
                                         </div>
-                                    </div>
+                                    </div> #}
+                                    {{session_video.player}}
                                     {% if loop.index % 4 == 0 %}
                                         </div><div class="classes-list"> {# after 4 iterates close row and open new #}
                                     {% endif %}                

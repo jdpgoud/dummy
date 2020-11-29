@@ -12,11 +12,12 @@ class ModelCatalogStudentassignment extends Model {
 			);
 		}
 		 
-		$SessionVideosresults=$this->getListOfSessionVideos($session_id);
+		$SessionVideosresults = $this->getListOfSessionVideos($session_id);
 
 		 foreach($SessionVideosresults as $SessionVideosresult){
 				$data['sessionvideosresult'][] = array(
 				'video_id'  => $SessionVideosresult['video_id'],
+				'topic_session_id' => $SessionVideosresult['topic_session_id'],
 				'video'       => $SessionVideosresult['video']
                 );
 		 }
