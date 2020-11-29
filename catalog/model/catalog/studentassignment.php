@@ -74,12 +74,19 @@ class ModelCatalogStudentassignment extends Model {
 		//print_r($query->row);
 		if(isset($query->row['questions'])){
 			$questionIds = implode(',',(json_decode($query->row['questions']))->collection);
-			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "question q inner join " . DB_PREFIX . "question_option qo on q.question_id = qo.question_id WHERE q.question_id in(" . $questionIds . ")");
-			//print_r($query->rows);
-			
-		//print_r(implode(',',(json_decode($query->row['questions']))->collection));
-		return $query->rows;
-	}
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "question WHERE question_id in(" . $questionIds . ") and status = 1");
+			$dataArr = [];
+			foreach($query->rows as $question){
+				$query = $this->db->query("SELECT question_id, question_option_id, option_value FROM " . DB_PREFIX . "question_option WHERE question_id ='".$question['question_id']."' and status =1");
+				$dataArr[] = array(
+					'question_id' => $question['question_id'],
+					'question' => $question['question'],
+					'category_id' => $question['category_id'],
+					'explanation' => $question['explanation'],
+					'options' => $query->rows				);			
+			}
+			return $dataArr;
+		}
 	}
 	
 	

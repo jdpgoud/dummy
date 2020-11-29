@@ -22,6 +22,9 @@ class ControllerCommonStudentassignment extends Controller {
 		$data['topics'] = $this->model_catalog_studentassignment->getLeftTopicMenu($this->request->get['product_id']);
 		
 		$data['first_topic_session_videos'] = $this->model_catalog_studentassignment->getFirstTopicSessionVideos($this->request->get['product_id'], reset($data['topics'])['sessions'][0]['session_id']);
+		$data['first_topic_session_testquestions'] = $this->model_catalog_studentassignment->getListOfSessionTestQuestions(reset($data['topics'])['sessions'][0]['test_id']);
+		$data['first_topic_session_assignment']['assignment_link'] = HTTP_SERVER.'storage/upload/'.reset($data['topics'])['sessions'][0]['assignment_file'];
+		$data['first_topic_session_assignment']['file_name'] = reset($data['topics'])['sessions'][0]['assignment_file'];
 		
 		$videosArr = [];
 		foreach($data['first_topic_session_videos']['sessionvideosresult'] as $result){
@@ -64,9 +67,10 @@ class ControllerCommonStudentassignment extends Controller {
 	}
 	
 	public function getListOfSessionTestQuestions(){
-		  $test_id=$_POST['test_id'];
+		$test_id = $_POST['test_id'];
 		$this->load->model('catalog/studentassignment');
-		$data['sessiontestquestions']=$this->model_catalog_studentassignment->getListOfSessionTestQuestions($test_id);
+		$data['questions'] = $this->model_catalog_studentassignment->getListOfSessionTestQuestions($test_id);
+		
 		//$json=array('a'=>'a');
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($data));
