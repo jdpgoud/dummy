@@ -16,9 +16,7 @@
         <div class="courses-wrap">
 
             <!-- Filters  -->
-            <div class="left-pane">
-		
-
+        <div class="left-pane">
       <div id="treeview-checkbox-demo">
             <ul>
 			{% for topic in topics %}
@@ -98,9 +96,111 @@
                             <input type="radio" name="tabs" id="tab2">
                             <label for="tab2">Test</label>
                             <div id="tab-content2" class="tab-content animated fadeIn">
-                                <h2>Test</h2>
+                            
+							<div class="container">
+							<div class="registercontpage">
+							<div class="stepwizard col-md-offset-3">
+							<div class="stepwizard-row setup-panel">
+							{% for first_topic_session_question in first_topic_session_questions %}
+                            <div class="stepwizard-step">
+							<a href="#step-{{ loop.index }}" type="button" class="btn btn-circle btn-default1 btn-primary">{{ loop.index }}</a>
+							{# <p>Step 1</p> #}
+							</div>
+                            {% endfor %}
+							</div>
+							</div>
+
+							<form role="form" name="basicform" data-toggle="validator" id="basicform" method="post" action="">
+							{% for first_topic_session_question in first_topic_session_questions %}
+                            {% if loop.first %}
+							    <div class="row setup-content" id="step-{{ loop.index }}">
+                            {% else %}
+							    <div class="row setup-content" id="step-{{ loop.index }}" style="display: none;">
+                            {% endif %}
+							<div class="col-md-12">              
+							<div>
+								<p><strong>{{ loop.index }}</strong>: <span>{{ first_topic_session_question.question }}</span></p>
+								{% for option in first_topic_session_question.options %}
+                            <label><input type="radio" name="question_options[{{ first_topic_session_question.question_id }}][]"  value="{{option.question_option_id}}" class="newques">&nbsp;<span>{{option.option_value}}</span></label>
+                            
+                             {% endfor %}
+							</div>
+                         
+                            {% if loop.last %}
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" id="button-pre" type="button" onlclick="addstudentquestionss();">previous</button>
+							<input class="btn btn-primary save btn-lg pull-right" name="submit" id="button-save" value="save" type="submit">
+                            {% elseif loop.first %}
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" id="button-next" type="button" onlclick="addstudentquestionss();">next</button>
+                            {% else %}
+							<button class="btn btn-primary nextBtn btn-lg pull-right" id="button-pre" type="button" onlclick="addstudentquestionss();">previous</button>
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" id="button-next" type="button" onlclick="addstudentquestionss();">next</button>
+                            {% endif %}
+                            
                             </div>
-                        </li>
+							</div>
+
+                            {% endfor %}
+                            {% for topic in topics %}
+                            <ul>
+                            {% for session in topic.sessions %}
+                            <input type="hidden" name="session_id" id="session_id" value="{{ session.session_id }}"/>
+                             <input type="hidden" name="test_id" id="test_id" value="{{ session.test_id }} "/> 
+                                                                     
+                            {% endfor %}
+                            </ul>
+
+                            {% endfor %}
+
+                            
+							{# <div class="row setup-content" id="step-2" style="display: none;">
+
+							<div class="col-md-12">
+							<div class="col-md-12">
+							<div class="question">
+							<p><strong>Q1</strong>: Mary is English. She was born in London</p>
+							<label> <input type="radio" name="two" value="a" class="newques">&nbsp;Mary was born in England</label>
+                            <label><input type="radio" name="two" value="b" class="newques">&nbsp;Mary, who is English, was born in London</label>
+                            <label><input type="radio" name="two" value="c" class="newques">&nbsp;English Mary was born in London</label>
+
+							</div>
+							
+							<a href="#step-1" class="btn btn-primary preBtn btn-lg pull-left">previous</a>
+							 			   
+							 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
+							</div>
+							</div>
+							</div> #}
+							{# <div class="row setup-content" id="step-3" style="display: none;">
+							
+							<div class="col-md-12">
+							<div class="col-md-12">
+							<div class="question">
+								<p><strong>Q1</strong>: Mary is English. She was born in London</p>
+								<label> <input type="radio" name="two" value="a" class="newques">&nbsp;Mary was born in England</label>
+                            <label><input type="radio" name="two" value="b" class="newques">&nbsp;Mary, who is English, was born in London</label>
+                           <label> <input type="radio" name="two" value="c" class="newques">&nbsp;English Mary was born in London</label>
+
+							</div>
+							<div class="question">
+								<p><strong>Q2</strong>: Mary is English. She was born in London</p>
+								<label> <input type="radio" name="two" value="a" class="newques">&nbsp;Mary was born in England</label>
+                            <label><input type="radio" name="two" value="b" class="newques">&nbsp;Mary, who is English, was born in London</label>
+                            <label><input type="radio" name="two" value="c" class="newques">&nbsp;English Mary was born in London</label>
+
+							</div>
+								<a href="#step-2" class="btn btn-primary nextBtn btn-lg pull-left">previous</a>
+							   						   
+							<button id="finalsubmit" class="btn btn-primary  btn-lg pull-right" type="button">submit</button>
+							 
+							</div>
+							</div>
+							</div> #}
+								
+							</form>
+							</div>
+							</div>
+							</div>
+
                         <li>
                             <input type="radio" name="tabs" id="tab3">
                             <label for="tab3">Assignments</label>
@@ -122,7 +222,13 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.15.0/ckeditor.js" integrity="sha512-bNMnTgKRxN1n+5rgfcf160HT2koHRcwLcSq/3JDOY9R65mja48E4Hh+a+IQXVaY2NoJCVC+pr0qE3Vz194QwnA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML"></script>
 <script>
+
+$( ".question" ).each(function( index ) { //decode entities
+  $(this).html($( this ).text());
+});
 function SessionTopic(session_id, test_id, assignment_file){
     let assignment_link = '{{file_path}}'+assignment_file
     $("#assignment-link").attr('href', assignment_link)
@@ -204,4 +310,82 @@ $('.aside-list li').click(function(e) {
   $(this).children('label').children('i').toggleClass('fa-plus-square fa-minus-square')
   $(this).children('label').children('i').toggleClass('fa-caret-up fa-caret-down')
 });
+
+
+
+function numberOnly(input) {
+    var regex = /[^0-9]/gi;
+    input.value = input.value.replace(regex, "");
+}
+ 
+$(document).ready(function() {
+   var navListItems = $('div.setup-panel div a'),
+     allWells = $('.setup-content'),
+     allNextBtn = $('.nextBtn');
+	allpreBtn = $('.preBtn');
+
+   allWells.hide();
+
+   navListItems.click(function(e) {
+     e.preventDefault();
+     var $target = $($(this).attr('href')),
+       $item = $(this);
+     if (!$item.hasClass('disabled')) {
+       navListItems.removeClass('btn-primary').addClass('btn-default');
+       $item.addClass('btn-primary');
+       allWells.hide();
+       $target.show();
+       $target.find('input:eq(0)').focus();
+     }
+   });
+
+   allNextBtn.click(function() {
+     var curStep = $(this).closest(".setup-content"),
+       curStepBtn = curStep.attr("id"),
+       nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+       curInputs = curStep.find("input[type='text'],input[type='url'],textarea[textarea]"),
+       isValid = true;
+     console.log(curStepBtn);
+     $(".form-group").removeClass("has-error");
+     for (var i = 0; i < curInputs.length; i++) {
+       console.log(curInputs);
+       if (!curInputs[i].validity.valid) {
+         isValid = false;
+         $(curInputs[i]).closest(".form-group").addClass("has-error");
+       }
+     }
+
+     if (isValid)
+       nextStepWizard.removeAttr('disabled').trigger('click');
+   });
+
+   $('div.setup-panel div a.btn-primary').trigger('click');
+ });
+var currentValue = 0;
+function handleClick(myRadio) {
+    alert('Old value: ' + currentValue);
+    alert('New value: ' + myRadio.value);
+    currentValue = myRadio.value;
+}
+
+
+
+
+ $(function () {
+        $('form').bind('submit', function () {
+          $.ajax({
+            type: 'post',
+            url: 'index.php?route=common/studentassignment/addstudentquestions',
+            data: $('form').serializeArray(),
+            dateType: 'json',
+            success: function (response) {
+              console.log(response);
+            }
+          });
+          return false;
+        });
+      });
+
+
 </script>
+

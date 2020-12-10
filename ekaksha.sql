@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2020 at 12:51 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Dec 10, 2020 at 06:17 PM
+-- Server version: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -37,8 +38,8 @@ CREATE TABLE `oc_address` (
   `address_2` varchar(128) NOT NULL,
   `city` varchar(128) NOT NULL,
   `postcode` varchar(10) NOT NULL,
-  `country_id` int(11) NOT NULL DEFAULT 0,
-  `zone_id` int(11) NOT NULL DEFAULT 0,
+  `country_id` int(11) NOT NULL DEFAULT '0',
+  `zone_id` int(11) NOT NULL DEFAULT '0',
   `custom_field` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -119,7 +120,9 @@ CREATE TABLE `oc_api_session` (
 --
 
 INSERT INTO `oc_api_session` (`api_session_id`, `api_id`, `session_id`, `ip`, `date_added`, `date_modified`) VALUES
-(1, 1, 'bebb7f152667a920f9a612b6f9', '::1', '2020-08-10 23:08:46', '2020-08-10 23:08:46');
+(4, 1, '1a6ddbf8c373eb79f4331fb0a0', '::1', '2020-12-10 10:58:18', '2020-12-10 10:58:22'),
+(2, 1, 'cb66a4c0264c7ba384d95732b4', '::1', '2020-12-10 10:17:07', '2020-12-10 10:17:07'),
+(3, 1, 'c1806a407f0665bb91f9ea5c80', '::1', '2020-12-10 10:17:14', '2020-12-10 10:29:17');
 
 -- --------------------------------------------------------
 
@@ -256,7 +259,7 @@ CREATE TABLE `oc_banner_image` (
   `title` varchar(64) NOT NULL,
   `link` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `sort_order` int(3) NOT NULL DEFAULT 0
+  `sort_order` int(3) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -318,10 +321,10 @@ INSERT INTO `oc_cart` (`cart_id`, `api_id`, `customer_id`, `session_id`, `produc
 CREATE TABLE `oc_category` (
   `category_id` int(11) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
   `top` tinyint(1) NOT NULL,
   `column` int(3) NOT NULL,
-  `sort_order` int(3) NOT NULL DEFAULT 0,
+  `sort_order` int(3) NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
@@ -457,7 +460,7 @@ CREATE TABLE `oc_country` (
   `iso_code_3` varchar(3) NOT NULL,
   `address_format` text NOT NULL,
   `postcode_required` tinyint(1) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -812,7 +815,7 @@ CREATE TABLE `oc_currency` (
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(4, 'Rupees', 'INR', 'Rs.', '', '2', 1.00000000, 1, '2020-11-11 04:42:13');
+(4, 'Rupees', 'INR', 'Rs.', '', '2', 1.00000000, 1, '2020-12-10 04:45:33');
 
 -- --------------------------------------------------------
 
@@ -823,7 +826,7 @@ INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbo
 CREATE TABLE `oc_customer` (
   `customer_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
-  `store_id` int(11) NOT NULL DEFAULT 0,
+  `store_id` int(11) NOT NULL DEFAULT '0',
   `language_id` int(11) NOT NULL,
   `firstname` varchar(32) NOT NULL,
   `lastname` varchar(32) NOT NULL,
@@ -832,10 +835,10 @@ CREATE TABLE `oc_customer` (
   `fax` varchar(32) NOT NULL,
   `password` varchar(40) NOT NULL,
   `salt` varchar(9) NOT NULL,
-  `cart` text DEFAULT NULL,
-  `wishlist` text DEFAULT NULL,
-  `newsletter` tinyint(1) NOT NULL DEFAULT 0,
-  `address_id` int(11) NOT NULL DEFAULT 0,
+  `cart` text,
+  `wishlist` text,
+  `newsletter` tinyint(1) NOT NULL DEFAULT '0',
+  `address_id` int(11) NOT NULL DEFAULT '0',
   `custom_field` text NOT NULL,
   `ip` varchar(40) NOT NULL,
   `status` tinyint(1) NOT NULL,
@@ -855,7 +858,7 @@ CREATE TABLE `oc_customer` (
 
 INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `language_id`, `firstname`, `lastname`, `email`, `telephone`, `fax`, `password`, `salt`, `cart`, `wishlist`, `newsletter`, `address_id`, `custom_field`, `ip`, `status`, `safe`, `token`, `code`, `date_added`, `parent_id`, `school_name`, `otp_pin`, `is_otp_verified`) VALUES
 (1, 1, 0, 1, 'test', 'test', 'test@gmail.com', 'test', '', 'cb433941a352e022d7f4f3a62b79d09ef061f41f', 'l93DYLQx3', NULL, NULL, 1, 1, '{}', '::1', 1, 0, '', '', '2020-08-14 22:39:12', 0, '', NULL, 0),
-(15, 2, 0, 1, 'AS', 'SA', 'assa@test.com', '1231231231', '', '0bb401fc5f542d64bc6a86b3eeac5a34a018419d', 'Ir2ICaONc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 14:52:23', 9, '', NULL, 0),
+(15, 2, 0, 1, 'AS', 'SA', 'assa@test.com', '1231231231', '', 'e10adc3949ba59abbe56e057f20f883e', 'Ir2ICaONc', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 14:52:23', 9, '', NULL, 0),
 (14, 2, 0, 1, 'qwert', 'y', 'qwerty@gtest.com', '1231231312', '', '11ca19f1c9eca6186ada410632bfd2e9444b84d9', 'IwCtpsNWU', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:49:08', 9, '', NULL, 0),
 (13, 2, 0, 1, 'student', 'last', 'sl@test.com', '1231234222', '', '', 'l0QSyi7aZ', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:38:01', 9, '', NULL, 0),
 (11, 2, 0, 1, 'fff', 'lll', 'ffff@gtest.com', '1231231231', '', '', 'dDt5qIlkW', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-22 00:16:43', 9, '', NULL, 0),
@@ -867,11 +870,11 @@ INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `lang
 (18, 2, 0, 1, 'Bhavishya', 'Goud', 'bhavi@gmail.com', '8688877409', '', 'a87127e22f8925bcafe231646c3db617f332d7d0', 'bJIY5qPY9', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-10-27 22:32:14', 17, '', 0, 1),
 (19, 1, 0, 1, 'HARIKA DRUGS', 'LIMITED', 'scemantech.solutions@gmail.com', '08688877409', '', 'edf59daf06f9c35b2de32ba615c73585de501aae', 'HryaIEerW', NULL, NULL, 1, 9, '', '::1', 1, 0, '', '', '2020-10-30 21:08:28', 0, '', NULL, 0),
 (20, 2, 0, 1, 'first', 'student', 'firststudent@ekaksha.com', '', '', '7b524057cf7f42859b706bd080fbe40adf79bd8a', 'ENvTHt3IT', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-02 17:34:49', 9, 'new model school', NULL, 0),
-(21, 2, 0, 1, 'Bhavishya', 'Goud', 'bhavi01@ekaksha.com', '', '', '26e2efaa0a7b401038692f0ddb10c3705b11f660', 'u3bvTlnrX', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-02 21:49:10', 17, 'Akshra', NULL, 0),
+(21, 2, 0, 1, 'Bhavishya', 'ssss', 'bhavi01@ekaksha.com', '', '', 'e10adc3949ba59abbe56e057f20f883e', 'u3bvTlnrX', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-02 21:49:10', 17, 'Akshra', NULL, 0),
 (22, 1, 0, 1, 'Prasad', 'Durga', 'jdpgoud@hotmail.com', '9440403633', '', '373f3bfe7f66b1f8d78faedf3f3b38699037adf2', 'vLqkYE3Sf', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-02 21:58:32', 0, '', NULL, 0),
 (23, 1, 0, 1, 'test', 'etet', 'test05@gmail.com', '8688877409', '', '61af75e51e2be9e55a9c536ba8466c746bf07e5f', 'WjR0N9bBg', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-02 22:03:39', 0, '', 0, 1),
 (24, 1, 0, 1, 'test', 'test', 'test@qgmail.com', '123456789', '', '3dde2056648497e6ed282413c4d07f7be09c70fd', '08ARdJ5QP', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-02 22:06:28', 0, '', NULL, 0),
-(25, 1, 0, 1, 'DURGA', 'PRASAD', 'test003@gmail.com', '08688877409', '', '682e4abcf85636c82ed9406f06350b0af0cf6455', 'OstZ2HIad', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-03 17:21:17', 0, '', NULL, 0),
+(25, 1, 0, 1, 'DURGA', 'PRASAD', 'test003@gmail.com', '08688877409', '', 'e10adc3949ba59abbe56e057f20f883e', 'OstZ2HIad', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-03 17:21:17', 0, '', NULL, 0),
 (26, 2, 0, 1, 'test student', 'student', 'student@ekaksha.com', '', '', '37bbb806c9c55b92d69eed8107773878d1464c53', 'PjEaK1qwx', NULL, NULL, 0, 0, '', '::1', 1, 0, '', '', '2020-11-03 20:43:24', 17, 'Akshra', NULL, 0);
 
 -- --------------------------------------------------------
@@ -900,7 +903,7 @@ CREATE TABLE `oc_customer_affiliate` (
   `company` varchar(40) NOT NULL,
   `website` varchar(255) NOT NULL,
   `tracking` varchar(64) NOT NULL,
-  `commission` decimal(4,2) NOT NULL DEFAULT 0.00,
+  `commission` decimal(4,2) NOT NULL DEFAULT '0.00',
   `tax` varchar(64) NOT NULL,
   `payment` varchar(6) NOT NULL,
   `cheque` varchar(100) NOT NULL,
@@ -1061,10 +1064,10 @@ CREATE TABLE `oc_customer_online` (
 
 CREATE TABLE `oc_customer_reward` (
   `customer_reward_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL DEFAULT 0,
-  `order_id` int(11) NOT NULL DEFAULT 0,
+  `customer_id` int(11) NOT NULL DEFAULT '0',
+  `order_id` int(11) NOT NULL DEFAULT '0',
   `description` text NOT NULL,
-  `points` int(8) NOT NULL DEFAULT 0,
+  `points` int(8) NOT NULL DEFAULT '0',
   `date_added` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -1560,9 +1563,9 @@ INSERT INTO `oc_geo_zone` (`geo_zone_id`, `name`, `description`, `date_added`, `
 
 CREATE TABLE `oc_information` (
   `information_id` int(11) NOT NULL,
-  `bottom` int(1) NOT NULL DEFAULT 0,
-  `sort_order` int(3) NOT NULL DEFAULT 0,
-  `status` tinyint(1) NOT NULL DEFAULT 1
+  `bottom` int(1) NOT NULL DEFAULT '0',
+  `sort_order` int(3) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -1668,10 +1671,10 @@ CREATE TABLE `oc_journal3_blog_category_description` (
   `category_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(256) DEFAULT NULL,
-  `description` mediumtext DEFAULT NULL,
+  `description` mediumtext,
   `meta_title` varchar(256) DEFAULT NULL,
   `meta_keywords` varchar(256) DEFAULT NULL,
-  `meta_description` text DEFAULT NULL,
+  `meta_description` text,
   `keyword` varchar(256) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -1713,7 +1716,7 @@ CREATE TABLE `oc_journal3_blog_comments` (
   `name` varchar(256) DEFAULT NULL,
   `email` varchar(256) DEFAULT NULL,
   `website` varchar(256) DEFAULT NULL,
-  `comment` text DEFAULT NULL,
+  `comment` text,
   `status` tinyint(1) DEFAULT NULL,
   `date` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -1746,10 +1749,10 @@ CREATE TABLE `oc_journal3_blog_post_description` (
   `post_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(256) DEFAULT NULL,
-  `description` mediumtext DEFAULT NULL,
+  `description` mediumtext,
   `meta_title` varchar(256) DEFAULT NULL,
   `meta_keywords` varchar(256) DEFAULT NULL,
-  `meta_description` text DEFAULT NULL,
+  `meta_description` text,
   `keyword` varchar(256) DEFAULT NULL,
   `tags` varchar(256) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -2091,7 +2094,7 @@ CREATE TABLE `oc_journal3_product_attribute` (
   `attribute_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `text` varchar(256) NOT NULL,
-  `sort_order` int(3) NOT NULL DEFAULT 0
+  `sort_order` int(3) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -3685,7 +3688,7 @@ CREATE TABLE `oc_language` (
   `locale` varchar(255) NOT NULL,
   `image` varchar(64) NOT NULL,
   `directory` varchar(32) NOT NULL,
-  `sort_order` int(3) NOT NULL DEFAULT 0,
+  `sort_order` int(3) NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -3907,7 +3910,7 @@ CREATE TABLE `oc_marketing` (
   `name` varchar(32) NOT NULL,
   `description` text NOT NULL,
   `code` varchar(64) NOT NULL,
-  `clicks` int(5) NOT NULL DEFAULT 0,
+  `clicks` int(5) NOT NULL DEFAULT '0',
   `date_added` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -4093,13 +4096,13 @@ INSERT INTO `oc_option_value_description` (`option_value_id`, `language_id`, `op
 
 CREATE TABLE `oc_order` (
   `order_id` int(11) NOT NULL,
-  `invoice_no` int(11) NOT NULL DEFAULT 0,
+  `invoice_no` int(11) NOT NULL DEFAULT '0',
   `invoice_prefix` varchar(26) NOT NULL,
-  `store_id` int(11) NOT NULL DEFAULT 0,
+  `store_id` int(11) NOT NULL DEFAULT '0',
   `store_name` varchar(64) NOT NULL,
   `store_url` varchar(255) NOT NULL,
-  `customer_id` int(11) NOT NULL DEFAULT 0,
-  `customer_group_id` int(11) NOT NULL DEFAULT 0,
+  `customer_id` int(11) NOT NULL DEFAULT '0',
+  `customer_group_id` int(11) NOT NULL DEFAULT '0',
   `firstname` varchar(32) NOT NULL,
   `lastname` varchar(32) NOT NULL,
   `email` varchar(96) NOT NULL,
@@ -4137,8 +4140,8 @@ CREATE TABLE `oc_order` (
   `shipping_method` varchar(128) NOT NULL,
   `shipping_code` varchar(128) NOT NULL,
   `comment` text NOT NULL,
-  `total` decimal(15,4) NOT NULL DEFAULT 0.0000,
-  `order_status_id` int(11) NOT NULL DEFAULT 0,
+  `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `order_status_id` int(11) NOT NULL DEFAULT '0',
   `affiliate_id` int(11) NOT NULL,
   `commission` decimal(15,4) NOT NULL,
   `marketing_id` int(11) NOT NULL,
@@ -4146,7 +4149,7 @@ CREATE TABLE `oc_order` (
   `language_id` int(11) NOT NULL,
   `currency_id` int(11) NOT NULL,
   `currency_code` varchar(3) NOT NULL,
-  `currency_value` decimal(15,8) NOT NULL DEFAULT 1.00000000,
+  `currency_value` decimal(15,8) NOT NULL DEFAULT '1.00000000',
   `ip` varchar(40) NOT NULL,
   `forwarded_ip` varchar(40) NOT NULL,
   `user_agent` varchar(255) NOT NULL,
@@ -4189,7 +4192,7 @@ CREATE TABLE `oc_order_history` (
   `order_history_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `order_status_id` int(11) NOT NULL,
-  `notify` tinyint(1) NOT NULL DEFAULT 0,
+  `notify` tinyint(1) NOT NULL DEFAULT '0',
   `comment` text NOT NULL,
   `date_added` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -4219,7 +4222,7 @@ CREATE TABLE `oc_order_option` (
   `order_id` int(11) NOT NULL,
   `order_product_id` int(11) NOT NULL,
   `product_option_id` int(11) NOT NULL,
-  `product_option_value_id` int(11) NOT NULL DEFAULT 0,
+  `product_option_value_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
   `value` text NOT NULL,
   `type` varchar(32) NOT NULL
@@ -4238,9 +4241,9 @@ CREATE TABLE `oc_order_product` (
   `name` varchar(255) NOT NULL,
   `model` varchar(64) NOT NULL,
   `quantity` int(4) NOT NULL,
-  `price` decimal(15,4) NOT NULL DEFAULT 0.0000,
-  `total` decimal(15,4) NOT NULL DEFAULT 0.0000,
-  `tax` decimal(15,4) NOT NULL DEFAULT 0.0000,
+  `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `tax` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `reward` int(8) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL
@@ -4260,7 +4263,7 @@ INSERT INTO `oc_order_product` (`order_product_id`, `order_id`, `product_id`, `n
 (57, 7, 50, 'Polynomials', 'test', 4, '1200.0000', '4800.0000', '0.0000', 0, 0, 0),
 (58, 8, 50, 'Polynomials', 'test', 4, '1200.0000', '4800.0000', '0.0000', 0, 9, 16),
 (65, 9, 50, 'Polynomials', 'test', 2, '1200.0000', '2400.0000', '0.0000', 0, 0, 0),
-(66, 10, 50, 'Polynomials', 'test', 3, '1200.0000', '3600.0000', '0.0000', 0, 17, 18),
+(66, 10, 56, 'Polynomials', 'test', 3, '1200.0000', '3600.0000', '0.0000', 0, 17, 18),
 (67, 11, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0),
 (68, 12, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0),
 (69, 13, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0),
@@ -4268,7 +4271,7 @@ INSERT INTO `oc_order_product` (`order_product_id`, `order_id`, `product_id`, `n
 (71, 15, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 0, 0),
 (72, 16, 50, 'Polynomials', 'test', 5, '1200.0000', '6000.0000', '0.0000', 0, 9, 20),
 (73, 17, 50, 'Polynomials', 'test', 6, '1200.0000', '7200.0000', '0.0000', 0, 17, 21),
-(74, 18, 50, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 17, 26);
+(74, 18, 55, 'Polynomials', 'test', 1, '1200.0000', '1200.0000', '0.0000', 0, 17, 26);
 
 -- --------------------------------------------------------
 
@@ -4371,7 +4374,7 @@ CREATE TABLE `oc_order_total` (
   `order_id` int(11) NOT NULL,
   `code` varchar(32) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `value` decimal(15,4) NOT NULL DEFAULT 0.0000,
+  `value` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `sort_order` int(3) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -4458,26 +4461,26 @@ CREATE TABLE `oc_product` (
   `isbn` varchar(17) NOT NULL,
   `mpn` varchar(64) NOT NULL,
   `location` varchar(128) NOT NULL,
-  `quantity` int(4) NOT NULL DEFAULT 0,
+  `quantity` int(4) NOT NULL DEFAULT '0',
   `stock_status_id` int(11) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `manufacturer_id` int(11) NOT NULL,
-  `shipping` tinyint(1) NOT NULL DEFAULT 1,
-  `price` decimal(15,4) NOT NULL DEFAULT 0.0000,
-  `points` int(8) NOT NULL DEFAULT 0,
+  `shipping` tinyint(1) NOT NULL DEFAULT '1',
+  `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `points` int(8) NOT NULL DEFAULT '0',
   `tax_class_id` int(11) NOT NULL,
   `date_available` date NOT NULL DEFAULT '0000-00-00',
-  `weight` decimal(15,8) NOT NULL DEFAULT 0.00000000,
-  `weight_class_id` int(11) NOT NULL DEFAULT 0,
-  `length` decimal(15,8) NOT NULL DEFAULT 0.00000000,
-  `width` decimal(15,8) NOT NULL DEFAULT 0.00000000,
-  `height` decimal(15,8) NOT NULL DEFAULT 0.00000000,
-  `length_class_id` int(11) NOT NULL DEFAULT 0,
-  `subtract` tinyint(1) NOT NULL DEFAULT 1,
-  `minimum` int(11) NOT NULL DEFAULT 1,
-  `sort_order` int(11) NOT NULL DEFAULT 0,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
-  `viewed` int(5) NOT NULL DEFAULT 0,
+  `weight` decimal(15,8) NOT NULL DEFAULT '0.00000000',
+  `weight_class_id` int(11) NOT NULL DEFAULT '0',
+  `length` decimal(15,8) NOT NULL DEFAULT '0.00000000',
+  `width` decimal(15,8) NOT NULL DEFAULT '0.00000000',
+  `height` decimal(15,8) NOT NULL DEFAULT '0.00000000',
+  `length_class_id` int(11) NOT NULL DEFAULT '0',
+  `subtract` tinyint(1) NOT NULL DEFAULT '1',
+  `minimum` int(11) NOT NULL DEFAULT '1',
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `viewed` int(5) NOT NULL DEFAULT '0',
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -4487,9 +4490,9 @@ CREATE TABLE `oc_product` (
 --
 
 INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`, `mpn`, `location`, `quantity`, `stock_status_id`, `image`, `manufacturer_id`, `shipping`, `price`, `points`, `tax_class_id`, `date_available`, `weight`, `weight_class_id`, `length`, `width`, `height`, `length_class_id`, `subtract`, `minimum`, `sort_order`, `status`, `viewed`, `date_added`, `date_modified`) VALUES
-(54, 'Class_9_Maths', '', '', '', '', '', '', '', 1, 6, '', 0, 1, '0.0000', 0, 0, '2020-11-05', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-06 01:08:12', '2020-11-06 01:08:12'),
-(55, 'Class_9_Science', '', '', '', '', '', '', '', 1, 6, '', 0, 1, '0.0000', 0, 0, '2020-11-05', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-06 01:08:30', '2020-11-06 01:08:30'),
-(56, 'test', '', '', '', '', '', '', '', 1, 6, '', 0, 1, '0.0000', 0, 0, '2020-11-09', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-09 15:01:57', '2020-11-09 15:01:57');
+(54, 'Class_9_Maths', '', '', '', '', '', '', '', 1, 6, 'catalog/o-ENGLISH-LEARNING-STUDENTS-facebook.jpg', 0, 1, '0.0000', 0, 0, '2020-11-05', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-06 01:08:12', '2020-11-19 22:33:14'),
+(55, 'Class_9_Science', '', '', '', '', '', '', '', 1, 6, 'catalog/subject-img-science.png', 0, 1, '0.0000', 0, 0, '2020-11-05', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 1, '2020-11-06 01:08:30', '2020-11-19 22:49:00'),
+(56, 'test', '', '', '', '', '', '', '', 1, 6, 'catalog/subject-img-maths.png', 0, 1, '0.0000', 0, 0, '2020-11-09', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2020-11-09 15:01:57', '2020-11-19 22:52:38');
 
 -- --------------------------------------------------------
 
@@ -4540,9 +4543,9 @@ CREATE TABLE `oc_product_discount` (
   `product_discount_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
-  `quantity` int(4) NOT NULL DEFAULT 0,
-  `priority` int(5) NOT NULL DEFAULT 1,
-  `price` decimal(15,4) NOT NULL DEFAULT 0.0000,
+  `quantity` int(4) NOT NULL DEFAULT '0',
+  `priority` int(5) NOT NULL DEFAULT '1',
+  `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `date_start` date NOT NULL DEFAULT '0000-00-00',
   `date_end` date NOT NULL DEFAULT '0000-00-00'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -4568,7 +4571,7 @@ CREATE TABLE `oc_product_image` (
   `product_image_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `sort_order` int(3) NOT NULL DEFAULT 0
+  `sort_order` int(3) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -4638,9 +4641,9 @@ CREATE TABLE `oc_product_related` (
 
 CREATE TABLE `oc_product_reward` (
   `product_reward_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL DEFAULT 0,
-  `customer_group_id` int(11) NOT NULL DEFAULT 0,
-  `points` int(8) NOT NULL DEFAULT 0
+  `product_id` int(11) NOT NULL DEFAULT '0',
+  `customer_group_id` int(11) NOT NULL DEFAULT '0',
+  `points` int(8) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -4653,8 +4656,8 @@ CREATE TABLE `oc_product_special` (
   `product_special_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
-  `priority` int(5) NOT NULL DEFAULT 1,
-  `price` decimal(15,4) NOT NULL DEFAULT 0.0000,
+  `priority` int(5) NOT NULL DEFAULT '1',
+  `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `date_start` date NOT NULL DEFAULT '0000-00-00',
   `date_end` date NOT NULL DEFAULT '0000-00-00'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -4678,7 +4681,8 @@ CREATE TABLE `oc_product_topic` (
 --
 
 INSERT INTO `oc_product_topic` (`product_topic_id`, `product_id`, `topic_id`, `date_added`, `date_modified`) VALUES
-(1, 54, 1, '2020-11-06 01:13:42', '2020-11-06 01:13:42');
+(5, 55, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 55, 4, '2020-11-23 08:56:03', '2020-11-23 08:56:03');
 
 -- --------------------------------------------------------
 
@@ -4740,7 +4744,7 @@ INSERT INTO `oc_product_to_layout` (`product_id`, `store_id`, `layout_id`) VALUE
 
 CREATE TABLE `oc_product_to_store` (
   `product_id` int(11) NOT NULL,
-  `store_id` int(11) NOT NULL DEFAULT 0
+  `store_id` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -4763,7 +4767,7 @@ CREATE TABLE `oc_question` (
   `question` varchar(525) NOT NULL,
   `category_id` int(11) NOT NULL,
   `explanation` text NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -4773,8 +4777,8 @@ CREATE TABLE `oc_question` (
 --
 
 INSERT INTO `oc_question` (`question_id`, `question`, `category_id`, `explanation`, `status`, `date_added`, `date_modified`) VALUES
-(1, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 3, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 1, '2020-11-08 11:42:46', '0000-00-00 00:00:00'),
-(2, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 3, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 1, '2020-11-08 12:05:14', '0000-00-00 00:00:00'),
+(1, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 3, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 1, '0000-00-00 00:00:00', '2020-12-09 21:45:00'),
+(2, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 3, '&lt;p&gt;Simplify: (&amp;radic;3+&amp;radic;7) (&amp;radic;3-&amp;radic;7)&lt;/p&gt;\r\n', 1, '0000-00-00 00:00:00', '2020-12-09 21:43:18'),
 (3, '&lt;p&gt;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 4, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 1, '2020-11-08 12:54:17', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
@@ -4788,7 +4792,7 @@ CREATE TABLE `oc_question_option` (
   `question_id` int(11) NOT NULL,
   `option_value` varchar(525) NOT NULL,
   `is_correct` tinyint(1) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -4798,14 +4802,18 @@ CREATE TABLE `oc_question_option` (
 --
 
 INSERT INTO `oc_question_option` (`question_option_id`, `question_id`, `option_value`, `is_correct`, `status`, `date_added`, `date_modified`) VALUES
-(1, 2, '&lt;p&gt;-4&lt;/p&gt;\r\n', 1, 1, '2020-11-08 12:05:15', '0000-00-00 00:00:00'),
-(2, 2, '&lt;p&gt;-2&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '0000-00-00 00:00:00'),
-(3, 2, '&lt;p&gt;-3&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '0000-00-00 00:00:00'),
-(4, 2, '&lt;p&gt;-1&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '0000-00-00 00:00:00'),
+(1, 2, '&lt;p&gt;-6&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '2020-12-09 21:43:18'),
+(2, 2, '&lt;p&gt;-2&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '2020-12-09 21:43:18'),
+(3, 2, '&lt;p&gt;-3&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:05:15', '2020-12-09 21:43:18'),
+(4, 2, '&lt;p&gt;-1&lt;/p&gt;\r\n', 1, 1, '2020-11-08 12:05:15', '2020-12-09 21:43:18'),
 (5, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:54:17', '0000-00-00 00:00:00'),
 (6, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:54:17', '0000-00-00 00:00:00'),
 (7, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 0, 1, '2020-11-08 12:54:18', '0000-00-00 00:00:00'),
-(8, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 1, 1, '2020-11-08 12:54:18', '0000-00-00 00:00:00');
+(8, 3, '&lt;p&gt;&amp;nbsp;&lt;span class=&quot;equation&quot;&gt;\\(x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}\\)&lt;/span&gt;&lt;/p&gt;\r\n', 1, 1, '2020-11-08 12:54:18', '0000-00-00 00:00:00'),
+(9, 1, '1', 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 1, '2', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 1, '3', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 1, '4', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -4862,7 +4870,7 @@ CREATE TABLE `oc_return` (
   `return_reason_id` int(11) NOT NULL,
   `return_action_id` int(11) NOT NULL,
   `return_status_id` int(11) NOT NULL,
-  `comment` text DEFAULT NULL,
+  `comment` text,
   `date_ordered` date NOT NULL DEFAULT '0000-00-00',
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
@@ -4876,7 +4884,7 @@ CREATE TABLE `oc_return` (
 
 CREATE TABLE `oc_return_action` (
   `return_action_id` int(11) NOT NULL,
-  `language_id` int(11) NOT NULL DEFAULT 0,
+  `language_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(64) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -4912,7 +4920,7 @@ CREATE TABLE `oc_return_history` (
 
 CREATE TABLE `oc_return_reason` (
   `return_reason_id` int(11) NOT NULL,
-  `language_id` int(11) NOT NULL DEFAULT 0,
+  `language_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(128) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -4935,7 +4943,7 @@ INSERT INTO `oc_return_reason` (`return_reason_id`, `language_id`, `name`) VALUE
 
 CREATE TABLE `oc_return_status` (
   `return_status_id` int(11) NOT NULL,
-  `language_id` int(11) NOT NULL DEFAULT 0,
+  `language_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -4961,7 +4969,7 @@ CREATE TABLE `oc_review` (
   `author` varchar(64) NOT NULL,
   `text` text NOT NULL,
   `rating` int(1) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -5014,18 +5022,23 @@ CREATE TABLE `oc_session` (
 --
 
 INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
+('04b0897fc1f3190d48063a49a1', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"customer_id\":\"26\",\"shipping_address\":false,\"customer_group_id\":\"2\",\"user_id\":\"1\",\"user_token\":\"wsFanKwEBmYmYgqXeVIVRVUY80HJwWcH\"}', '2020-12-10 17:36:29'),
 ('0a32d20d810fe762f021942f08', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-11-03 08:10:38'),
 ('13c2e9e48d12db43abcc7dd517', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"KWkAHYRWXKexR7EFJyi69KDvwkBqqXML\"}', '2020-09-13 07:00:27'),
 ('14fa01057aa502de43ee4b44c1', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"j3_checkout_id\":\"44e7f0605765d13c5e103f8db31b56a7\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"user_id\":\"1\",\"user_token\":\"xYVGEQVbcOQrofrl1xxAwhLb9rgimmPL\",\"payment_address_type\":\"existing\",\"shipping_address_type\":\"existing\",\"payment_address\":{\"address_id\":\"7\",\"firstname\":\"sathish\",\"lastname\":\"yadavelly\",\"company\":\"\",\"address_1\":\"Hyd\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Hyd\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null},\"customer_id\":\"9\"}', '2020-10-21 19:41:58'),
+('1a6ddbf8c373eb79f4331fb0a0', '{\"api_id\":\"1\",\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-12-10 05:52:25'),
+('1bf0861e9d125cda601ac2c58c', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"customer_id\":\"26\",\"shipping_address\":false,\"customer_group_id\":\"2\"}', '2020-12-08 09:02:34'),
 ('225aca29f897eee17a081cf0c3', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-08-10 05:55:51'),
 ('32b88b9cf068a40360b2c50bee', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"gq6UkKrlf1ttlKqO6AyApNip6DWtyCfg\",\"jrv\":[\"50\",\"42\"]}', '2020-08-15 13:42:30'),
 ('3662ad1e5290e431dafaa2afcb', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"PRb0FPa7vX23rXO5TJc47eWZjcmCWsTV\"}', '2020-11-11 12:13:26'),
 ('3744188d7862e37da7ee158fe5', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"j3_checkout_id\":\"4da800030633a5496d4055aad8c38cf8\",\"account\":\"\",\"same_address\":true,\"newsletter\":true,\"customer_id\":\"2\",\"shipping_address\":{\"address_id\":\"3\",\"firstname\":\"Sathish\",\"lastname\":\"Y\",\"company\":\"\",\"address_1\":\"Hyderabad\",\"address_2\":\"\",\"postcode\":\"500081\",\"city\":\"Hyderabad\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[]}}', '2020-10-20 19:09:57'),
 ('3a9db9312dd79c8414a06624d0', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"UqFH6fc33CpAOvXB10tmULTeS7GYnk4E\"}', '2020-08-07 18:32:04'),
+('43381e5eb2f5d855289b6ef3f8', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"customer_id\":\"26\",\"shipping_address\":false,\"customer_group_id\":\"2\",\"user_id\":\"1\",\"user_token\":\"F5K0VhozmibbdOoAC7dhz6iNZcc7Qhve\",\"topic_id\":\"4\",\"topic_product_id\":\"55\",\"product_topic_id\":\"7\"}', '2020-12-02 17:29:40'),
 ('4b30990ae5723d8f16fc129ffe', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-11-08 06:35:34'),
 ('4fde662ce51f8df29c25c45671', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-08-09 07:38:59'),
 ('5096016547564419204bc38e3a', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\"],\"customer_id\":\"9\",\"payment_address\":{\"address_id\":\"7\",\"firstname\":\"sathish\",\"lastname\":\"yadavelly\",\"company\":\"\",\"address_1\":\"Hyd\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Hyd\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"zone_code\":\"TS\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null},\"student_id\":20,\"student_name\":\"first student\",\"user_id\":\"firststudent\",\"password\":\"123123\",\"razorpay_order_id\":\"order_FwIJALYcjX4gHE\"}', '2020-11-02 12:29:56'),
 ('5691e84f6d810bd7a965cd7a95', '{\"user_id\":\"1\",\"user_token\":\"iE3qLy970sjv5cKgHwjBnwtwALk1RMlZ\",\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"42\"],\"j3_checkout_id\":\"da346ed637d8267b21dfd33345963207\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"comment\":\"\",\"payment_address\":{\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"test\",\"address_2\":\"test\",\"city\":\"test\",\"postcode\":\"500054\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_address\":{\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"test\",\"address_2\":\"test\",\"city\":\"test\",\"postcode\":\"500054\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_methods\":{\"flat\":{\"title\":\"Flat Rate\",\"quote\":{\"flat\":{\"code\":\"flat.flat\",\"title\":\"Flat Shipping Rate\",\"cost\":\"5.00\",\"tax_class_id\":\"9\",\"text\":\"Rs.5.00\"}},\"sort_order\":\"1\",\"error\":false}},\"shipping_method\":{\"code\":\"flat.flat\",\"title\":\"Flat Shipping Rate\",\"cost\":\"5.00\",\"tax_class_id\":\"9\",\"text\":\"Rs.5.00\"},\"payment_methods\":{\"cod\":{\"code\":\"cod\",\"title\":\"Cash On Delivery\",\"terms\":\"\",\"sort_order\":\"5\"}},\"payment_method\":{\"code\":\"cod\",\"title\":\"Cash On Delivery\",\"terms\":\"\",\"sort_order\":\"5\"},\"order_id\":1,\"customer_id\":\"1\",\"payment_address_type\":\"new\",\"shipping_address_type\":\"new\"}', '2020-08-14 17:47:18'),
+('57e71cdf841d21687956cc9aa5', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"customer_id\":\"26\",\"shipping_address\":false,\"customer_group_id\":\"2\"}', '2020-12-07 07:01:23'),
 ('5d385e76b4e4b6031b12b8f650', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"eMHPze71LRH8bUXfYZRjw0aGetkojQQB\"}', '2020-08-09 17:28:57'),
 ('5f75993463a067cc6fc17d6659', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"47\"],\"user_id\":\"1\",\"user_token\":\"uJkLssXbRpXNtmhyIsdB24o4s7aV6pGc\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"comment\":\"\",\"payment_address\":{\"firstname\":\"\",\"lastname\":\"\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"postcode\":\"\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"shipping_address\":{\"firstname\":\"\",\"lastname\":\"\",\"company\":\"\",\"address_id\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"postcode\":\"\",\"country_id\":\"99\",\"country\":\"India\",\"zone_id\":\"4231\",\"zone\":\"Telangana\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":[],\"zone_code\":\"TS\"},\"order_id\":11,\"j3_checkout_id\":\"559ff57f4bca3d6fedfc16d578528253\",\"razorpay_order_id\":\"order_FuOYj6XZuhyIzZ\"}', '2020-10-28 19:57:26'),
 ('5fe566cfcbed3dd5dd9bfe9037', '{\"user_id\":\"1\",\"user_token\":\"IJ0hs9VUIYwAq9w4Ym5zV6iNdgdTiVLT\",\"install\":\"i6ELBGLgb1\"}', '2020-10-22 10:07:59'),
@@ -5046,14 +5059,18 @@ INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
 ('9d5e20afda29f8e31437796f07', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"qoohl6f5ioJEWHJPd2CSbqYJdf57OqEi\"}', '2020-08-08 17:59:22'),
 ('9fac327fb4460d470ec9f30091', '{\"user_id\":\"1\",\"user_token\":\"qyzOIXv108ks9kJ5JXuwRfMfog99akgu\",\"topic_id\":\"3\",\"topic_product_id\":\"54\",\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-11-09 13:03:24'),
 ('a1d15fc82a1dc160071b74b9e4', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"30\",\"42\"],\"user_id\":\"1\",\"user_token\":\"qSVkaqbEFsxXJbIlGmCZ4l2sWwRCwSQ7\"}', '2020-08-17 20:15:30'),
+('a343a3b5cbe4d677894ed6bc21', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"Xb3GqXwIcwXnOvJz4NN29FtnX9Aub3G5\",\"customer_group_id\":\"2\",\"customer_id\":\"26\",\"shipping_address\":false}', '2020-12-09 17:24:12'),
 ('b294eaef934f1fc88f961b2843', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"qu4Rle9o8pgrpsISUPo3zjz9ELzLLTjM\",\"jrv\":[\"50\"],\"j3_checkout_id\":\"cf1d25eaccbc9a8744e108624a76c08a\"}', '2020-08-13 13:54:57'),
 ('b580132b5b4f0e5d42c9aff217', '{\"user_id\":\"1\",\"user_token\":\"7utTskKT1jndhmR1aV1R3DLKGKMdIIG8\",\"topic_id\":\"1\",\"topic_product_id\":\"54\"}', '2020-11-05 20:07:46'),
+('be442d8d95f0c921500468294a', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"customer_id\":\"26\",\"shipping_address\":false,\"customer_group_id\":\"2\",\"jrv\":[\"55\"]}', '2020-11-20 13:07:20'),
 ('bebb7f152667a920f9a612b6f9', '{\"api_id\":\"1\"}', '2020-08-10 18:02:47'),
 ('bf73ece0e2b251a95fdd4b6d67', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"oW3SJZkrscPyyrGM6DREADkA3cpX3yqI\",\"jrv\":[\"50\",\"47\"],\"account\":\"guest\",\"payment_address\":{\"address_id\":\"10\",\"firstname\":\"DURGA\",\"lastname\":\"PRASAD\",\"company\":\"Scemantech Solutions\",\"address_1\":\"6-269\\/3, Plot 82, Indrasingh Nagar, Chintal\",\"address_2\":\"Hyderabad\",\"postcode\":\"500054\",\"city\":\"Hyderabad\",\"zone_id\":\"1493\",\"zone\":\"Maharashtra\",\"zone_code\":\"MA\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null},\"razorpay_order_id\":\"order_FvQB0gH8fDH118\",\"customer_id\":\"17\",\"shipping_address\":{\"address_id\":\"8\",\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"q\",\"address_1\":\"tsts\",\"address_2\":\"sdfsdfgsd\",\"postcode\":\"\",\"city\":\"sdfsdfsdfs\",\"zone_id\":\"1494\",\"zone\":\"Manipur\",\"zone_code\":\"MN\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null}}', '2020-10-31 12:44:15'),
+('c1806a407f0665bb91f9ea5c80', '{\"api_id\":\"1\",\"language\":\"en-gb\",\"currency\":\"INR\",\"customer\":{\"customer_id\":\"\",\"customer_group_id\":\"1\",\"firstname\":\"fdasfasfa\",\"lastname\":\"fadsfasf\",\"email\":\"fsdafs@gmail.com\",\"telephone\":\"9846516464\",\"custom_field\":[]},\"payment_address\":{\"firstname\":\"fsdaf\",\"lastname\":\"fafdas\",\"company\":\"fdgdsf\",\"address_1\":\"fdsafsdafasfasfas\",\"address_2\":\"fads\",\"postcode\":\"fda\",\"city\":\"faf\",\"zone_id\":\"298\",\"zone\":\"Hope Town\",\"zone_code\":\"HOP\",\"country_id\":\"16\",\"country\":\"Bahamas\",\"iso_code_2\":\"BS\",\"iso_code_3\":\"BHS\",\"address_format\":\"\",\"custom_field\":[]},\"payment_methods\":{\"razorpay\":{\"code\":\"razorpay\",\"title\":\"Pay by Razorpay <br> <a href=\\\"https:\\/\\/www.razorpay.com\\\" target=\\\"_blank\\\"><img src=\\\"https:\\/\\/cdn.razorpay.com\\/static\\/assets\\/logo\\/payment_method.svg\\\" alt=\\\"Razorpay\\\" title=\\\"Razorpay\\\" style=\\\"border: 1px solid #EEEEEE;margin-top: 5px\\\" \\/><\\/a>\",\"terms\":\"\",\"sort_order\":\"\"},\"free_checkout\":{\"code\":\"free_checkout\",\"title\":\"Free Checkout\",\"terms\":\"\",\"sort_order\":\"1\"}}}', '2020-12-10 05:23:18'),
 ('c254c9b5ea457718232caf2cca', 'false', '2020-11-09 05:10:53'),
 ('c27505c3a6fee20814c40d40dc', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"47\",\"50\"],\"j3_checkout_id\":\"1c017f855bbe09e798b352f00657bd72\",\"account\":\"register\",\"same_address\":true,\"newsletter\":true,\"razorpay_order_id\":\"order_Fu06y86jSZsmLB\",\"wishlist\":[],\"student_id\":18,\"customer_id\":\"17\",\"shipping_address\":{\"address_id\":\"8\",\"firstname\":\"test\",\"lastname\":\"test\",\"company\":\"q\",\"address_1\":\"tsts\",\"address_2\":\"sdfsdfgsd\",\"postcode\":\"\",\"city\":\"sdfsdfsdfs\",\"zone_id\":\"1494\",\"zone\":\"Manipur\",\"zone_code\":\"MN\",\"country_id\":\"99\",\"country\":\"India\",\"iso_code_2\":\"IN\",\"iso_code_3\":\"IND\",\"address_format\":\"\",\"custom_field\":null}}', '2020-10-27 17:38:16'),
 ('c638d572b36ade64544c8872df', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"ltv0zCqrMll0Z2pBLkuXNzDqDydslq0V\",\"jrv\":[\"50\"]}', '2020-11-05 17:32:28'),
 ('c8187d54c665a5dcef9648306c', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"user_id\":\"1\",\"user_token\":\"JJrXqTtWrV85g529YDW8V0B5LseGY49v\"}', '2020-08-11 04:38:57'),
+('cb66a4c0264c7ba384d95732b4', '{\"api_id\":\"1\"}', '2020-12-10 05:11:08'),
 ('ccb917d82f1d8f4f2de1dd2340', '{\"user_id\":\"1\",\"user_token\":\"JvOq6eDXPIRYuFEIWbpZOPWD0aizWVVs\"}', '2020-11-08 07:50:04'),
 ('d0529764e0c20c942663a97f5a', '{\"language\":\"en-gb\",\"currency\":\"INR\",\"jrv\":[\"50\",\"47\"],\"user_token\":\"aTHSeJI3YLG6m83SER8qUx4c0fGiLSzy\",\"student_id\":21,\"student_name\":\"Bhavishya Goud\",\"password\":\"123456\",\"razorpay_order_id\":\"order_FwMaD0u9LrJYBO\",\"user_id\":\"1\"}', '2020-11-02 16:47:45'),
 ('e05c4f8ed6f33bd4ef2441c9e3', '{\"language\":\"en-gb\",\"currency\":\"INR\"}', '2020-10-30 05:33:32'),
@@ -5083,10 +5100,14 @@ CREATE TABLE `oc_session_video` (
 --
 
 INSERT INTO `oc_session_video` (`video_id`, `video`, `topic_session_id`, `date_added`, `date_modified`) VALUES
-(1, '123qwe', 1, '2020-11-06 01:13:42', '2020-11-06 01:13:42'),
-(2, '321qwe', 1, '2020-11-06 01:13:42', '2020-11-06 01:13:42'),
-(11, 'lkjhg', 7, '2020-11-09 16:32:32', '2020-11-09 16:32:32'),
-(12, 'tynb', 7, '2020-11-09 16:32:32', '2020-11-09 16:32:32');
+(11, 'e46cadca7efa4f809c7d2d59a96d20bb', 7, '2020-11-09 16:32:32', '2020-11-09 16:32:32'),
+(12, 'e46cadca7efa4f809c7d2d59a96d20bb', 7, '2020-11-09 16:32:32', '2020-11-09 16:32:32'),
+(19, 'e46cadca7efa4f809c7d2d59a96d20bb', 11, '2020-11-23 08:54:50', '2020-11-23 08:54:50'),
+(20, 'e46cadca7efa4f809c7d2d59a96d20bb', 11, '2020-11-23 08:54:50', '2020-11-23 08:54:50'),
+(21, 'e46cadca7efa4f809c7d2d59a96d20bb', 12, '2020-11-23 08:54:51', '2020-11-23 08:54:51'),
+(22, 'e46cadca7efa4f809c7d2d59a96d20bb', 12, '2020-11-23 08:54:51', '2020-11-23 08:54:51'),
+(23, 'e46cadca7efa4f809c7d2d59a96d20bb', 13, '2020-11-23 08:56:02', '2020-11-23 08:56:02'),
+(24, 'e46cadca7efa4f809c7d2d59a96d20bb', 13, '2020-11-23 08:56:02', '2020-11-23 08:56:02');
 
 -- --------------------------------------------------------
 
@@ -5096,7 +5117,7 @@ INSERT INTO `oc_session_video` (`video_id`, `video`, `topic_session_id`, `date_a
 
 CREATE TABLE `oc_setting` (
   `setting_id` int(11) NOT NULL,
-  `store_id` int(11) NOT NULL DEFAULT 0,
+  `store_id` int(11) NOT NULL DEFAULT '0',
   `code` varchar(128) NOT NULL,
   `key` varchar(128) NOT NULL,
   `value` text NOT NULL,
@@ -5423,9 +5444,9 @@ INSERT INTO `oc_tax_class` (`tax_class_id`, `title`, `description`, `date_added`
 
 CREATE TABLE `oc_tax_rate` (
   `tax_rate_id` int(11) NOT NULL,
-  `geo_zone_id` int(11) NOT NULL DEFAULT 0,
+  `geo_zone_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(32) NOT NULL,
-  `rate` decimal(15,4) NOT NULL DEFAULT 0.0000,
+  `rate` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `type` char(1) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
@@ -5469,7 +5490,7 @@ CREATE TABLE `oc_tax_rule` (
   `tax_class_id` int(11) NOT NULL,
   `tax_rate_id` int(11) NOT NULL,
   `based` varchar(10) NOT NULL,
-  `priority` int(5) NOT NULL DEFAULT 1
+  `priority` int(5) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -5503,7 +5524,21 @@ CREATE TABLE `oc_testquestion` (
 --
 
 INSERT INTO `oc_testquestion` (`test_id`, `title`, `questions`, `test_key`, `status`, `date_added`, `date_modified`) VALUES
-(2, 'My Test Paper', '{\"collection\":[\"2\"]}', 'Untitled Document.pdf', 1, '2020-11-11 16:58:56', '0000-00-00 00:00:00');
+(2, 'My Test Paper', '{\"collection\":[\"1\",\"2\",\"3\"]}', 'Srtest task 1 1 1 1 1 2 2 1 1 2 1 1 1.pdf', 1, '2020-11-11 16:58:56', '2020-12-09 21:22:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_test_answers`
+--
+
+CREATE TABLE `oc_test_answers` (
+  `id` int(100) NOT NULL,
+  `test_id` varchar(100) NOT NULL,
+  `session_id` varchar(100) NOT NULL,
+  `options_id` varchar(100) NOT NULL,
+  `questions_id` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -5542,7 +5577,8 @@ CREATE TABLE `oc_topic` (
 INSERT INTO `oc_topic` (`topic_id`, `title`, `category_id`, `status`, `date_added`, `date_modified`) VALUES
 (1, 'Real Numbers', 3, 1, '2020-11-06 01:09:01', NULL),
 (2, 'Structure of Atom', 4, 1, '2020-11-06 01:13:11', NULL),
-(3, 'Polynomials', 3, 1, '2020-11-09 16:24:35', NULL);
+(3, 'Polynomials', 3, 1, '2020-11-09 16:24:35', NULL),
+(4, 'Environmental Science', 4, 1, '2020-11-23 08:52:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -5565,7 +5601,9 @@ CREATE TABLE `oc_topic_session` (
 --
 
 INSERT INTO `oc_topic_session` (`session_id`, `title`, `test_id`, `topic_id`, `assignment_file`, `date_added`, `date_modified`) VALUES
-(1, 'Session-1', 111, 1, 'sample file name', '2020-11-06 01:13:42', '2020-11-06 01:13:42');
+(11, 'Session-1', 2, 2, 'DISTRIBUTED SYSTEMS MATERIAL-1.pdf', '2020-11-23 08:54:50', '2020-11-23 08:54:50'),
+(12, 'Session-2', 2, 2, 'Srtest task 1 1 1 1 1 2 2 1 1 2 1 1 1.pdf', '2020-11-23 08:54:50', '2020-11-23 08:54:50'),
+(13, 'Session-1', 2, 4, 'Information Security.pdf', '2020-11-23 08:56:02', '2020-11-23 08:56:02');
 
 -- --------------------------------------------------------
 
@@ -5738,7 +5776,7 @@ INSERT INTO `oc_voucher_theme_description` (`voucher_theme_id`, `language_id`, `
 
 CREATE TABLE `oc_weight_class` (
   `weight_class_id` int(11) NOT NULL,
-  `value` decimal(15,8) NOT NULL DEFAULT 0.00000000
+  `value` decimal(15,8) NOT NULL DEFAULT '0.00000000'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -5785,7 +5823,7 @@ CREATE TABLE `oc_zone` (
   `country_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
   `code` varchar(32) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -9913,7 +9951,7 @@ INSERT INTO `oc_zone` (`zone_id`, `country_id`, `name`, `code`, `status`) VALUES
 CREATE TABLE `oc_zone_to_geo_zone` (
   `zone_to_geo_zone_id` int(11) NOT NULL,
   `country_id` int(11) NOT NULL,
-  `zone_id` int(11) NOT NULL DEFAULT 0,
+  `zone_id` int(11) NOT NULL DEFAULT '0',
   `geo_zone_id` int(11) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
@@ -10912,6 +10950,12 @@ ALTER TABLE `oc_testquestion`
   ADD PRIMARY KEY (`test_id`);
 
 --
+-- Indexes for table `oc_test_answers`
+--
+ALTER TABLE `oc_test_answers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `oc_theme`
 --
 ALTER TABLE `oc_theme`
@@ -11010,649 +11054,541 @@ ALTER TABLE `oc_zone_to_geo_zone`
 --
 ALTER TABLE `oc_address`
   MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `oc_api`
 --
 ALTER TABLE `oc_api`
   MODIFY `api_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `oc_api_ip`
 --
 ALTER TABLE `oc_api_ip`
   MODIFY `api_ip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `oc_api_session`
 --
 ALTER TABLE `oc_api_session`
-  MODIFY `api_session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `api_session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `oc_attribute`
 --
 ALTER TABLE `oc_attribute`
   MODIFY `attribute_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `oc_attribute_group`
 --
 ALTER TABLE `oc_attribute_group`
   MODIFY `attribute_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `oc_banner`
 --
 ALTER TABLE `oc_banner`
   MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `oc_banner_image`
 --
 ALTER TABLE `oc_banner_image`
   MODIFY `banner_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
-
 --
 -- AUTO_INCREMENT for table `oc_cart`
 --
 ALTER TABLE `oc_cart`
-  MODIFY `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
-
+  MODIFY `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `oc_category`
 --
 ALTER TABLE `oc_category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
 --
 -- AUTO_INCREMENT for table `oc_country`
 --
 ALTER TABLE `oc_country`
   MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
-
 --
 -- AUTO_INCREMENT for table `oc_coupon`
 --
 ALTER TABLE `oc_coupon`
   MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `oc_coupon_history`
 --
 ALTER TABLE `oc_coupon_history`
   MODIFY `coupon_history_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_coupon_product`
 --
 ALTER TABLE `oc_coupon_product`
   MODIFY `coupon_product_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_currency`
 --
 ALTER TABLE `oc_currency`
   MODIFY `currency_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `oc_customer`
 --
 ALTER TABLE `oc_customer`
   MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_activity`
 --
 ALTER TABLE `oc_customer_activity`
   MODIFY `customer_activity_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_approval`
 --
 ALTER TABLE `oc_customer_approval`
   MODIFY `customer_approval_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_group`
 --
 ALTER TABLE `oc_customer_group`
   MODIFY `customer_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_history`
 --
 ALTER TABLE `oc_customer_history`
   MODIFY `customer_history_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_ip`
 --
 ALTER TABLE `oc_customer_ip`
   MODIFY `customer_ip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_login`
 --
 ALTER TABLE `oc_customer_login`
   MODIFY `customer_login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_reward`
 --
 ALTER TABLE `oc_customer_reward`
   MODIFY `customer_reward_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_search`
 --
 ALTER TABLE `oc_customer_search`
   MODIFY `customer_search_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_customer_transaction`
 --
 ALTER TABLE `oc_customer_transaction`
   MODIFY `customer_transaction_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_custom_field`
 --
 ALTER TABLE `oc_custom_field`
   MODIFY `custom_field_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_custom_field_value`
 --
 ALTER TABLE `oc_custom_field_value`
   MODIFY `custom_field_value_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_download`
 --
 ALTER TABLE `oc_download`
   MODIFY `download_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `oc_event`
 --
 ALTER TABLE `oc_event`
   MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
 --
 -- AUTO_INCREMENT for table `oc_extension`
 --
 ALTER TABLE `oc_extension`
   MODIFY `extension_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
-
 --
 -- AUTO_INCREMENT for table `oc_extension_install`
 --
 ALTER TABLE `oc_extension_install`
   MODIFY `extension_install_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `oc_extension_path`
 --
 ALTER TABLE `oc_extension_path`
   MODIFY `extension_path_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
-
 --
 -- AUTO_INCREMENT for table `oc_filter`
 --
 ALTER TABLE `oc_filter`
   MODIFY `filter_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_filter_group`
 --
 ALTER TABLE `oc_filter_group`
   MODIFY `filter_group_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_geo_zone`
 --
 ALTER TABLE `oc_geo_zone`
   MODIFY `geo_zone_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `oc_information`
 --
 ALTER TABLE `oc_information`
   MODIFY `information_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_blog_category`
 --
 ALTER TABLE `oc_journal3_blog_category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_blog_category_to_layout`
 --
 ALTER TABLE `oc_journal3_blog_category_to_layout`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_blog_comments`
 --
 ALTER TABLE `oc_journal3_blog_comments`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_blog_post`
 --
 ALTER TABLE `oc_journal3_blog_post`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_blog_post_to_layout`
 --
 ALTER TABLE `oc_journal3_blog_post_to_layout`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_layout`
 --
 ALTER TABLE `oc_journal3_layout`
   MODIFY `layout_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_message`
 --
 ALTER TABLE `oc_journal3_message`
   MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_module`
 --
 ALTER TABLE `oc_journal3_module`
   MODIFY `module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=297;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_newsletter`
 --
 ALTER TABLE `oc_journal3_newsletter`
   MODIFY `newsletter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `oc_journal3_skin`
 --
 ALTER TABLE `oc_journal3_skin`
   MODIFY `skin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `oc_language`
 --
 ALTER TABLE `oc_language`
   MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `oc_layout`
 --
 ALTER TABLE `oc_layout`
   MODIFY `layout_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT for table `oc_layout_module`
 --
 ALTER TABLE `oc_layout_module`
   MODIFY `layout_module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
-
 --
 -- AUTO_INCREMENT for table `oc_layout_route`
 --
 ALTER TABLE `oc_layout_route`
   MODIFY `layout_route_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
-
 --
 -- AUTO_INCREMENT for table `oc_length_class`
 --
 ALTER TABLE `oc_length_class`
   MODIFY `length_class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `oc_location`
 --
 ALTER TABLE `oc_location`
   MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_manufacturer`
 --
 ALTER TABLE `oc_manufacturer`
   MODIFY `manufacturer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `oc_marketing`
 --
 ALTER TABLE `oc_marketing`
   MODIFY `marketing_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_modification`
 --
 ALTER TABLE `oc_modification`
   MODIFY `modification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `oc_module`
 --
 ALTER TABLE `oc_module`
   MODIFY `module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
 --
 -- AUTO_INCREMENT for table `oc_option`
 --
 ALTER TABLE `oc_option`
   MODIFY `option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `oc_option_value`
 --
 ALTER TABLE `oc_option_value`
   MODIFY `option_value_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
-
 --
 -- AUTO_INCREMENT for table `oc_order`
 --
 ALTER TABLE `oc_order`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
 -- AUTO_INCREMENT for table `oc_order_history`
 --
 ALTER TABLE `oc_order_history`
   MODIFY `order_history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `oc_order_option`
 --
 ALTER TABLE `oc_order_option`
   MODIFY `order_option_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_order_product`
 --
 ALTER TABLE `oc_order_product`
   MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
-
 --
 -- AUTO_INCREMENT for table `oc_order_recurring`
 --
 ALTER TABLE `oc_order_recurring`
   MODIFY `order_recurring_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_order_recurring_transaction`
 --
 ALTER TABLE `oc_order_recurring_transaction`
   MODIFY `order_recurring_transaction_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_order_shipment`
 --
 ALTER TABLE `oc_order_shipment`
   MODIFY `order_shipment_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_order_status`
 --
 ALTER TABLE `oc_order_status`
   MODIFY `order_status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `oc_order_total`
 --
 ALTER TABLE `oc_order_total`
   MODIFY `order_total_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
-
 --
 -- AUTO_INCREMENT for table `oc_order_voucher`
 --
 ALTER TABLE `oc_order_voucher`
   MODIFY `order_voucher_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_product`
 --
 ALTER TABLE `oc_product`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
-
 --
 -- AUTO_INCREMENT for table `oc_product_discount`
 --
 ALTER TABLE `oc_product_discount`
   MODIFY `product_discount_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=444;
-
 --
 -- AUTO_INCREMENT for table `oc_product_image`
 --
 ALTER TABLE `oc_product_image`
   MODIFY `product_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2358;
-
 --
 -- AUTO_INCREMENT for table `oc_product_option`
 --
 ALTER TABLE `oc_product_option`
   MODIFY `product_option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
-
 --
 -- AUTO_INCREMENT for table `oc_product_option_value`
 --
 ALTER TABLE `oc_product_option_value`
   MODIFY `product_option_value_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `oc_product_reward`
 --
 ALTER TABLE `oc_product_reward`
   MODIFY `product_reward_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=547;
-
 --
 -- AUTO_INCREMENT for table `oc_product_special`
 --
 ALTER TABLE `oc_product_special`
   MODIFY `product_special_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=441;
-
 --
 -- AUTO_INCREMENT for table `oc_product_topic`
 --
 ALTER TABLE `oc_product_topic`
-  MODIFY `product_topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `product_topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `oc_question`
 --
 ALTER TABLE `oc_question`
   MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `oc_question_option`
 --
 ALTER TABLE `oc_question_option`
-  MODIFY `question_option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `question_option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `oc_recurring`
 --
 ALTER TABLE `oc_recurring`
   MODIFY `recurring_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_return`
 --
 ALTER TABLE `oc_return`
   MODIFY `return_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_return_action`
 --
 ALTER TABLE `oc_return_action`
   MODIFY `return_action_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `oc_return_history`
 --
 ALTER TABLE `oc_return_history`
   MODIFY `return_history_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_return_reason`
 --
 ALTER TABLE `oc_return_reason`
   MODIFY `return_reason_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `oc_return_status`
 --
 ALTER TABLE `oc_return_status`
   MODIFY `return_status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `oc_review`
 --
 ALTER TABLE `oc_review`
   MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_seo_url`
 --
 ALTER TABLE `oc_seo_url`
   MODIFY `seo_url_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=868;
-
 --
 -- AUTO_INCREMENT for table `oc_session_video`
 --
 ALTER TABLE `oc_session_video`
-  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
+  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `oc_setting`
 --
 ALTER TABLE `oc_setting`
   MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=582;
-
 --
 -- AUTO_INCREMENT for table `oc_statistics`
 --
 ALTER TABLE `oc_statistics`
   MODIFY `statistics_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `oc_stock_status`
 --
 ALTER TABLE `oc_stock_status`
   MODIFY `stock_status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `oc_store`
 --
 ALTER TABLE `oc_store`
   MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_tax_class`
 --
 ALTER TABLE `oc_tax_class`
   MODIFY `tax_class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `oc_tax_rate`
 --
 ALTER TABLE `oc_tax_rate`
   MODIFY `tax_rate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
-
 --
 -- AUTO_INCREMENT for table `oc_tax_rule`
 --
 ALTER TABLE `oc_tax_rule`
   MODIFY `tax_rule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
-
 --
 -- AUTO_INCREMENT for table `oc_testquestion`
 --
 ALTER TABLE `oc_testquestion`
   MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `oc_theme`
 --
 ALTER TABLE `oc_theme`
   MODIFY `theme_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_topic`
 --
 ALTER TABLE `oc_topic`
-  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `oc_topic_session`
 --
 ALTER TABLE `oc_topic_session`
-  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `oc_translation`
 --
 ALTER TABLE `oc_translation`
   MODIFY `translation_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_upload`
 --
 ALTER TABLE `oc_upload`
   MODIFY `upload_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `oc_user`
 --
 ALTER TABLE `oc_user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `oc_user_group`
 --
 ALTER TABLE `oc_user_group`
   MODIFY `user_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `oc_voucher`
 --
 ALTER TABLE `oc_voucher`
   MODIFY `voucher_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_voucher_history`
 --
 ALTER TABLE `oc_voucher_history`
   MODIFY `voucher_history_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `oc_voucher_theme`
 --
 ALTER TABLE `oc_voucher_theme`
   MODIFY `voucher_theme_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `oc_weight_class`
 --
 ALTER TABLE `oc_weight_class`
   MODIFY `weight_class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `oc_zone`
 --
 ALTER TABLE `oc_zone`
   MODIFY `zone_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4239;
-
 --
 -- AUTO_INCREMENT for table `oc_zone_to_geo_zone`
 --
 ALTER TABLE `oc_zone_to_geo_zone`
-  MODIFY `zone_to_geo_zone_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
-COMMIT;
+  MODIFY `zone_to_geo_zone_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
